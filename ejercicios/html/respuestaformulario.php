@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/cdw/img/Pablo.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gracias</title>
     <style>
@@ -31,7 +31,7 @@
             ?>
 
     <h1>Gracias. Te contactaremos pronto</h1>
-    <a href="/index.html">Volver a la página principal</a>
+    <a href="/cdw/index.html">Volver a la página principal</a>
 
 </body>
 </html>
