@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario permitido: condicionales anidados y combinados</title>
+    <style>
+        body {
+            background-color: cadetblue;
+        }
+
+        h1 {
+            font-size: 7vw;
+            color: skyblue;
+            text-shadow: 2px 2px 3px black, -1px -1px 2px white;
+            padding: 50px;
+            border: 20px solid skyblue;
+            box-shadow: 2px 2px 3px black;
+        }
+
+        main {
+            display: grid;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>AULA VIRTUAL</h1>
+    </main>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Página principal</a></li>
+                    <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+    <script>
+        //Al final lo hice en positivo, porque no me salía: "si el día es mayor o igual que 1 (lunes) y menor que 6 (sábado), y además la hora es mayor que 8 (si se pide la hora con getHours, 8 es de 8:00:00h a 8:59:59h) y menor que 14 (todo en la misma condición), se puede entrar. En cualquier otro escenario (else), no se puede". En la versión del ejemplo práctico, cuando se puede nos lleva a la página del Aula Virtual. Si no se puede, nos lleva al típico vídeo que significa algo así como un trolleo de Rick Ashley."
+
+        let fecha = new Date();
+        
+        if ((fecha.getDay() >= 1 && fecha.getDay() < 6) && (fecha.getHours() > 8 && fecha.getHours() < 14)) {
+                alert("Estás dentro del horario. Puedes pasar");}
+            else {
+            alert("El aula no está abierta");
+            }
+  
+       /*  Cuando se usa la negación, la petición tiene que ir entre paréntesis. También se puede negar con != (NO es igual). Cuando tuve un rato, y gracias al Visual Studio Code con los nuevos colores en paréntesis, corchetes y demás, también conseguí hacerlo con el if en negación. 
+
+        let fecha = new Date();
+
+        if (( ! (fecha.getDay() == 0) && ( ! (fecha.getDay() == 6)) && (fecha.getHours() > 8 && fecha.getHours() < 14))) {
+                alert("Estás dentro del horario. Puedes pasar");
+                location.href=("https://www.tecnoserviceformacion.com/AulaVirtual.html")}
+            else {
+            alert("El aula no está abierta");
+            location.href=("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+            }
+            
+            */
+    </script>
+</body>
+</html>

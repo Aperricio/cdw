@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucle con while</title>
+</head>
+<body>
+    <h1>Ejemplo de bucle con while</h1>
+    <pre>
+        &lt;script>
+            let fecha = new Date();
+            while (fecha.getSeconds() < 30 ) {
+                alert(fecha.getSeconds() + ", aún no pasan de 30");
+                fecha = new Date() //Sin esta línea, siempre consulta la misma fecha. Si está en los primeros 30s, no sale del bucle
+             }
+            alert(fecha.getSeconds() + ", ya ha pasado de 30");
+        &lt;/script>
+    </pre>
+    <script>
+        let fecha = new Date();
+
+        while (fecha.getSeconds() < 30 ) {
+            alert(fecha.getSeconds() + ", aún no pasan de 30");
+            fecha = new Date() //Sin esta línea, siempre consulta la misma fecha. Si está en los primeros 30s, no sale del bucle
+         }
+
+        alert(fecha.getSeconds() + ", ya ha pasado de 30"); // Los bucles while no tienen else. Una vez sale, el programa sigue, y en este caso sale una alerta.
+    </script>
+
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Página principal</a></li>
+                    <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>

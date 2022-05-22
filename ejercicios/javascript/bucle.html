@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucle</title>
+</head>
+<body>
+    <h1>Ejemplo de bucle</h1>
+    <p>Ha salido en las alertas</p>
+    <pre>
+        &lt;script>
+            function minuto() {
+                let fecha = new Date();
+                alert("Ahora es el minuto " + fecha.getMinutes() );
+            }
+            for ( i=1; i<=3; i=i+1 )
+            {
+                minuto();
+                alert(("Número de repeticiones: ") + (i)); // i es 1 que es el valor que le hemos dado al inicio
+            }
+        &lt;/script>
+    </pre>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Página principal</a></li>
+                    <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+    <script>
+        function minuto() {
+            let fecha = new Date();
+            alert("Ahora es el minuto " + fecha.getMinutes() );
+        }
+
+        for ( i=1; i<=3; i=i+1 )
+
+        {
+            minuto();
+            alert(("Número de repeticiones: ") + (i)); // i es 1 que es el valor que le hemos dado al inicio, pero a la segunda pasada será 2 y a la tercera será 3. No habrá cuarta porque la condición, lo del medio, ya no se cumplirá.
+        }
+    </script>
+</body>
+</html>
