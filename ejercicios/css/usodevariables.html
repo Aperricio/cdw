@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de variables</title>
+    <style>
+
+        :root {
+            --colorFondo: rgb(211, 232, 241); --colorPrimario: darkcyan; --otro: orange;
+        }
+
+        body {
+            background-color: var(--colorFondo, salmon); color: var(--colorPrimario);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 30px;
+        }
+
+        p {
+           color: var(--otro);
+        }
+
+        .codigo {
+            color: white;
+            background-color: black;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Uso de variables</h1>
+    <p>El uso de variables es algo que puede resultar de lo más útil. La idea es crear una variable con el selector :root para, si en un futuro es necesario, hacer los cambios sólo en ese selector.</p>
+    <p>Las variables se introducen dentro de las llaves ({}) e inician con dos guiones, por ejemplo "--colorFondo" (sin las comillas), seguido de dos puntos y la variable, siendo un color en el caso de este ejemplo. Si en el cuerpo le asignamos una variable a una etiqueta en vez de un valor, los cambios futuros serán más sencillos. El código de esta página de ejemplo de uso de variables quedaría así:</p>
+    <section class="codigo">
+        <code>
+            :root { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--colorFondo: rgb(211, 232, 241); --colorPrimario: darkcyan; --otro: orange; <br>
+            } <br><br>
+            body { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: var(--colorFondo, salmon); color: var(--colorPrimario); <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;margin: 30px; <br>
+            } <br><br>
+            p { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; color: var(--otro); <br>
+            }
+        </code>
+    </section>
+    <p>A partir de ahora, si queremos cambiar el color de fondo o el primario, bastará con cambiar el valor de --colorFondo o --colorPrimario dentro de :root.</p>
+    <hr>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Página principal</a></li>
+                <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+            </ul>
+        </nav>
+    </footer> 
+</body>
+</html>

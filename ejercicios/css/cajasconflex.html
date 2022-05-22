@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de cajas Flex</title>
+    <style>
+        * {
+            outline: 1px solid red;
+        }
+        section.primera {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        section.primera div {
+            width: 100px;
+            height: 200px;
+            background-color: purple;
+            color: white;
+            text-align: center;
+        }
+
+        section.segunda {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        section.segunda div {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            color: white;
+            text-align: center;
+        }
+
+        .grow2 {
+            flex-grow: 2;
+        }
+
+        .grow3 {
+            flex-grow: 3;
+        }
+
+        .grow0 {
+            flex-grow: 0;
+        }
+
+        .grow1 {
+            flex-grow: 1;
+        }
+
+        .shrink2 {
+            flex-shrink: 2;
+        }
+
+        .shrink3 {
+            flex-shrink: 3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ejemplo de cajas con flex</h1>
+        <p>flex no hace caso de las dimensiones</p>
+        <hr>
+    </header>
+    <section class="primera">
+        <div>Primero</div>
+        <div>Segundo</div>
+        <div>Tercero</div>
+        <div>Cuarto</div>
+        <div>Quinto</div>
+    </section>
+    <hr>
+    <h2>Con flex-grow</h2>
+    <p>Ya no deja huecos y cada uno crece según el valor que le damos ( 1 a tercera y cuarta, 2 la primera, 3 la segunda y 0 la quinta, que se queda sin crecer)</p>
+    <section class="primera">
+        <div class="grow2">Primero</div>
+        <div class="grow3">Segundo</div>
+        <div class="grow1">Tercero</div>
+        <div class="grow1">Cuarto</div>
+        <div class="grow0">Quinto</div>
+    </section>
+    <h2>Con flex-shrink (cajas de 200px)</h2>
+    <section class="segunda">
+        <div class="shrink2">Primero</div>
+        <div class="shrink3">Segundo</div>
+        <div>Tercero</div>
+        <div>Cuarto</div>
+        <div>Quinto</div>
+    </section>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Página principal</a></li>
+                <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+            </ul>
+        </nav>
+    </footer> 
+</body>
+</html>

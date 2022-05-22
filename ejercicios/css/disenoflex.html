@@ -1,0 +1,164 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de diseño con FLEX</title>
+    <style>
+        /* ------------------ ASI USANDO FLOAT para colocar el LOGOTIPO 
+        header { height: 100px; 
+                 background-color: bisque; 
+                overflow: auto; 
+                vertical-align: baseline;
+            }
+
+        header:after { content:""; display: block; clear: both;  }
+        
+        header img { float: left; }
+        
+        */
+
+        /* --------------- ASI USANDO FLEX PARA COLOCAR LOGO Y MENU AL LADO */
+
+        * {
+            margin: 0;
+        }
+        header { 
+            display: flex; 
+            align-items: center; /* Centro o lo que quieras */
+            margin: 10px;
+        }
+
+        header img { 
+            width: 100px; 
+        }
+
+        header nav { 
+            width: calc(100vw - 100px); 
+        } /* Calcula los pixels que quedan libres tras el logo */
+
+        /* ESTE ES EL FLEX QUE HACE QUE LAS OPCIONES DEL MENU SE REPARTAN BIEN */
+        header nav ul {
+            display: flex; 
+            justify-content: flex-end;
+            list-style-type: none;
+
+        }
+        header nav ul li { 
+            min-width: 100px;
+        }
+
+        body {
+            color: black;
+            background-color: rgba(255, 99, 71, 0.473);
+        }
+
+        a { 
+            color: blue;
+        }
+
+        article {
+            display: flex;
+        }
+
+        main aside {
+            min-height: 75vh;
+            flex: 0 1 200px; /* el primer valor es de "grow", el segundo de "shrink" y el tercero es el valor base */
+            background-color: tomato;
+        }
+
+        main section {
+            min-height: 75vh;
+            background-color: rgba(255, 166, 0, 0.438);
+            flex: 1 1;
+        }
+
+        main footer {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        footer img {
+            width: 100px;
+            height: 100px;
+            flex: 0 1;
+        }
+
+        footer {
+            margin: 10px;
+        }
+
+       div {
+           display: flex;
+           flex-direction: column;
+       }
+
+       section p, section h1 {
+           padding: 20px;
+       }
+
+       section p { 
+           max-width: 700;
+       }
+
+       aside h2 {
+        padding: 20px;
+       }
+
+       address {
+           display: flex;
+           text-align: center;
+           align-items: center;
+       }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/img/Pablo.png">
+        <p style="padding-left: 10px;">QUE NADIE SE META CON MIS COLORES QUE ESTOY JUGANDO</p>
+        <nav>
+            <ul>
+                <li><a href="#">Pablo</a></li>
+                <li><a href="#">Mola</a></li>
+                <li><a href="#">Mogollón</a></li>
+                <li><a href="#">Yeah!</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <aside>
+                <div> 
+                    <h2>Mis apuntes</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="/index.html">Página principal</a></li>
+                            <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                            <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios <br> de CSS</a></li>
+                            <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios <br> de JavaScript</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+            <section>
+                <h1>Aquí la información importante</h1>
+                <p>Aquí va el Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi excepturi unde maiores nihil sunt nisi mollitia officia. Tempora, totam incidunt? Cumque alias illum pariatur deleniti voluptate id consequuntur illo nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius rerum corrupti repudiandae consectetur repellendus atque necessitatibus alias maxime! Aperiam qui quibusdam tempora quaerat, optio unde reprehenderit, dolor officiis explicabo incidunt officia totam iusto atque inventore quo deleniti in. Sapiente eum eaque vel animi illum? Repellat, blanditiis? Deleniti ad quas accusamus!</p></section>
+        </article>
+        <footer>
+            <img src="/img/Pablo.png" alt="Logo de Pablo">
+            <address>&copy;Pablo<br>Mi casa<br>Mi teléfono<br>Mi correo</address>
+            <div> 
+                <nav>
+                    <ul>
+                        <li><a href="/index.html">Página principal</a></li>
+                        <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                        <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios <br> de CSS</a></li>
+                        <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios <br> de JavaScript</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

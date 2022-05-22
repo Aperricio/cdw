@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Hamburguesa</title>
+    <style>
+       /*  nav input:not(:checked) {
+            float: left;
+        }
+
+        nav input:checked {
+            float: right;
+        } */
+
+
+
+        main ul {
+            list-style-type: none;
+        }
+
+        main ul a {
+            text-decoration: none;
+        }
+
+        main nav {
+            max-width: 200px;
+            margin: 0 auto;
+            position: fixed;
+            top: 0;
+        }
+
+        main nav ul a:hover {
+            color: red;
+        }
+
+        main nav ul { /*ocultar la barra de navegación*/
+            display: none;
+            background-color: skyblue;
+            opacity: 0.9;
+            width: 200px;
+            min-height: 100vh;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: 3px 3px 5px black;
+        }
+
+        main nav ul li {
+            padding: 10px;
+        }
+
+        main nav input:checked + ul {
+            display: block;
+        }
+        
+        article {
+            padding-top: 30px;
+        }
+
+        .material-icons {
+            color: red;
+        }
+
+        p {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+      
+    </style>
+</head>
+<body>
+    <main>
+        <nav>
+            <label for="hamburguesa" class="material-icons">menu</label>
+            <input type="checkbox" id="hamburguesa" hidden>
+            <ul>
+                <li><a href="/index.html">Página principal</a></li>
+                <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                <li><a href="/ejercicios/css/index.html">Ejercicios de CSS</a></li>
+                <li><a href="/ejercicios/html/descargas.html">Documentos</a></li>
+            </ul>
+        </nav>
+        <article>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem eum voluptatum quae mollitia in dolores commodi voluptates. In, neque. Commodi facere quam in consequuntur officiis nam ut, dolor iusto iure?
+            Sunt quis, quo nemo ratione adipisci dolor iusto consequuntur hic soluta amet assumenda nobis, earum nihil! Quibusdam exercitationem ipsa deserunt sint quos delectus sapiente error, nostrum velit eveniet nisi consequatur.
+            Harum, at consequatur soluta nisi ea, eveniet impedit quidem mollitia illo numquam error vero sit ex nobis! Quos libero aut consequatur ullam accusantium. Veritatis deleniti tenetur velit eos suscipit quia?
+            Reprehenderit facere odio repellendus! Corrupti amet expedita voluptatem rerum accusantium eos suscipit impedit repudiandae dolore laudantium molestiae voluptate quae quam, ad in necessitatibus quibusdam, dolores, vitae nisi? Itaque, amet tempore!
+            Aliquid vel qui, ex voluptas dicta ipsa aperiam alias omnis consequuntur adipisci numquam quas molestias neque nisi consequatur laudantium temporibus in quidem incidunt facilis asperiores iste magni molestiae quae. Perferendis?
+            Aut exercitationem est illum voluptate provident impedit sed explicabo possimus. Fugit harum officia libero tempora pariatur alias porro quod, iure beatae, atque iusto autem, commodi vitae voluptatibus omnis! Similique, modi.
+            Deserunt, veritatis distinctio. Cupiditate beatae molestiae nihil numquam, eos, necessitatibus impedit dolores, facilis ipsa architecto ratione ex consequuntur officiis laboriosam aspernatur est? Dolores eos quos eaque. Eius, error ab? Animi.
+            Facilis delectus autem maxime soluta nihil neque, non porro ipsa, incidunt mollitia voluptatem est voluptate beatae minima nesciunt quam nulla laudantium. Quasi, dolores possimus voluptate modi quos debitis accusantium aperiam!
+            Nemo id labore debitis veniam dolores dicta enim placeat repellat ipsa accusamus aliquid et, illo explicabo molestiae! Reiciendis fugit labore, dolorem ex odio recusandae libero similique numquam nostrum enim quam!
+            Aliquam, asperiores nostrum sequi aspernatur ipsam harum id voluptatem, animi similique iste maxime, itaque repellendus. Dolorem ex voluptatum consequatur tempora dignissimos commodi similique odit blanditiis odio unde! Velit, accusamus harum.</p>
+        </article>
+    </main>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Página principal</a></li>
+                    <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>

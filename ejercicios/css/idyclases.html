@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+    <title>Selectores, clases e ID</title>
+
+    <style>
+        body {
+            padding: 10px;
+            
+        }
+
+        article {
+            background-color: lightblue;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 10px;
+            box-shadow: 4px 4px 3px grey;
+        }
+
+        #titular {
+            color: violet;
+        }
+
+
+        article p {
+            padding: 10px;
+            color: white;
+            border-radius: 10px;
+        }
+
+        h3 {
+            padding: 10px;
+        }
+
+        .azulon {
+            background-color: steelblue;
+        }
+
+        .letraroja {
+            color: red;
+        }
+
+        .letraazul {
+            color: blue;
+        }
+
+        .fondorojo {
+            background-color: red;
+        }
+
+        .fondoazul {
+            background-color: blue;
+        }
+
+        .letraroja.fondorojo {
+            color: yellow;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Selectores de etiquetas, clases e IDs</h1>
+    <h2>Cada uno tiene una regla o estilo</h2>
+    <p>Esto es un párrafo normal. Sale en negro porque no se le aplica ninguna regla y es el color por defecto.</p>
+
+    <article>
+        <h3>h3 negro porque no se le aplica ninguna regla.</h3>
+        <p>Esto es un párrafo que sale de color blanco porque así se lo dice la regla "article p". El espacio significa "un párrafo dentro de un article". <br>
+            El fondo es "lightblue" porque así se lo indica el estilo (selector de etiqueta).
+    </article>
+
+    <article class="azulon">
+        <h3 id="titular">Este h3 sale violeta claro porque así se lo indica el ID "titular".</h3>
+        <p>Este P está dentro de un ARTICLE, por lo que cumple la regla "article p" y sale blanco.</p>
+    </article>
+
+    <article>
+        <h3>Otro h3 normal, por lo que sale en negro.</h3>
+        <p class="letraroja fondorojo">Aunque aquí deberían salir texto y fondo en rojo, el texto sale en amarillo porque se ha creado la regla  ".letraroja.fondorojo": el fondo se queda en rojo, pero la letra cambia, que es lo que se le indica si se combinan ambas clases. </p>
+          
+        <p class="letraroja fondoazul">Este texto sale con las letras rojas y el fondo azul porque se combinan las dos clases.</p>
+        <p class="letraazul fondorojo">Por algo parecido a lo anterior, esto sale con letras azules y fondo rojo.</p>
+        <p>Si sale el fondo azul claro para todos los párrafos es porque la regla para el ARTICLE así lo pide.</p>
+    </article>
+
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Página principal</a></li>
+                    <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer> 
+</body>
+</html>

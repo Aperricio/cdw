@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo sencillo de MediaQuery</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            margin: 30px;
+            text-align: right;
+        }
+
+        #h12, #h13 {
+            display: none;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        hr {
+            height: 10px;
+            background-color: red;
+            border: none;
+        }
+
+        @media (min-width: 0px) and (max-width: 400px) {
+            body {
+                background-color: red;
+                color: black;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 1rem;
+            }
+
+            #h11, #h12 {
+                display: none;
+            }
+
+            #h13 {
+                display: block;
+            }
+
+            li {
+                list-style-type: none;
+            }
+
+            hr {
+                height: 0.1px;
+                background-color: black;
+            }
+            
+        }
+
+        @media (min-width: 401px) and (max-width: 800px) {
+            body {
+                background-color: blueviolet;
+                color: skyblue;
+                text-align: left;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            a {
+                color: pink;
+            }
+
+            h1 {
+                text-decoration: underline;
+            }
+
+            #h12 {
+                display: block;
+            }
+
+            #h11, #h13 {
+                display: none;
+            }
+
+            ul {
+                list-style-type: disc;
+            }
+
+            hr {
+                height: 0.1px;
+                background-color: white;
+            }
+            
+        }
+
+        @media (min-width: 1000px) and (max-width: 1920px) {
+            h1 {
+                text-shadow: 3px 3px 3px red;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h11">Prueba de MediaQuery: general</h1>
+    <h1 id="h12">Prueba de MediaQuery: de 401px a 800px</h1>
+    <h1 id="h13">Prueba de MediaQuery: 400px o menos</h1>
+
+    <hr>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Página principal</a></li>
+                <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+            </ul>
+        </nav>
+</footer> 
+</body>
+</html>

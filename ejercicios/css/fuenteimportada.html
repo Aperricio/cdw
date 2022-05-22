@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con fuentes importadas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inspiration&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+        @import url(https://weloveiconfonts.com/api/?family=brandico);
+        @font-face {
+            font-family: Hurricane-Regular;
+            src: url("/fonts/Hurricane-Regular.ttf") format("woff2");
+            font-weight: 100 600;
+        }
+        @font-face {
+            font-family: maiden;
+            src: url("/fonts/maiden.ttf") format("woff2");
+            font-weight: 100 600;
+        }
+        @font-face {
+            font-family: metallica;
+            src: url("/fonts/metallica.TTF") format("woff2");
+            font-weight: 100 600;
+
+            /* En el font-weight añadiríamos los "pesos" en los que está disponible la letra */
+        }
+        :root {
+            min-height: 100vh;
+        }
+        body {
+            padding: 30px;
+            background: linear-gradient(-45deg, tomato 40%, salmon 80%);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-family: vivaldi, Arial, Helvetica, sans-serif;
+            text-decoration: overline underline;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+        #inspiration {
+            font-family: Inspiration;
+            font-size: 2em;
+        }
+
+        #lobster {
+            font-family: lobster;
+        }
+
+        #pacifico {
+            font-family: pacifico;
+        }
+
+        #ubuntu {
+            font-family: ubuntu;
+        }
+
+        #hurricane {
+            font-family: Hurricane-Regular;
+            font-size: 1.5em;
+        }
+
+        #maiden {
+            font-family: maiden;
+        }
+
+        #metallica {
+            font-family: metallica;
+            font-size: 2em;
+        }
+
+        main {
+            padding: 20px;
+            border: 1px solid orangered;
+            box-shadow: 6px 6px 5px orangered;
+            text-align: center;
+        }
+
+        .material-icons.rojo {
+            color: red;
+            font-size: 7em;
+        }
+
+        .material-icons.verde {
+            color: green;
+            font-size: 7em;
+        }
+
+        main a:hover {
+            text-shadow: 5px 5px 0px black;
+            transform: scale(1.1);
+            transition: 0.1s;
+        }
+
+        main a {
+            transition: 0.1s;
+            text-decoration: none;
+        }
+
+        .material-icons.azul {
+            color: rgb(0, 162, 255);
+            font-size: 7em;
+        }
+
+        /* weloveiconfonts.com ofrece iconos y el código que hay que añadir.
+        Nos ofrece todo el código, pero hay que fijarse que cada icono tiene
+        una "class" */
+
+        [class*="brandico-"]:before {
+            font-family: 'brandico', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Fuentes importadas</h1>
+        <section id="inspiration">
+            <h2>Fuente: Inspiration</h2>
+            <p>Esta es la fuente de nombre "Inspiration". No sé si me gusta</p>
+        </section>
+        <section id="lobster">
+            <h2>Fuente: Lobster</h2>
+            <p>Esta es la fuente "Lobster". Acostumbrado a lo normal, parecen muy raras 😝</p>
+        </section>
+        <section id="pacifico">
+            <h2>Fuente: Pacífico</h2>
+            <p>Resultan extrañas, pero pueden ser útiles dependiendo del tipo de página web y cliente</p>
+        </section>
+        <section id="ubuntu">
+            <h2>Fuente: Ubuntu</h2>
+            <p>Y no podía faltarme la fuente de Ubuntu 😝</p>
+            <p style="font-size: 5em; margin: 0px;">ubuntu</p>
+            <p>Aunque ahora uso Manjaro y no tiene fuente 😞</p>
+        </section>
+        <section id="hurricane">
+            <h2>Fuente: Hurricane-Regular</h2>
+            <p>Esta fuente está en mi hosting. Para ello hemos usado la regla @font-face en &lt;style></p>
+        </section>
+        <section id="maiden">
+            <h2>Iron Maiden</h2>
+            <p>No queda perfecta, por lo menos esta que me he descargado. Además, son todo mayúsculas ni acentos ni puntos ni comas</p>
+        </section>
+        <section id="metallica">
+            <h2 style="font-size: 3em;">MetallicA</h2>
+            <p>Esta tampoco está muy currada, ya que la A debería tener el "serif" al otro lado. Se le puede poner, pero instalando la fuente. Lo de los acentos no tiene arreglo.</p>
+        </section>
+        <section>
+            <h2>鑑於對人類家庭所</h2>
+            <p>鑑於對人類家庭所有成員的固有尊鑑於對人類家庭所有成員的固有尊</p>
+            <!-- Os he trolleado. No deja poner letras chinas con lo explicado aquí -->
+        </section>
+        <section>
+            <h2>Iconos de Google</h2>
+<!--             Aquí hay que añadir el código o palabra del icono, después de añadir el link que hay en &lt;head> -->            
+            <p>Probando el icono de t'ailoviunhuevo, huella dactilar y algo de privacidad. El &lt;span> que usamos para un símbolo puede ser usado para meter varios iconos.<br> <br><a href="https://www.youtube.com/watch?v=D8lV1To-_fU" class="material-icons rojo">&#xe87d;</a><a href="https://support.apple.com/es-es/HT201371" class="material-icons azul">&#xe90d</a><a href="https://duckduckgo.com" class="material-icons verde">&#xea17</a></p>
+        </section>
+        <section>
+            <h2>We love icons and fonts</h2>
+            <a href="https://twitter.com" style="font-size:5em; color: rgb(0, 116, 248);"; class="brandico-twitter-bird"></a>
+        </section>
+    </main>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Página principal</a></li>
+                    <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer> 
+</body>
+</html>

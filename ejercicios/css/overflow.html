@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow</title>
+   <style>
+       body {
+           padding: 30px;
+           background-color: rgb(226, 213, 196);
+           color: brown;
+       }
+       main {
+        text-align: center;
+       }
+       div.hidden {
+           width: 200px;
+           height: 200px;
+           overflow: hidden;
+       }
+
+       div.auto {
+           width: 200px;
+           height: 200px;
+           overflow: auto;
+       }
+
+       div.scroll {
+           width: 200px;
+           height: 200px;
+           overflow: scroll;
+       }
+
+       div.visible {
+           width: 200px;
+           height: 200px;
+           overflow: visible;
+       }
+
+       div.inherit {
+           width: 200px;
+           height: 200px;
+           overflow: inherit;
+       }
+
+       div.initial {
+           width: 200px;
+           height: 200px;
+           overflow: initial;
+       }
+
+       div.unset {
+           width: 200px;
+           height: 200px;
+           overflow: unset;
+       }
+
+       div {
+           margin-left: auto;
+           margin-right: auto;
+           text-align: justify;
+           border: 2px solid black;
+           padding: 5px;
+       }
+   </style>
+</head>
+<body>
+    <main>
+        <h1>Probando el "overflow"</h1>
+        <h2>Hidden: oculta el sobrante</h2>
+        <div class="hidden">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla assumenda accusamus neque! Deleniti nobis, ratione sint, fugiat perspiciatis magni suscipit eos, id optio aspernatur officiis dolor aliquam accusamus quibusdam est eum consequatur aperiam libero porro neque dolorum. Suscipit eius, adipisci aliquid asperiores veritatis, molestias maxime impedit autem quia quasi rem.</p>
+        </div>
+        <h2>Auto: oculta el sobrante, pero permite desplazarse</h2>
+        <p>En el móvil no aparece la barra de desplazamiento hasta que se interactúa con el texto</p>
+        <div class="auto">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla assumenda accusamus neque! Deleniti nobis, ratione sint, fugiat perspiciatis magni suscipit eos, id optio aspernatur officiis dolor aliquam accusamus quibusdam est eum consequatur aperiam libero porro neque dolorum. Suscipit eius, adipisci aliquid asperiores veritatis, molestias maxime impedit autem quia quasi rem.</p>
+        </div>
+        <h2>Scroll: añade barras para desplazarse (horizontal aunque no sea necesaria)</h2>
+        <p>En el móvil no aparece la barra de desplazamiento hasta que se interactúa con el texto</p>
+
+        <div class="scroll">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla assumenda accusamus neque! Deleniti nobis, ratione sint, fugiat perspiciatis magni suscipit eos, id optio aspernatur officiis dolor aliquam accusamus quibusdam est eum consequatur aperiam libero porro neque dolorum. Suscipit eius, adipisci aliquid asperiores veritatis, molestias maxime impedit autem quia quasi rem.</p>
+        </div>
+        <h2>Visible (por defecto): se muestra, y puede tapar otros elementos</h2>
+        <div class="visible">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla assumenda accusamus neque! Deleniti nobis, ratione sint, fugiat perspiciatis magni suscipit eos, id optio aspernatur officiis dolor aliquam accusamus quibusdam est eum consequatur aperiam libero porro neque dolorum. Suscipit eius, adipisci aliquid asperiores veritatis, molestias maxime impedit autem quia quasi rem.</p>
+        </div>
+        <h2>Inherit: heredado de un ancestro (visible, por defecto)</h2>
+        <div class="inherit">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla assumenda accusamus neque! Deleniti nobis, ratione sint, fugiat perspiciatis magni suscipit eos, id optio aspernatur officiis dolor aliquam accusamus quibusdam est eum consequatur aperiam libero porro neque dolorum. Suscipit eius, adipisci aliquid asperiores veritatis, molestias maxime impedit autem quia quasi rem.</p>
+        </div>
+        <h2>Initial: valor inicial (por defecto, visible)</h2>
+        <div class="initial">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla assumenda accusamus neque! Deleniti nobis, ratione sint, fugiat perspiciatis magni suscipit eos, id optio aspernatur officiis dolor aliquam accusamus quibusdam est eum consequatur aperiam libero porro neque dolorum. Suscipit eius, adipisci aliquid asperiores veritatis, molestias maxime impedit autem quia quasi rem.</p>
+        </div>
+        <h2>Unset: sin configurar (visible, por defecto)</h2>
+        <div class="unset">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla assumenda accusamus neque! Deleniti nobis, ratione sint, fugiat perspiciatis magni suscipit eos, id optio aspernatur officiis dolor aliquam accusamus quibusdam est eum consequatur aperiam libero porro neque dolorum. Suscipit eius, adipisci aliquid asperiores veritatis, molestias maxime impedit autem quia quasi rem.</p>
+        </div>
+    </main>
+    <br><br><br><br><br><br>
+    <hr>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Página principal</a></li>
+                <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+            </ul>
+        </nav>
+    </footer> 
+</body>
+</html>
+</html>

@@ -1,0 +1,364 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 básico con FlexBox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+  /*  ===================================
+  Responsive Design, Mobile-First
+  (cc) 3con14.pro
+  =================================== */
+  
+  /* Reglas comunes ------------------------------- */
+  * {
+    margin     : 0;
+    padding    : 0;
+    box-sizing : border-box;
+    transition : all 0.5s ease-out;
+  }
+  body {
+    font       : 16px sans-serif;
+    background : rgba(231, 71, 218, 0.445);
+    padding    : 1rem;
+  }
+  
+  header {
+    background-color: black;
+    color: white;
+    text-shadow: 2px 2px 3px red;
+    border-radius: 20px 20px 0px 0px;
+  }
+  
+  footer {
+    border-radius: 0px 0px 20px 20px;
+  }
+  
+  header:hover {
+    filter: invert(1);
+  }
+  
+  main {
+    border-radius: 20px;
+  }
+  
+  main,nav,footer {
+    background : rgba(0, 0, 0, 0.164);
+  }
+  
+  header,nav,article,aside,footer {
+    padding: 1rem;
+  }
+  
+  
+  aside   { 
+    background: rgba(255, 99, 71, 0.438); 
+  }
+  
+  .menu {
+    border-radius: 5px;
+  }
+  
+  
+  footer {
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+  }
+  
+  nav ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  nav li:hover {
+    background-color: rgb(192, 5, 192);
+    box-shadow: 3px 3px 20px yellowgreen, -3px -3px 20px yellowgreen;
+  }
+  
+  aside ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    list-style-type: none;
+    max-width: 170px;
+    margin: 0 auto;
+  }
+  
+  aside li {
+    padding: 5 0;
+  }
+  
+  aside li a {
+    text-decoration: none;
+    background-color: greenyellow;
+    padding: 4px 8px;
+    border-radius: 5px;
+    color: purple;
+  }
+  
+  aside li a:hover {
+    background-color: purple;
+    color: greenyellow;
+    box-shadow: 2px 2px 2px grey;
+  }
+  
+  img {
+    border-radius: 10px;
+    display: flex;
+  }
+  
+  h3 {
+    text-align: center;
+  }
+  
+  
+  /* Smartphone ----------------------------------- */
+  main {
+    display        : flex;
+    flex-direction : row;
+    flex-wrap      : wrap;
+  }
+  
+  nav ul {
+    display        : flex;
+    flex-direction : column;
+  }
+  
+  nav ul li {
+    height: 40px;
+  }
+  .menu {
+    background : purple;
+    color: white;
+    margin: 1px;
+    padding: 2px 8px;
+    text-align : center;
+  }
+  header,nav,section,aside,footer {
+    width: 100%;
+  }
+  
+  div img {
+    width: 80%;
+    margin: 0 auto 20px;
+  }
+  
+  article:nth-child(odd) { 
+    background: rgba(230, 10, 230, 0.070); 
+  }
+  
+  article:nth-child(even) { 
+    background: rgba(230, 10, 230, 0.226); 
+  }
+  
+  /* Tablet --------------------------------------- */
+  @media all and (min-width: 568px) {
+    section { 
+      flex: 3; order: 2; /* flex: 3 son 3fr */
+    }
+    
+    aside { 
+      flex: 0 0 200px; order: 1; 
+    }
+    
+    footer { 
+      order: 3; 
+    }
+    
+    nav ul { 
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+    
+    article {
+      min-height: 300px;
+    }
+    
+    div img { 
+      width: 200px;
+      float: left;
+      margin: 0 20 0;
+    }
+    
+    p {
+      min-width: 60%;
+      font-size: 1.2rem;
+    }
+    
+    nav ul li {
+      display: flex;
+      align-items: center;
+    }
+    
+    nav ul li a {
+      padding: 10px;
+    }
+    
+  }
+  
+  
+  /* Desktop 1 -------------------------------------- 
+  @media all and (min-width: 900px) and (max-width: 1495px) {
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      order: 1;
+    }
+    
+    article { 
+      width: 50%; 
+      flex-wrap: nowrap;
+    }
+    
+    nav     { 
+      justify-content: center; 
+    }
+    
+    nav ul { 
+      flex-direction: row;
+      justify-content: center;
+    }
+    
+    nav ul li a {
+      padding: 30px;
+    }
+    
+    
+    article p {
+      font-size: 1.3rem;
+    }
+    
+    main section div img {
+      width: 100%;
+      margin: 0 0 20;
+    }
+    
+    main section article:nth-child(4n+1), main section article:nth-child(4n+4)  { 
+      background: rgba(230, 10, 230, 0.226); 
+    }
+    
+    main section article:nth-child(4n+2), main section article:nth-child(4n+3) { 
+      background: rgba(230, 10, 230, 0.055); 
+    }
+  } */
+  
+  /* Desktop 2 -------------------------------------- */
+  @media all and (min-width: 900px) {
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      order: 1;
+    }
+    
+    article { 
+      width: 50%; 
+      flex-wrap: nowrap;
+    }
+    
+    nav     { 
+      justify-content: center; 
+    }
+    
+    nav ul { 
+      flex-direction: row;
+      justify-content: center;
+    }
+    
+    nav ul li a {
+      padding: 30px;
+    }
+    
+    div img {
+      float: left;
+      width: 200px;
+      margin: 0 20px; 
+    }
+    
+    article p {
+      font-size: 1.3rem;
+    }
+    
+    main section article:nth-child(4n+1), main section article:nth-child(4n+4)  { 
+      background: rgba(230, 10, 230, 0.226); 
+    }
+    
+    main section article:nth-child(4n+2), main section article:nth-child(4n+3) { 
+      background: rgba(230, 10, 230, 0.055); 
+    }
+  }
+  
+</style>
+<body>
+  
+  <main>
+    <header><h1>Cabecera sólo con título ¯\_(ツ)_/¯</h1></header>    
+    <nav>
+      <ul>
+        <div>
+          <li class="menu"><a href="/index.html">Inicio</a></li>
+        </div>
+        <div>
+          <li class="menu"><a href="/ejercicios/html/index.html">HTML</a></li>
+        </div>
+        <div>
+          <li class="menu"><a href="/ejercicios/css/index.html">CSS</a></li>
+        </div>
+        <div>
+          <li class="menu"><a href="/ejercicios/javascript/index.html">JavaScript</a></li>
+        </div>
+      </ul>
+    </nav>
+    <section>
+      <article><h2>Pablo, medalla de oro en 100m lisos</h2><br>
+        <div><img src="/ejercicios/css/turismo/img/galeria/confeti400x400.png" alt=""></div> 
+        <p>Pablo Aparicio ganó la medalla de oro en el mundial de atletismo de Corea del Norte, ganando al resto de participantes con un tiempo de 2.95s en los 100m lisos. Felicitadle y dadle vuestra pasta, que se lo merece toh.</p>
+      </article>
+      <article><h2>Aparicio progatonizará el nuevo film de Nolan</h2><br>
+        <div><img src="/ejercicios/css/turismo/img/galeria/confeti400x400.png" alt=""></div>
+        <p>El reputadísimo actor Pablo Aparicio protagonizará la nueva película de Nolan, por lo gran actor y guapo que es. Eso es lo que dijo una vecina, que convenció al director de películas como Tenet.</p>
+      </article>
+      <article><h2>Pablote cuenta su historia en en el agua fría del mar</h2><br>
+        <div><img src="/ejercicios/css/turismo/img/galeria/confeti400x400.png" alt=""></div>
+        <p>Va a ser mejor que no, que lo contó a un selecto grupo de amigos y los traumatizó.</p>
+      </article>
+      <article>
+        <h2>Pablo gana un millón</h2><br>
+        <div><img src="/ejercicios/css/turismo/img/galeria/confeti400x400.png" alt=""></div>
+        <p>PFFFFFJAJAJ AJAJAAJAJA JJAJJAJA JAJAAJ JAJAAJ AJ AJAJJ JAJAJJAJA no puedo con mi vida</p>
+      </article>
+      <article><h2>Aperrizos, rizos definidos para tu perro</h2><br>
+        <div><img src="/ejercicios/css/turismo/img/galeria/confeti400x400.png" alt=""></div> 
+        <p>Aperrizos es el nuevo champú para tu amada mascota, para tu perro, el mejor amigo de cualquiera que le dé chocolate. Consigue que tu perro tenga los mismos rizos que Vin Diesel en tan solo tres lavados. Garantizado. Tu perro jamás volverá a ser el mismo.</p>
+      </article>
+      <article>
+        <h2>Campaña "aifon para Pablo"</h2><br>
+        <div><img src="/ejercicios/css/turismo/img/galeria/confeti400x400.png" alt=""></div> 
+        <p>Se ha iniciado la campaña "Aifon para Pablo", en la que cada persona que se considere a sí misma "buena" tiene que poner 1€ para que Pablo pueda comprarse el próximo aifon. Si es un Pro mejor, pero no pide mucho; se conforma con el pequeño (ojalá todas dijeran lo mismo...).</p>
+      </article>
+    </section>
+    <aside>
+      <h3>Asaid o varra laterál</h3><br>
+      <ul>
+        <li><a href="/index.html">Página Principal</a></li>
+        <li style="color: purple;">Ejercicios de:</li>
+        <li><a href="/ejercicios/html/index.html">HTML</a></li>
+        <li><a href="/ejercicios/css/index.html">CSS</a></li>
+        <li><a href="/ejercicios/javascript/index.html">JavaScript</a></li>
+      </ul>
+    </aside>
+    <footer><h5>El fotre en un h5</h5></footer>
+    
+  </main>
+</body>
+</html>

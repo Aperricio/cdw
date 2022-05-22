@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio con box-sizing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        h1, h2, h3 {
+            margin-left: 20px;
+        }
+
+        h1 {
+            margin-top: 30px;
+        }
+
+        nav {
+            margin: 0px 0px 20px 30px;
+        }
+
+        hr {
+            border: 1px solid black; 
+            margin-bottom: 5px;
+        }
+
+       .ej1 header {
+            background-color: purple;
+            color: white;
+            width: 400px;
+        }
+
+       .ej1 div {
+            display: inline-block;
+            background-color: tomato;
+            box-sizing: content-box;
+            width: 100px;
+            height: 100px;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .ej2 header {
+            background-color: purple;
+            color: white;
+            width: 480px;
+        }
+
+       .ej2 div {
+            display: inline-block;
+            background-color: tomato;
+            box-sizing: content-box;
+            width: 100px;
+            height: 100px;
+            border: 10px solid cadetblue;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .ej3 header {
+            background-color: purple;
+            color: white;
+            width: 560px;
+        }
+
+       .ej3 div {
+            display: inline-block;
+            background-color: tomato;
+            box-sizing: content-box;
+            width: 100px;
+            height: 100px;
+            border: 10px solid orange;
+            padding: 10px;
+            margin: 0px;
+        }
+
+        .ej4 header {
+            background-color: purple;
+            color: white;
+            width: 620px;
+        }
+
+       .ej4 div {
+            display: inline-block;
+            background-color: tomato;
+            box-sizing: content-box;
+            width: 100px;
+            height: 100px;
+            border: 10px solid yellowgreen;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .ej5 header {
+            background-color: purple;
+            color: white;
+            width: 400px;
+        }
+
+       .ej5 div {
+            display: inline-block;
+            background-color: tomato;
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .ej6 header {
+            background-color: purple;
+            color: white;
+            width: 400px;
+        }
+
+       .ej6 div {
+            display: inline-block;
+            background-color: tomato;
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            border: 10px solid cadetblue;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .ej7 header {
+            background-color: purple;
+            color: white;
+            width: 400px;
+        }
+
+       .ej7 div {
+            display: inline-block;
+            background-color: tomato;
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            border: 10px solid orange;
+            padding: 10px;
+            margin: 0px;
+        }
+
+        .ej8 header {
+            background-color: purple;
+            color: white;
+            width: 460px;
+        }
+
+       .ej8 div {
+            display: inline-block;
+            background-color: tomato;
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            border: 10px solid  yellowgreen;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        div:nth-of-type(1) {
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio con box-sizing y márgenes</h1><br>
+    <h2>content-box</h2> <br>
+    <section class="ej1">
+        <h3>width 100px; border: 0px; padding: 0px; margin: 0px;</h3> <br>
+        <header>Cabecera = 400</header>
+        <div>Caja 1</div><div>Caja 2</div><div>Caja 3</div><div>Caja 4</div>
+    </section>
+    <br>
+    <section class="ej2">
+        <h3>width 100px; border: 10px; padding: 0px; margin: 0px;</h3> <br>
+        <header>Cabecera = 480</header>
+        <div>Caja 1</div><div>Caja 2</div><div>Caja 3</div><div>Caja 4</div>
+    </section>
+    <br>
+    <section class="ej3">
+        <h3>width 100px; border: 10px; padding: 10px; margin: 0px;</h3> <br>
+        <header>Cabecera = 560</header>
+        <div>Caja 1</div><div>Caja 2</div><div>Caja 3</div><div>Caja 4</div>
+    </section>
+    <br>
+    <section class="ej4">
+        <h3>width 100px; border: 10px; padding: 10px; margin: 10px;</h3> <br>
+        <header>Cabecera = 620</header>
+        <div>Caja 1</div><div>Caja 2</div><div>Caja 3</div><div>Caja 4</div>
+    </section>
+    <br>
+    <hr><br>
+    <h2>border-box</h2> <br>
+    <section class="ej5">
+        <h3>width 100px; border: 0px; padding: 0px; margin: 0px;</h3> <br>
+        <header>Cabecera = 400</header>
+        <div>Caja 1</div><div>Caja 2</div><div>Caja 3</div><div>Caja 4</div>
+    </section>
+    <br>
+    <section class="ej6">
+        <h3>width 100px; border: 10px; padding: 0px; margin: 0px;</h3> <br>
+        <header>Cabecera = 400</header>
+        <div>Caja 1</div><div>Caja 2</div><div>Caja 3</div><div>Caja 4</div>
+    </section>
+    <br>
+    <section class="ej7">
+        <h3>width 100px; border: 10px; padding: 10px; margin: 0px;</h3> <br>
+        <header>Cabecera = 400</header>
+        <div>Caja 1</div><div>Caja 2</div><div>Caja 3</div><div>Caja 4</div>
+    </section>
+    <br>
+    <section class="ej8">
+        <h3>width 100px; border: 10px; padding: 10px; margin: 10px;</h3> <br>
+        <header>Cabecera de 400, a sumarle el margin = 460</header>
+        <div>Caja 1</div><div>Caja 2</div><div>Caja 3</div><div>Caja 4</div>
+    </section>
+    <br>
+    <br>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Página principal</a></li>
+                    <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>
