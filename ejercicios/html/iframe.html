@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiqueta iframe</title>
+    <style>
+        html {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #3fff3f 40%, rgb(253, 33, 224) 90%);
+        }
+
+        body {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        h1,
+        h2 {
+            color: white;
+            text-align: center;
+            background: linear-gradient(0deg, black, red);
+            padding: 10px;
+            border-radius: 50px;
+            border: solid orange;
+        }
+
+        .fotos {
+            text-align: center;
+        }
+
+        .ventanas {
+            text-align: center;
+        }
+
+        iframe {
+            border-radius: 50px;
+            border: solid rgb(116, 24, 116) 15px;
+        }
+
+        img {
+            border-radius: 10px;
+            border: solid rgb(116, 24, 116) 5px;
+        }
+
+        nav img:hover {
+            filter: brightness(150%);
+            border: solid red 5px;
+        }
+
+        div {
+            justify-content: center;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Etiqueta &lt;iframe&gt;</h1>
+    <div class="fotos">
+        <nav>
+            <a href="/img/ejercicioiframe/fisgaperro-1000x1000.jpg" target="ventana"><img
+                    src="/img/ejercicioiframe/fisgaperro-100x100.jpg" width="100" height="100" alt="Perro fisgando"
+                    title="Hazme grande clicándome"></a>
+            <a href="/img/ejercicioiframe/perritaza-1000x1000.jpg" target="ventana"><img
+                    src="/img/ejercicioiframe/perritaza-100x100.jpg" width="100" height="100"
+                    alt="Perrito dentro de una taza" title="Sácame de la taza con un click"></a>
+            <a href="/img/ejercicioiframe/perrito1-1000x1000.jpg" target="ventana"><img
+                    src="/img/ejercicioiframe/perrito1-100x100.jpg" width="100" height="100" alt="Perrito negro"
+                    title="Te guiño el ojo en grande si me clicas"></a>
+            <a href="/img/ejercicioiframe/perritos-1000x1000.jpg" target="ventana"><img
+                    src="/img/ejercicioiframe/perritos-100x100.jpg" width="100" height="100" alt="Dos perritos"
+                    title="Clícanos que nos haremos grandes"></a>
+            <a href="/img/ejercicioiframe/hojaroja-1000x1000.jpg" target="ventana"><img
+                    src="/img/ejercicioiframe/hojaroja-100x100.jpg" width="100" height="100" alt="Hoja roja"
+                    title="Yo soy una planta y no hablo"></a>
+        </nav>
+    </div>
+    <br>
+    <div class="ventanas">
+        <iframe src="/img/ejercicioiframe/clic-en-perro.jpg" name="ventana" width="1000" height="1000"></iframe>
+    </div>
+    <h2>Ventanita de Google Maps</h2>
+    <div class="ventanas">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3100.9997933801974!2d-0.5247812486516722!3d38.992501079455764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61a203c48c3187%3A0x4d476b73a5a0a368!2sTecnoService!5e0!3m2!1ses!2ses!4v1646128819203!5m2!1ses!2ses"
+            width="100%" height="400px" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <br>
+    <hr>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Página principal</a></li>
+                <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+            </ul>
+        </nav>
+    </footer> 
+</body>
+
+</html>

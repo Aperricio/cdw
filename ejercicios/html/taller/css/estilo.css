@@ -1,0 +1,676 @@
+
+/* ----------------------- Hoja de estilos del taller ----------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                            Estilo General                                  */
+/* -------------------------------------------------------------------------- */
+:root {
+    --colorPrincipal: white; 
+    --colorSecundario: #99bd73; 
+    --texto: green; 
+    --txtLiA: #ffa200; 
+    --select: #915a07;
+}
+    
+* {
+    margin: 0px;
+    padding: 0px;
+    resize: vertical;
+}
+
+header{
+    text-align: center;
+    position: fixed; /* Lo deja fijo */
+    top: 0; /* Hace que se quede pegado arriba */
+    background-color: var(--colorPrincipal);
+    width: 100%; /* Hace que llegue de parte a parte*/
+    font-weight: larger; /* Negrita más gruesa de lo que le tocaría */
+    box-shadow: 4px 0px 6px black; /* Sombra negra, sólo vertical y con desenfoque */
+    text-transform: uppercase; /* Pone las letras en mayúsculas aunque no lo estén */
+    font-family: 'Lora', serif;
+}
+
+div.cabecera {
+    position: relative; /* Si no meto la cabecera en algo con position: relative y z-index: 9999, el lema pasa por encima */
+    z-index: 9999;
+}
+
+main {
+    margin-top: 60px; /* Para que quede debajo de la cabecera fija */
+}
+
+a {
+    color: var(--txtLiA);
+}
+
+a:hover {
+    color: var(--select);
+}
+
+nav a {
+    text-decoration: none; /* Le quita la línea inferior a los enlaces de la cabecera */
+    color: var(--txtLiA);
+    justify-content: center;
+    padding: 15px;
+    transition: 1s; /* Para cuando vuelva a su estado original */
+}
+.cabecera nav ul li {
+    display: inline-block; /* "Deshace" la lista -las pone en horizontal- */
+}
+
+li a {
+    padding: 15px 30px; 
+    display: flex;
+}
+
+nav > ul > li > a:hover {
+    background-color: var(--colorSecundario);
+    color: white;
+    transition: 0.5s;
+}
+
+#logocabecera {
+    position: relative;
+    top: 2px;
+    left: 5px;
+    max-width: 100px;
+    max-height: 45px;
+    height: 90%;
+    float: left; 
+}     /* Pone el logotipo en un punto, con un tamaño y permite que se le pongan cosas al lado */
+
+#logopie {
+    position: relative;
+    height: 70%;
+    top: 15%;
+    left: 10px;
+    float: left;
+    max-width: 300px;
+}
+
+#logoasociacion {
+    position: relative;
+    height: 70%;
+    top: 15%;
+    right: 10px;
+    float: right;
+    border-radius: 5px;
+    max-width: 300px;
+}
+
+
+#telcabecera {
+    float: right;
+    position: relative;
+    top: 3px;
+    padding: 0px;
+}
+
+
+#wacabecera {
+    float: right;
+    top: 8px;
+    padding: 0px
+}
+
+#telcabecera a:hover {
+    color: var(--colorSecundario)
+} 
+
+#wacabecera a:hover {
+    color: var(--colorSecundario)
+} 
+
+
+.select {
+    background-color: var(--txtLiA);
+    color: var(--colorPrincipal);
+    padding: 15px 30px;
+}
+
+h1, h2, h3, p {
+    padding: 10px;
+    margin: 20px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+sup {
+    font-size: 0.6rem;
+}
+
+.textocuerpo ul {
+    padding: 10px;
+    margin: 30px;
+}
+
+footer {
+    display: inline-block;
+    bottom: 0px;
+    background-color: var(--colorPrincipal);
+    min-height: 200px; /* Reserva un tamaño mínimo */
+    width: 100%;
+    height: 10vh;
+    box-shadow: 4px 0px 6px black;
+
+}
+
+address {
+    display: flex;
+    margin-top: 6vh;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Lora', serif;
+}
+
+address div {
+    padding: 10px;
+}
+
+#bloque1 {
+    box-sizing: border-box;
+    border-right: 3px solid var(--txtLiA);
+}
+
+#bloque2 {
+    box-sizing: border-box;
+    position: relative;
+}
+
+aside {
+    display: inline-block;
+    width: 20vw;
+    margin-top: -12px;
+    height: 100;
+    background-color: #ffa200;
+    z-index: -99999;
+    vertical-align: top; /* Crea una caja/barra lateral que permite tener otros elementos a su lado. Para conseguir que se quede pegada, en este caso hacen falta 3 "div" -barra izquierda, cuerpo y barra derecha- */
+}
+
+/* -------------------------------- hover.css ------------------------------- */
+
+.hvr-bubble-bottom {
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+  }
+  .hvr-bubble-bottom:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    border-style: solid;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    left: calc(50% - 10px);
+    bottom: 0;
+    border-width: 10px 10px 0 10px;
+    border-color: var(--txtLiA) transparent transparent transparent;
+  }
+  .hvr-bubble-bottom:hover:before, .hvr-bubble-bottom:focus:before, .hvr-bubble-bottom:active:before {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+
+  /* -------------------------------- Fin hover.css ------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                             Fin estilo general                             */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                              Página principal                              */
+/* -------------------------------------------------------------------------- */
+
+
+#lema {
+    position: relative;
+    text-shadow: 3px 3px 3px #333;
+    color: var(--txtLiA);
+    top: 25vh;
+    padding: 100px;
+    transition: 2s;
+    font-family: 'Lora', serif;
+}
+
+#lema:hover {
+    transform: scale(1.1);
+    transition: 2s;
+    text-shadow: 3px 3px 3px #333;
+}
+
+#portada {
+    background-image: url(/ejercicios/taller/img/portada.png);
+    background-position-x: center;
+    background-position-y: center; /* centra la imagen de fondo*/
+    background-size: cover;
+    height: 100vh;
+    margin-top: -20px; /* Para corregir el margen del header */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 350%;   
+}
+
+#sobrenosotros {
+    background-image: url(/ejercicios/taller/img/fototallerviejo.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    justify-content: center;
+    height: 50vh;
+    width: 40vw;
+    top: 10px;
+    filter: grayscale(1);
+    transition: 1s;
+}
+
+.sobrenosotros p {
+    font-size: 1.5em;
+    padding: 0px 5%;
+    color: var(--colorPrincipal);
+    text-align: justify;
+    font-family: 'Lora', serif;
+}
+
+.sobrenosotros h2 {
+    box-sizing: border-box;
+    font-weight: bold;
+    color: var(--select);
+    font-size: 250%;
+    background-color: var(--colorPrincipal);
+    width: 100%;
+    margin-left: 0;
+    color: var(--txtLiA);
+    font-family: 'Lora', serif;
+    transition: 1s;
+}
+
+#sobrenosotros:hover {
+    filter: grayscale(0); /*Para que se ponga en color al pasar el puntero por encima*/
+    transition: 1s;
+}
+
+#txttalleranterior {
+    position: relative;
+    color: white;
+    top: 85%;
+    text-shadow: 1px 1px 0px black; /* Se lee mejor con una sombra */
+}
+
+[class*="typicons-"]:before {
+    font-family: 'Typicons', sans-serif;  /* Para añadir el icono del teléfono. La regla de importar la pongo en su página o no me va */
+
+}  
+
+.cuadrado1 {
+    background-color: var(--txtLiA);
+    display: inline-block;
+    color: var(--select);
+    justify-content: center;
+    color: var(--txtLiA);
+    height: 50vh;
+    top: 10px;
+    width: 60vw; /* Para crear el cuadrado amarillo donde irá el texto "Sobre nosotros". Para poder poner la foto a la derecha como está, es necesario usar dos "div", y entre ambos sumar el 100% */
+    font-family: 'Lora', serif;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                            Fin página principal                            */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                             Página de servicios                            */
+/* -------------------------------------------------------------------------- */
+
+#mantenimiento {
+    background-image: url(/ejercicios/taller/img/mantenimiento.jpg);
+    background-size: cover;
+    background-repeat: no-repeat; /* Evita que salga un borde extra/repetición de la imagen si pasa algo */
+    display: inline-block;
+    justify-content: center;
+    height: 50vh;
+    top: 10px;
+    width: 50vw;
+    overflow: auto;
+    z-index: -999;
+}
+
+/* #mantenimiento:hover {
+    filter: brightness(1.15);
+    transition: 0.5s;
+    box-sizing: border-box;
+    transform: scale(1.05);
+    border-radius: 20px; Este efecto lo quito porque pasa por encima de la cabecera */
+
+
+#diagnostico {
+    background-image: url(/ejercicios/taller/img/diagnostico.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    justify-content: center;
+    height: 50vh;
+    top: 10px;
+    width: 50vw;
+}
+
+#preitv {
+    background-image: url(/ejercicios/taller/img/preitv.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    justify-content: center;
+    height: 50vh;
+    top: 10px;
+    width: 50vw;
+}
+
+#compraventa {
+    background-image: url(/ejercicios/taller/img/compraventa.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    justify-content: center;
+    height: 50vh;
+    top: 10px;
+    width: 50vw;
+}
+
+.txtserviciosder h2 {
+    box-sizing: border-box;
+    font-weight: bold;
+    color: var(--select);
+    font-size: 250%;
+    background-color: var(--colorPrincipal);
+    width: 100%;
+    margin-left: 0;
+    color: var(--txtLiA);
+    font-family: 'Lora', serif;
+    box-shadow: 0px 3px 12px var(--colorSecundario);
+}
+
+
+.txtserviciosder p {
+    font-size: 1.5em;
+    color: var(--colorPrincipal);
+    text-align: justify;
+    font-family: 'Lora', serif;
+    margin: 5%;
+}
+
+.txtserviciosiz h2 {
+    box-sizing: border-box;
+    margin-left: -1.15px;
+    width: 100%;
+    color: var(--select);
+    font-size: 250%;
+    background-color: var(--colorPrincipal);
+    width: 100%;
+    color: var(--txtLiA);
+    font-family: 'Lora', serif;
+    box-shadow: 0px 3px 12px var(--colorSecundario);
+}
+
+
+.txtserviciosiz p {
+    font-size: 1.5em;
+    color: var(--colorPrincipal);
+    text-align: justify;
+    font-family: 'Lora', serif;
+    margin: 5%;
+}
+
+.cuadrado {
+    background-color: var(--txtLiA);
+    display: inline-block;
+    justify-content: center;
+    height: 50vh;
+    top: 10px;
+    width: 50vw;
+    z-index: -999;
+}
+
+.servicios {
+    display: flex;
+    text-align: center;
+}
+
+#h1servicios {
+    margin-top: 60px;
+}
+
+.colaboradores {
+    text-align: center;
+    min-width: 100%;
+    padding: 0px 0px 10px;
+}
+
+#cetraa {
+    filter: invert(1)
+}
+
+.colaboradores h2 {
+    font-size: 200%;
+    padding: 0px;    
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           Fin página de servicios                          */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                              Página de tarifas                             */
+/* -------------------------------------------------------------------------- */
+
+.h1tarifas {
+    position: relative;
+    top: -12px;
+    font-size: 400%;
+    margin: 0;
+    padding: 0px;
+    z-index: -1;
+    text-align: center;
+    color: var(--txtLiA);
+    box-shadow: 4px 4px 12px var(--txtLiA);
+    font-family: 'Lora', serif;
+    text-shadow: 3px 3px 3px #333; 
+/* -------------------- también en la página de contacto -------------------- */
+}
+
+table {
+/*  background-image: url(/ejercicios/taller2/img/acuerdo2.png); */    border-collapse: collapse; /* Para que las celdas se queden pegadas con una sola línea */
+    border-left: 1px solid var(--txtLiA);
+    border-bottom: 1px solid var(--txtLiA);
+    border-right: 1px solid var(--txtLiA);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    transition: 0.5s;
+}
+
+table:hover {
+    transform: scale(1);
+    transition: 0.5s;
+    box-shadow: 2px 2px 10px;
+}
+
+th {
+    border-left: 1px solid var(--txtLiA);
+    border-bottom: 1px solid var(--txtLiA);
+    padding: 8px;
+    background-color: #ffa20054;
+}
+
+td {
+    border-left: 1px solid var(--txtLiA);
+    border-bottom: 1px solid var(--txtLiA);
+    padding: 7px; /* En CSS hay que indicarle que cree las líneas por todo */
+}
+
+thead th {
+    text-decoration: underline;
+}
+
+td::after {
+    content: "€";
+}
+
+tbody tr:hover {
+    background-color:#ffa200;
+}
+
+caption {
+    background-color: var(--txtLiA);
+    padding: 10px;
+    border-radius: 8px 8px 0px 0px;
+    font-weight: 700;
+}
+
+#condiciones {
+    font-size: 0.8rem;
+    color: rgb(168, 168, 168);
+    margin-top: 50px;
+}
+
+.ruedas {
+    list-style-image: url(/ejercicios/taller2/img/ruedalista.png);
+}
+
+#satisfaccion {
+    background-image: url(/ejercicios/taller2/img/acuerdo.png);
+    background-size: 100%;
+    position: relative;
+    margin-top: 5%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 500px;
+    transform: scale(1.065);
+}
+
+#satisfaccion p {
+    position: relative;
+    top: 5%;
+    color: var(--txtLiA);
+    font-family: 'Lora', serif;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 3px 3px 3px black;
+    transition: 2s;
+}
+
+#satisfaccion p:hover {
+    transform: scale(1.1);
+    transition: 2s;
+}
+
+/* section ul {
+    margin: 30px; /* Para mover la lista que los puntos no forman parte de su cuerpo */
+
+/* -------------------------------------------------------------------------- */
+/*                            Fin página de tarifas                           */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                             Página de contacto                             */
+/* -------------------------------------------------------------------------- */
+
+
+iframe {
+    border-radius: 20px;
+    resize: vertical; /* De lo poco que sé cómo hacer responsivo. Algunos elementos se pueden redimensionar en vertical y respetan los márgenes */
+    transition: 0.5s;
+}
+
+iframe:hover {
+    box-shadow: 15px 15px 30px black;
+}
+
+.contenedor {
+    border-radius: 8px;
+    background-color: #ffa2003a;
+    padding: 20px;
+    margin: 30px 0px 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto; /* Esto es la forma de una caja que queda mucho más estética que un fieldset */
+    box-shadow: 1px 1px 5px;
+}
+
+
+input[type=text], input[type=tel], input[type=email], input[list], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical; /* Aquí le pido que todo lo del formulario (inputs, selección y área del mensaje ocupen el 100% de un contenedor. Luego se le dibujan los bordes y se añade margin y padding */
+    box-shadow: -1px -1px 2px;
+}
+
+input[type=submit] {
+    background-color: var(--txtLiA);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer; /* Con esto se deja claro que se puede pulsar el botón */
+}
+
+.boton {
+    text-align: center;
+    transition: 0.5s;
+}
+
+.boton:hover {
+    background-color: #06c710;
+    box-shadow: 3px 3px 3px black;
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+
+input:hover{
+    background-color: var(--colorPrincipal);
+}
+
+textarea:hover{
+    background-color: var(--colorPrincipal);
+}
+
+input, textarea {
+    background-color: #F1F1F1;
+}
+
+.textocuerpo {
+    width: 80vw;
+    display: inline-block;
+    margin: 2vw;
+    justify-content: center; /* Esto lo he puesto así para poder poner los bordes (aside) a los lados: tiene que haber 3 "div" que sumen 100 en total */
+}
+
+.texto {
+    display: flex;
+    font-family: 'Archivo', sans-serif;
+} 
+
+/* .textocuerpo {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;   Esto funcionaba, pero no si quiero los bordes amarillos.
+} 

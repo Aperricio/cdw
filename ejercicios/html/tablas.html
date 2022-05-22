@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+    <title>Tablas</title>
+    <style>
+        body {
+            padding: 30px;
+
+        }
+
+        h1,
+        h2 {
+            color: blue;
+            background-color: skyblue;
+            border-radius: 15px;
+            padding: 10px
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tablas</h1>
+    <p>Las etiquetas para las tablas son:</p>
+    <ul>
+        <li><strong>table</strong>: toda la tabla.</li>
+        <li><strong>th</strong>: datos de cabecera. Sale en negrita. También van dentro de tr.</li>
+        <li><strong>tr</strong>: fila.</li>
+        <li><strong>td</strong>: datos.</li>
+    </ul>
+    <p>Las columnas las forman el número de filas (tr). Esto sería en una tabla "regular". En las irregulares, el
+        atributo "colspan" indica el ancho (en número de celdas) de la celda y "rowspan" indicaría lo alto (también en
+        número de celdas).</p>
+    <h2>Lista sin bordes (por defecto)</h2>
+    <table>
+        <tr>
+            <th>Alumnas</th>
+            <th>Alumnos</th>
+            <th>Profesores</th>
+        </tr>
+        <tr>
+            <td>Amparo</td>
+            <td>Antonio</td>
+            <td>Pablo José</td>
+        </tr>
+        <tr>
+            <td>Ana</td>
+            <td>Elu</td>
+        </tr>
+        <tr>
+            <td>Ángela</td>
+            <td>Jordi</td>
+        </tr>
+        <tr>
+            <td>Arancha</td>
+            <td>Mario</td>
+        </tr>
+        <tr>
+            <td>Asun</td>
+            <td>Pablo</td>
+        </tr>
+        <tr>
+            <td>Desa</td>
+        </tr>
+        <tr>
+            <td>Gala</td>
+        </tr>
+        <tr>
+            <td>Maricruz</td>
+        </tr>
+        <tr>
+            <td>Noelia</td>
+        </tr>
+        <tr>
+            <td>Stela</td>
+        </tr>
+
+    </table>
+
+    <h2>Lista con borde</h2>
+    <table cellspacing="4" cellpadding="10" border="4">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Teléfono</th>
+        </tr>
+        <tr>
+            <td>Pablo</td>
+            <td>Aparicio</td>
+            <td>6123637366</td>
+        </tr>
+        <tr>
+            <td>Desa</td>
+            <td>Bataller</td>
+            <td>655766577</td>
+        </tr>
+        <tr>
+            <td>Asun</td>
+            <td>García</td>
+            <td>677877688</td>
+        </tr>
+    </table>
+    <br>
+    <p>Hay que tener en cuenta que el atributo "border" no se suele usar en HTML; se deja para el CSS. Por eso aparece
+        en rojo en VSCode.</p>
+    <h2>Estructura en las tablas largas</h2>
+    <p>Cuando la tabla es larga, se suele hacer con una estructura:
+    <ul>
+        <li><strong>table</strong>: etiqueta para toda la tabla.</li>
+        <li><strong>caption</strong>: le pone un título a la tabla.</li>
+        <li><strong>thead</strong>: aquí irían las partes importantes o titulares, lo que queda más claro cuando usamos
+            más de uno.</li>
+        <li><strong>tbody</strong>: aquí irían los datos generales.</li>
+        <li><strong>tfoot</strong>: aquí irían datos como el resultado de una suma.</li>
+    </ul>
+    <p>Puede ser importante añadir la estructura para facilitar su decoración por medio del CSS. Dentro de thead, tbody
+        y tfoot hay que meter la información (td).</p>
+    </p>
+    <table cellspaccing="4" border="2">
+        <caption style="background-color: aqua; padding: 2px;">Conversión de Moneda</caption>
+        <thead>
+            <tr>
+                <th>Moneda</th>
+                <th>Valor</th>
+                <th>Sube o baja</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Dólar</td>
+                <td>1.21</td>
+                <td>Baja</td>
+            </tr>
+            <tr>
+                <td>Rublo</td>
+                <td>1.34</td>
+                <td>Sube</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td>Suma</td>
+            <td>2.55</td>
+            <td>=</td>
+        </tfoot>
+    </table>
+    <br>
+    <h2>Lista con borde y fondo coloreado</h2>
+    <table border="2">
+        <tr>
+            <th style="background-color: tomato">Comida</th>
+            <th style="background-color: tomato">Color</th>
+        </tr>
+        <tr>
+            <td>Espaguetis</td>
+            <td>Amarillo</td>
+        </tr>
+    </table>
+    <br>
+
+
+    <h2>Lista que nos ha enviado el profe</h2>
+    <p>Click <a href="tablaconstyle.html"> AQUÍ</a>.</p>
+
+</body>
+<hr>
+<footer>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Página principal</a></li>
+            <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+            <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+            <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+        </ul>
+    </nav>
+</footer> 
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+    <title>Ejercicios HTML</title>
+    <style>
+        body {
+            margin: 40px;
+            max-width: 830;
+            background-image: url('/img/html.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 300px;
+            background-color: rgb(148, 148, 148);
+            font-family: monospace;
+        }
+
+
+        div {
+            display: flex;
+            justify-content: center;
+        }
+
+        div li a {
+            display: block;
+            padding: 18px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            transition: 1s;
+        }
+
+        div li a:hover {
+            background-color: black;
+            color: #bbb;
+            transition: 1s;
+            border-radius: 30px;
+        }
+
+        .navegacionfooter li, .navegacionfooter{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            float: left;
+            background-color: #bbb;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ejercicios de HTML</h1>
+    <ol>
+        <li><a href="etiquetas.html">Bloques, elementos y etiquetas</a></li>
+        <li><a href="listas.html">Listas</a></li>
+        <li></b><a href="tablas.html">Tablas</a>
+            <ul>
+                <li><a href="tablasirregulares.html">Tablas irregulares</a>
+            </ul>
+        </li>
+        <li><a href="curriculumetiquetasmaquetacion.html">Currículum con etiquetas de
+                maquetación</a>
+            <ul>
+                <li><a href="curriculum2.html">Currículum con algunas modificaciones</a>
+            </ul>
+        </li>
+        <li><a href="enlaces.html">Uso de enlaces</a></li>
+        <li><a href="fotos.html">Añadir fotos</a>
+            <ul>
+                <li><a href="fotoretocada.html">Fotos editadas en RAW, con editor y optimizadas</a></li>
+                <li><a href="figcaption.html">Uso de &lt;figure&gt; y &lt;figcaption&gt;</a></li>
+            </ul>
+        </li>
+        <li><a href="iframe.html">Etiqueta &lt;iframe&gt;</a></li>
+        <li><a href="videos.html">Añadir vídeos a webs</a></li>
+        <li><a href="formularios.html">Formularios</a></li>
+        <ul>
+            <li><a href="ejercicioformulario.html">El ejercicio del formulario</a></li>
+        </ul>
+        <li><a href="kbdycode.html">Etiquetas &lt;kbd&gt; y &lt;code&gt;</a></li>
+    </ol>
+    <hr>
+    <div>
+        <nav>
+            <ul class="navegacionfooter">
+                <li><a href="/index.html">Página principal</a></li>
+                <li><a href="/ejercicios/ultimo.html">Último ejercicio</a></li></a></li>
+                <li><a href="../css/index.html"
+                        title="Enlaces a los ejercicios CSS">CSS</a></li>
+                <li><a href="../javascript/index.html"
+                        title="Enlaces a los ejercicios JavaScript">JavaScript</a></li>
+                <li><a href="/ejercicios/html/descargas.html">Documentos</a></li>
+                <li><a href="/ejercicios/html/contacto.html"
+                        title="Enlaces a los ejercicios JavaScript">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+
+</html>

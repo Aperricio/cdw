@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <style>
+        body {
+            padding: 30px;
+            background-color: aqua;
+        }
+
+        div {
+            justify-content: center;
+            display: flex;
+        }
+
+        form {
+            width: 500px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        fieldset {
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        input,
+        textarea,
+        button {
+            background-color: rgb(253, 198, 250);
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: greenyellow;
+        }
+
+        button:hover {
+            padding: 10px;
+            background-color: blueviolet;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Realice su consulta</h1>
+    <h2 style="text-align: center;">Rellene el siguiente formulario</h2>
+    <br>
+    <form method="post" action="respuestaformulario.php">
+        <fieldset>
+            <fieldset>
+                <legend>Sobre ti</legend>
+                <label for="Nombre">Nombre: </label>
+                <input type="text" pattern="[A-Za-z] {1-50}" name="Nombre" placeholder="Escribe aquí tu nombre" required
+                    autofocus>*
+                <br>
+                <label for="Apellidos">Apellidos: </label>
+                <input type="text" pattern="[a-zA-Z] {1-50}" name="Apellidos" placeholder="Escribe aquí tu apellido"
+                    required>* <br>
+                <label for="Correo">Correo: </label>
+                <input type="email" name="Correo" placeholder="Tu correo electrónico" required>* <br>
+                <label for="Telefono">Teléfono: </label>
+                <input type="tel" pattern="[0-9] {9-9}" name="Telefono" placeholder="Tu teléfono"> <br>
+                <label for="edad">Edad: </label>
+                <input type="number" name="Edad" id="Edad" min="10" max="115" step="1">
+                <p style="font-size: smaller;">(*): Obligatorio</p>
+            </fieldset> <br>
+            <fieldset>
+                <legend>Información variada</legend>
+                <label for="Fecha">Cuándo me invitas a una caçalla:</label>
+                <input type="datetime-local" name="Fecha" id="Fecha"> <br> <br>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp; Te gustan: </p>
+                <input type="checkbox" name="Espaguetis" id="Espaguetis" checked>Espaguetis.<br>
+                <input type="checkbox" name="Pizza" id="Pizza" checked>Pizza. 
+                <select name="PizzaFavorita">
+                    <option disabled selected hidden>Elije una pizza</option>
+                    <!--
+                        - "selected" hace que esté seleccionada por defecto.
+                        - "hidden" hace que no se muestre al desplegarse.
+                        - "disabled" hace que no se pueda seleccionar.
+                        - "value" vacío hace que sea nulo.
+                    -->
+                    <option value="Jamon y queso">Jamon y queso</option>
+                    <option value="Barbacoa">Barbacoa</option>
+                    <option value="Cuatroquesos">Cuatro quesos</option>
+                    <option value="Piña">Con piña. ¡Muere!</option>
+                </select> <br>
+                <input type="checkbox" name="Hamburguesa" id="Hamburguesa" checked>Hamburguesa.<br>
+                <input type="checkbox" name="Nada" id="Nada">Nada de lo anterior (muere un gatito).<br>
+
+                <br>
+                <label for="Molo">Cuánto molo del 1 al 10 😊: </label>
+                <input type="range" name="Lo que molo" id="Molo" min="1" max="10" step="1" value="5">
+                <output class="Molo-output" for="Molo"></output>
+                <br><br>
+                <label for="Animo">Cómo te sientes:</label>
+                <label for="Animo"></label>
+                <input list="Animo" name="Animo" placeholder="Clic para desplegar">
+
+                <datalist id="Animo">
+                    <option value="Feliz">😊</option>
+                    <option value="Bien">👍🏻</option>
+                    <option value="Regular">😑</option>
+                    <option value="Mal">👎🏻</option>
+                    <option value="Triste">😔</option>
+                    <option value="Enfadado">😡</option>
+                    <option value="Enamorado">🥰</option>
+                    <option value="Corazon roto">💔</option>
+                </datalist> <br> <br>
+
+            </fieldset> <br>
+            <fieldset>
+                <legend>Escribe aquí tu consulta</legend>
+                <label for="Mensaje">Tu mensaje:</label> <br>
+                <textarea type="text" name="Mensaje" cols="50" rows="10"
+                    placeholder="Tu mensaje, pero si me insultas, lloro"></textarea> <br>
+                <div>
+                    <button type="submit">Enviar</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </fieldset>
+        </fieldset>
+    </form>
+    <hr>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Página principal</a></li>
+                <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+            </ul>
+        </nav>
+    </footer> 
+</body>
+
+</html>
