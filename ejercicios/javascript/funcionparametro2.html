@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Función con parámetro</title>
+</head>
+<body>
+    <h1>Función con parámetro</h1>
+    <pre>
+        &lt;script>
+            function minuto(tope = 0) {
+                let fecha = new Date();
+                let elMinuto = fecha.getMinutes();
+                if ( elMinuto < tope ) {
+                    alert(elMinuto + " es menos que " + tope)
+                }
+                else {
+                    alert(elMinuto + " es más que " + tope)
+                }
+            }
+            minuto();
+            minuto(30);
+            minuto(59);
+        &lt;/script>
+    </pre>
+    <p>Al ponerle un valor por defecto, en la primera pasada mira ese valor aunque la función esté vacía.</p>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Página principal</a></li>
+                    <li><a href="/ejercicios/html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="/ejercicios/css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="/ejercicios/javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+    <script>
+        function minuto(tope = 0) {
+            let fecha = new Date();
+            let elMinuto = fecha.getMinutes();
+
+            if ( elMinuto < tope ) {
+                alert(elMinuto + " es menos que " + tope)
+            }
+            else {
+                alert(elMinuto + " es más que " + tope)
+            }
+        }
+
+        minuto();
+        minuto(30);
+        minuto(59);
+    </script>
+</body>
+</html>
