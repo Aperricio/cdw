@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../img/Escudo_Alcudia_de_Crespins.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+      @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+    </style>
+    <title>Turismo l'Alcúdia de Crespins | Información</title>
+</head>
+<body>
+    <div class="desplegable">
+        <nav>
+            <input type="checkbox" id="btnHam" hidden> <!-- QUITA EL HIDDEN PARA VERLO -->
+            <label for="btnHam">
+              <span class="cerrado material-icons">&#xe5d2;</span>
+              <span class="abierto material-icons">&#xe9bd;</span>
+            </label>
+            <ul>
+                <a href="../index.html"><img class="alcudia" src="../img/Escudo_Alcudia_de_Crespins.png" alt="Escudo de l'Alcudia de Crespins"></a><br><br><br>
+                <li><a href="../index.html">&nbsp;&nbsp;&nbsp;INICIO&nbsp;&nbsp;&nbsp;</a></li>
+                <li><a href="fiestasyactividades.html">FIESTAS Y ACTIVIDADES</a></li>
+                <li><a href="historia.html">&nbsp;&nbsp;Historia&nbsp;&nbsp;</a></li>
+                <li class="select">CENTRO DE INFORMACIÓN</a></li>
+                <a href="https://www.comunitatvalenciana.com/es/inicio"><img class="comunitat" src="../img/comunitat-valenciana-logo-png-transparent.png" alt="Comunitat Vanenciana"></a>
+            </ul>
+        </nav>
+    </div>
+    <header>
+        <a href="../index.html"><img class="alcudia" src="../img/Escudo_Alcudia_de_Crespins.png" alt="Escudo de l'Alcudia de Crespins"></a>
+        <a href="https://www.comunitatvalenciana.com/es/inicio"><img class="comunitat" src="../img/comunitat-valenciana-logo-png-transparent.png" alt="Comunitat Vanenciana"></a>
+        <h1>Turismo l'Alcúdia de Crespins</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a><li><a href="fiestasyactividades.html">fiestas y actividades</a></li><li><a href="historia.html">historia</a></li><li class="select" title="Estás en la página de información">centro de información</li>
+            </ul>
+        </nav>
+    </header> 
+    <div class="tiempo">
+        <section>
+            <input type="checkbox" id="btnTiempo" hidden> <!-- QUITA EL HIDDEN PARA VERLO -->
+            <label for="btnTiempo">
+                <span class="cerrado material-icons">brightness_5</span>
+                <span class="abierto material-icons">brightness_5</span>
+            </label>
+            <article>
+                <iframe class="tiempo" name="iframe_aemet_id33044" width="100%" height="300px" tabindex="0" id="iframe_aemet_id33044" src="https://www.aemet.es/es/eltiempo/prediccion/municipios/mostrarwidget/alcudia-de-crespins-l-id46020?w=g4p01110001ohmffffffw404z190x4f86d9t95b6e9r1s8n2" frameborder="0" scrolling="no"></iframe>
+            </article>
+        </section>
+    </div>
+    <main>
+        <section class="texto infotexto">
+            <section class="texto infotexto">
+                <article class="fondo">
+                    <h2 class="h2info">Cómo llegar</h2>
+                    <p>Con todo lo que hay, y no hay, en l'Alcúdia de Crespins, entendemos que quieras hacernos una visita. Pocos pueblos son tan tranquilos y, al mismo tiempo, tienen cerca algo interesante. Qué bueno sería si, además, fuera fácil llegar hasta aquí. Desde que existen las carreteras que hemos tenido una nacional que pasa por aquí, la N-430, atravesando el país de oeste a este, empezando en la Avda. Ricardo Carapeto de Badajoz y terminando en Valencia. Ya en una historia más reciente, y gracias al importante polígono El Canari, hay una salida directa a L'Alcúdia de Crespins en la A-7, y estamos muy cerca de Xàtiva. Pero qué mejor manera de encontrarnos que por medio de un mapa como el siguiente:</p>
+                    <div><iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1338.1856991452223!2d-0.590021883634855!3d38.9708393422688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd619feecc2cfca3%3A0xebfe81801c508a0b!2sAjuntament%20de%20l&#39;Alc%C3%BAdia%20de%20Crespins!5e0!3m2!1ses!2ses!4v1650195235455!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    <p style="text-align: center; font-size: 3rem; color: var(--fondo); text-shadow: 3px 3px 2px yellow, 1px 1px 2px blue;">¡TE ESPERAMOS!</p>
+                </article>
+            </section>
+            <article class="fondoinfo">
+                <h2 class="h2info">Información</h2>
+                <p>Si estás interesado en visitarnos y tienes cualquier tipo de duda, puedes contactar con nosotros llamando al teléfono <a href="tel://+34962241411">962 24 14 11</a> o enviándo un correo a acrespins_con@gva.es. Si te resulta más sencillo, rellena el siguiente formulario y nosotros nos pondremos en contacto contigo. No olvides dejar al menos un dato de contacto válido, o de lo contrario nos será imposible responder tus dudas. Para mayor seguridad y privacidad, recomendamos un correo electrónico:</p>
+                <div>
+                    <form class="contenedor" method="post" action="/ejercicios/html/respuestaformulario.php">
+                        <label for="nombre">Nombre: </label>
+                        <input type="text" pattern="[A-Za-zÑñÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÇç.\s]{2,30}" name="Nombre" placeholder="Escribe aquí tu nombre (obligatorio)" title="El nombre debe contener sólo letras y no tener más de 30 entre nombre y apellido" required>
+                        <!-- El patrón anterior es para que se pueda usar cualquier letra, incluidas las acentuadas (cerrado y abierto), con espacios (/s) y de 2 a 30 letras -->
+                        <label for="Telefono">Teléfono: </label>
+                        <input type="tel" pattern="[0-9]{9}" name="Telefono" title="El número de teléfono debe tener 9 dígitos" placeholder="Tu teléfono">
+                        <label for="Correo">Correo: </label>
+                        <input type="email" name="Correo" placeholder="Tu correo electrónico (obligatorio)" required>
+                        <textarea name="Mensaje" id="Mensaje" rows="5"
+                            placeholder="Escribe aquí los detalles de tu consulta"></textarea>
+                        <br>
+                        <input type="checkbox" required> Acepto los <a href="/ejercicios/html/privacidad.html">Términos
+                            y
+                            condiciones.</a><br><br>
+                        <input type="submit" value="Enviar" class="boton">
+                    </form>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div class="redes"><a href="https://twitter.com/AjuntaAlcudiaCr"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/1280px-Twitter-logo.svg.png" alt="Logo de Twitter"></a><a href="https://www.facebook.com/lalcudiadecrespins"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="Logo de Facebook"></a><a href="https://www.youtube.com/channel/UC98KC8qi-0fAH1A5JbDOxRA"><img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="Logo de Youtube"></a></div>
+        <div><img class="banner" src="../img/lalcudiabanner.png" alt="Banner de l'Alcúdia de Crespins"></div>
+    </footer>
+</body>
+</html>
