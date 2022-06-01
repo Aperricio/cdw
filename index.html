@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+        <title>Tómate un Pablo</title>
+        <style>
+            :root {
+            min-height: 100vh;
+            background: linear-gradient(45deg, rgb(20, 20, 20) 39%, rgb(143, 5, 90) 96%);
+            }
+            html,
+            body {
+                margin: 0px;
+                padding: 0px;
+                width: 100%;
+                min-height: 10vh;
+                background-size: 1920px;
+                background-position: center;
+                color: white;
+            }
+
+            #cabecera {
+                width: 100%;
+                top: 0px;
+            }
+
+            h1, h2, p {
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+            main {
+                padding-left: 5%;
+                padding-right: 5%;
+                margin-top: 30px;
+
+            }
+
+            /* Barra del deslizador */
+            ::-webkit-scrollbar {
+                width: 10px;
+                transition: 0.5s;
+                border-radius: 30px;
+            }
+
+
+            /* Hueco, el contenedor general de todo el resto de elementos, botones incluidos.*/
+            ::-webkit-scrollbar-track {
+                background: black;
+                border-radius: 30px;            
+                transition: 0.2s;
+            }
+
+
+            /* La barra o rail sobre la que se desliza el manejador */
+            ::-webkit-scrollbar-track-piece {
+                background: rgb(100, 1, 165);
+            }
+
+
+            /* Slider */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(143, 5, 90);
+                border-radius: 15px;
+                transition: 0.5s;
+            }
+
+
+            /* Slider al hacer hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #19597c;
+                transition: 0.5s;
+            }
+
+            header {
+                background-color: rgb(100, 1, 165);
+                font-size: larger;
+                box-shadow: 0px 0px 5px 4px rgb(221, 14, 211);
+                border-radius: 0px 0px 30px 30px;
+                position: sticky;
+                z-index: 9;
+            }
+
+            h1 {
+                font-size: 3em;
+                text-align: center;
+                background: linear-gradient(to right, #3700ff 0%, #dd4c4f 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            h2, h3 {
+                text-align: center;
+            }
+            
+            div > img {
+                transition: 0.5s;
+                max-width: 100%;
+            }
+
+            div > img:hover {
+                transform: rotate(0.03turn);
+                transition: 0.5s;
+            }
+
+            footer {
+                background-color: rgb(100, 1, 165);
+                padding: 10px;
+                color: black;
+                text-align: center;
+                font-size: small;
+                margin-bottom: 0px;
+                margin-top: 0;
+                border-radius: 30px 30px 0px 0px;
+                box-shadow: 0px -4px 5px 0px rgb(221, 14, 211);
+            }
+
+            nav a {
+                display: flex;
+                padding: 10px;
+                text-decoration: none;
+                color: black;
+            }
+
+            nav li {
+                list-style-type: none;
+                float: left;
+            }
+
+            nav li a {
+                transition: 1s;
+            }
+
+            nav li a:hover {
+                box-shadow: inset 0px -100px 10px black;
+                color: rgb(100, 1, 165);
+                transition: 0.5s;
+                -webkit-transition: 1s;
+            }
+
+            nav li a:active {
+                color: red;
+            }
+
+            .navegacionheader {
+                margin: 0;
+                padding: 0;
+            }
+
+            .logo {
+                padding: 5px;
+                width: 30px;
+                height: 30px;
+            } 
+
+            .logo:first-child:hover {
+                transform: translate(-20px, 0%) rotate(-3turn);
+                transition: 1s;
+            }
+
+            .logo:last-child:hover {
+                transform: translate(20px, 0%) rotate(3turn);
+                transition: 1s;
+            }
+
+            div {
+                justify-content: center;
+                display: flex;
+            }
+            
+            #texto {
+                columns: 2 10px;
+                background-color: rgb(100, 1, 165, 0.4);
+                padding: 10px;
+                border-radius: 10px;
+                display: block;
+                min-width: 222px;
+            }
+
+            /*  Se le puede añadir una línea de separación con algo como lo siguiente:         
+            column-rule-width: 1px;
+            column-rule-color: rgb(100, 1, 165);
+            column-rule-style: solid; */
+
+            #texto:hover {
+                box-shadow: 3px 3px 8px white;
+            }
+
+            section p {
+                background-color: rgb(100, 1, 165, 0.4);
+                padding: 10px;
+                border-radius: 10px;
+            }
+
+            section p:hover {
+                box-shadow: 3px 3px 8px white;
+
+            }
+
+            .cuerpo {
+                display: inline-block;
+                width: 58%;
+                margin: auto;
+                padding: 5%;
+            }
+
+            .colaboradores {
+                display: inline-block;
+                position: relative;
+                top: 40px;
+            }
+
+            .colaboradores img {
+                padding-left: 20px;
+                max-height: 50px;
+            }
+
+            aside {
+                display: inline-block;
+                background: linear-gradient(45deg, rgb(143, 5, 90) 9%, rgb(20, 20, 20) 60%);
+                border: 5px solid whitesmoke;
+                box-sizing: border-box;
+                width: 15%;
+                height: 100vh;
+                vertical-align:top;
+                border-radius: 10px;
+                color: white;
+                padding: 10px;
+                transition: 0.5s;
+            }
+
+            aside p {
+                display: flex;
+                font-size: 0.5em;
+                margin-top: 30px;
+            }
+
+            aside img {
+                display: flex;
+                margin-top: 30px;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            aside:hover {
+                box-shadow: 4px 4px 6px rgb(221, 14, 211);
+                transform: scale(1.1);
+                transition: 0.5s;
+            }
+
+            .material-icons {
+                font-size: 1.1em;
+            }
+
+            @media (min-width: 544px) {
+                #desplegable {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 543px) {
+                .navegacionheader {
+                    display: none;
+                }
+
+                #desplegable {
+                    display: block;
+                }
+
+                #jamburguer {
+                    display: flex;
+                    position: relative;
+                    top: -15px;
+                    left: -20px;
+                    border-radius: 10px; 
+                }
+
+                header nav {
+                    line-height: 30px;
+                    height: 30px;
+                }
+
+                header nav ul {
+                    list-style-type: none;
+                    background-color: rgb(100, 1, 165);
+
+                }
+
+                header nav ul li {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    position: relative; /* sólo para que funcione el ABSOLUTE*/
+                }
+
+                header nav a {
+                    text-decoration: none;
+                    color: black;
+                    padding: 0px 20px;
+                    border-radius: 20px;
+                }
+
+                header nav li:hover {
+                    background-color: rgb(100, 1, 165);
+                }
+
+                header nav li {
+                    border-radius: 20px 20px 0px 0px;
+                }
+
+                header nav li > ul {
+                    display: none;
+                }
+
+                header nav li > ul > li:hover {
+                    border-radius: 20px;
+                }
+
+                header nav li:hover > ul {
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 30px;
+                    left: -20px;
+                    width: 90px;
+                    box-shadow: 0px 4px 3px rgb(221, 14, 211);
+
+                }
+
+                header nav li:hover > ul a {
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    left: -40px;
+                    padding: 10px;
+                    width: 110px;
+                }
+
+                header nav li:hover > ul:last-child {
+                    border-radius: 0px 0px 20px 20px;
+                }
+
+                audio {
+                    max-width: 200px;
+                }
+            }
+            
+        </style>
+    </head>
+
+    <body>
+        <header id="cabecera">
+            <div>
+                <img class="logo" width="50" src="/img/Pablo.png" alt="Logo de Pablo">
+                <nav>
+                    <ul class="navegacionheader">
+                        <li><a class="material-icons" href="http://tomateun.com" title="tomateun.com">home</a></li>
+                        <li><a href="/ejercicios/ultimo.html" title="Último ejercicio que hemos hecho">Último ej.</a></li>
+                        <li><a href="/ejercicios/html/index.html" title="Enlaces a los ejercicios de HTML">HTML</a></li>
+                        <li><a href="/ejercicios/css/index.html" title="Enlaces a los ejercicios de CSS">CSS</a></li>
+                        <li><a href="/ejercicios/javascript/index.html" title="Enlaces a los ejercicios de JavaScript">JavaScript</a></li>
+                        <li><a href="/ejercicios/html/descargas.html">Documentos</a></li>
+                        <li><a class="material-icons" href="/ejercicios/html/contacto.html" title="Contacta conmigo">email</a></li>
+                    </ul>
+                    <nav id="desplegable">
+                        <ul>
+                            <li id="jamburguer"><a href="index.html">Menú</a>
+                                <ul>
+                                    <li><a class="material-icons" href="http://tomateun.com" title="tomateun.com">home</a></li>
+                                    <li><a href="/ejercicios/ultimo.html" title="Último ejercicio que hemos hecho">Último ej.</a></li>
+                                    <li><a href="/ejercicios/html/index.html" title="Enlaces a los ejercicios de HTML">HTML</a></li>
+                                    <li><a href="/ejercicios/css/index.html" title="Enlaces a los ejercicios de CSS">CSS</a></li>
+                                    <li><a href="/ejercicios/javascript/index.html" title="Enlaces a los ejercicios de JavaScript">JavaScript</a></li>
+                                    <li><a href="/ejercicios/html/descargas.html">Documentos</a></li>
+                                    <li><a class="material-icons" href="/ejercicios/html/contacto.html" title="Contacta conmigo">email</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </nav>
+                <img class="logo" width="50" src="/img/Pablo.png" alt="Logo de Pablo">
+        </header>
+        <main>
+            <aside>
+                <a href="https://apple.com/es"><img style="filter: invert(1);" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/488px-Apple_logo_black.svg.png" alt="La pometa"></a><a href="https://www.microsoft.com/es-es"><img style="width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png" alt="Logo de Maicrosof"></a><a href="https://www.kernel.org"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/800px-Tux.svg.png" alt="Tux"></a>
+                <p>¡Y aquí están mis &lt;aside&gt;'s, madrefocas! Bien colocados, en su sitio, como debe ser. A pesar de ir escribiendo como una cabrita, se ha podido arreglar la cosa. Además, esta página es responsiva, por lo que eso de la publicidad pagada a 1M€/s está más cerca que nunca</p>
+            </aside>
+            <section class="cuerpo">
+                <h1>Tómate un Pablo</h1>
+                <div>
+                    <img src="/img/pablobanner.png" alt="Pablo Aparicio con transparencia">
+                </div>
+                <br>
+                <article>
+                    <p>Güelcom to mai página principal. Aquí solía poner todo lo que se me ocurría, y ahora hago lo mismo, pero sabiendo un poco más. A esta página la llamaba mi "Playground", que es es el término que se usa para referirse a un patio, recreo o campo de pruebas. Aquí seguiré probando cositas, y también están todos los ejercicios en el menú. Puedo hacer alguna cosa rara, así que... que nadie llore si toca algún botón y le explota el PC, móvil o tablet. Si entras aquí y no se te quema nada, vamos bien.</p>
+                </article>
+                <article>
+                    <h2>Probando a escribir en dos columnas</h2>
+                    <p id="texto">Hola, qué ase (no es viejo eso ni nada). Vamos a probar también esto de escribir en diferentes columnas. Así es como se escribe en los diarios, y en teoría facilita la lectura al mostrar lineas más cortas. Aquí podría poner algo de LOREM IPSUM, pero mejor si me curro un poco el texto, aunque sea muy poco. La distribución del texto se va haciendo automáticamente; nosotros vamos escribiendo y la propiedad "columns", a la que le he dado unos valores de 2 (cantidad de columnas) y 10px de ancho, va orgánizándolo todo. No sé si se usará mucho, pero aquí dejo el ejemplo. Y ahora sí, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, error.</p>
+                </article>
+                <article>
+                    <h2>Bad reputeison</h2>
+                    <p style="text-align: center;">
+                        <cite title="Joan Jett, 1983">
+                            I don't give a damn 'bout my reputation <br>
+                            You're living in the past, it's a new generation <br>
+                            Pablo can do what he wants to do and that's what I'm gonna do <br>
+                            An' I don't give a damn 'bout my bad reputation <br>
+                            Oh no, not me <br><br>
+                            <audio controls loop autoplay>
+                                <source src="/documentos/badreputation.mp3" type="audio/mp3">
+                                Si no puedes escuchar un simple MP3, cambia de ordenador/móvil
+                            </audio>
+                        </cite>
+                    </p>
+                </article>
+                <div>
+                    <article class="colaboradores">
+                        <h2>Colaboradores</h2>
+                        <a href="http://tecnoserviceformacion.com"><img src="http://tecnoserviceformacion.com/assets/images/ts428-428x200.jpg" alt="Logo de TecnoService"></a><a href="https://www.hp.com/es-es/home.html"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/640px-HP_logo_2012.svg.png" alt="Logo de HP"></a><a href="https://www.metallica.com"><img style="transform: scale(1.3); filter: invert(1);" src="https://upload.wikimedia.org/wikipedia/an/thumb/8/84/Logo_Metallica.svg/768px-Logo_Metallica.svg.png" alt="Logo de MetallicA"></a>
+                    </article>
+                </div>
+            </section>
+            <aside><a href="https://www.ferrari.com/es-ES"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Ferrari-Logo.svg/800px-Ferrari-Logo.svg.png" alt="Logo de Ferrari"></a><a href="https://www.bentleymotors.com/en.html"><img style="width: 100%; filter: invert(0.15);" src="https://www.inspiirecoaching.com/wp-content/uploads/2020/07/Bentley-logo.png" alt="Logo de Bentley"></a><a href="https://www.rolex.com/es"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Logo_da_Rolex.png" alt="Logo de Rolex"></a>
+                <p>Esto es otro &lt;aside&gt, y aquí irá publicidad pagada cara que te cajas en las brajas.</p></aside>
+            <br>
+        </main>
+        <br><br>
+        <footer>
+            <address>
+                Pablo Aparicio<br>Calle con puertas nº666<br>Tel: 618325... lo que rima
+            </address>
+        </footer>
+    </body>
+
+</html>
