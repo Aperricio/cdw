@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+    <title>Etiquetas</title>
+    <style>
+        body {
+            margin: 50px;
+            max-width: 830px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bloques, elementos y etiquetas</h1>
+    <p>En este ejercicio vimos varias etiquetas, algunas de bloque y algunas de línea. Un elemento puede ser todo lo que
+        hay dentro entre &lt;p&gt; y &lt;/p&gt;. Las etiquetas de bloque ocupan todo el ancho de la pantalla, como
+        &lt;hr&gt;. Hay etiquetas pueden usarse dentro de otras etiquetas, y son "inline", en linea, anidadas o hijas.
+    </p>
+    <p>Las etiquetas del ejercicio fueron:</p>
+    <h1>Titulo</h1>
+    <h2>Título 2</h2>
+    <h3>Título 3</h3>
+    <h4>Título 4</h4>
+    <h5>Título 5</h5>
+    <h6>Título 6</h6>
+    <p>Todas las etiquetas anteriores son de bloque. La H1 es el titular del artículo; la H2 es un título intermedio. A
+        partir del H3 son más bien para un índice que puede aparecer en la misma página. El texto normal va en la
+        etiqueta &lt;p&gt;, de un párrafo como este mismo.</p>
+    <p>La etiqueta &lt;br&gt; es para hacer un salto de línea, y la &lt;hr&gt; es una línea horizontal como la siguiente
+    </p>
+    <hr>
+    <p>Las dos etiquetas anteriores pueden tener una barra (/) al final, pero no es necesaria en HTML5.</p>
+    <blockquote>Esto es una cita de bloque, y suele aparecer con mayor sangría o desplazada a la derecha. Para completar
+        un poco, pondremos aquello de Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur repellendus
+        repudiandae, eos quaerat porro impedit alias dolorum similique veniam voluptate!</blockquote>
+    <p>La etiqueta &lt;q&gt; es una cita breve. Le añade comillas. Entonces dijo <q title="Cruz y Raya">Si hay que ir,
+            se va, pero ir pa nah es tontería</q>.</p>
+    <p>&lt;abbr&gt; permite añadir una abreviación. Por ejemplo, <abbr title="System of a Down">SOAD</abbr> </p>
+    <p>Parecidas son &lt;cite&gt; y &lt;dfn&gt;. Se les puede añadir el atributo "title" para que aparezca el autor de
+        la "cita" y la "definición" respectivamente al poner el cursor encima. Esta información es importante para
+        Google o para dejar claro qué es qué en el contenido de un documento HTML.</p>
+    <address>Pablo Aparicio<br>Mi casa<br> <a href="mailto:pablo@tomateun.com">pablo@tomateun.com</a> </address>
+    <hr>
+    <p>Entre las etiquetas inline o anidadas tenemos las b, i, sup y sub, que ponen el texto en <b>negrita</b>,
+        <i>cursiva</i>, <sup>superíndice</sup> y <sub>subíndice</sub> (de las dos últimas, sup se puede usar para elevar
+        a una potencia y sub para escribir correctamente H<sub>2</sub>O.
+    </p>
+    <p>&lt;ins&gt; permite indicar que hemos insertado un texto, como en este ejemplo: Pablo es <del>andaluz</del>
+        <ins>valenciano.</ins> &lt;s&gt; también tacha el texto.
+    </p>
+    <p>Etiquetas que hacen lo mismo que &lt;i&gt; y &lt;b&gt; son &lt;em&gt; y &lt;strong&gt;, pero hay diferencias
+        importantes que explicaremos más adelante.</p>
+    <p>&lt;small&gt; pone el texto <small>pequeño</small> y &lt;mark&gt; lo <mark>marca en amarillo (no se puede en otro
+            color).</mark> </p>
+    <p>&lt;time&gt; y &lt;date&gt; sirven para indicar la hora y fecha, para hacerlo bien por la carga semántica.</p>
+    <h2>La carga semántica</h2>
+    <p>Es importante saber que hay etiquetas con carga semántica y etiquetas sin carga semántica. A la vista, las B y
+        STRONG, como las DEL y S y EM e I, se ven igual, pero las STRONG, DEL y EM tienen carga semántica. Esto
+        significa que el navegador las detecta como diferentes, y un software para ciegos las leería diferente. Sin
+        carga semántica, sólo se ve diferente, pero no es importante para el navegador.</p>
+    <p>El ejemplo de intentar ponernos en la piel de un ciego es un buen ejercicio para entender esto, y Google es un
+        robot sin vista. En ambos casos, lo importante es que tenga carga semántica. No usarlo con carga puede servir
+        como referencia visual.</p>
+    <br>
+    <hr>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Página principal</a></li>
+                <li><a href="index.html">Ejercicios de HTML</a></li>
+                <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                <li><a href="../javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+            </ul>
+        </nav>
+    </footer> 
+</body>
+
+</html>

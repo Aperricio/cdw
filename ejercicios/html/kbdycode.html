@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+    <style>
+        body {
+            padding: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 800px;
+            background-color: skyblue;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        div {
+            justify-content: center;
+            display: flex;
+        }
+
+        kbd {
+            background-color: #555;
+            color: white;
+            border: 3px double grey;
+            border-radius: 5px;
+            line-height: 2em;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+    
+    </style>
+    <title>Uso de &lt;kbd&gt; y &lt;code&gt;</title>
+</head>
+
+<body>
+    <h1 style="background-color: brown; padding: 15px; border-radius: 75px; text-align: center;">Uso de &lt;kbd&gt; y &lt;code&gt;</h1>
+
+    <p>Este ejercicio o anotación me lo he hecho para mi mismo, no se dio en el curso ni sirve de mucho, pero sí es interesante. Cuando hablamos de las primeras etiquetas, hablamos de la carga semántica, es decir, lo que le dice al navegador qué es qué, y eso también lo usa Google para analizar el contenido HTML y valorar si un documento es mejor o peor.</p>
+    <p>Por ese motivo hay que usar etiquetas cuando lo requieran. ¿Para qué podemos usar &lt;kbd&gt;? La etiqueta significa teclado (keyboard), y se usa para indicar qué teclas tenemos que presionar para conseguir algo. Por ejemplo, en Linux para sacar un terminal tenemos que presionar <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd>. Además, si le damos forma, parecen teclas. Lo siguiente, lo que explica cómo hacerlo, se escribiría usando &lt;code&gt;:</p>
+    
+    <code>
+        &lt;kbd style="background-color: #555; color: white; border: 3px double grey; border-radius: 5px;">Ctrl&lt;/kbd> + &lt;kbd style="background-color: #555; color: white; border: 3px double grey; border-radius: 5px;">Alt&lt;/kbd> + &lt;kbd style="background-color: #555; color: white; border: 3px double grey; border-radius: 5px;">&nbsp;T &lt;/kbd> </code><br><br>
+    <p>También se puede crear un estilo CSS que quedaría así:</p>
+
+    <code>
+        kbd { <br>
+            &nbsp;&nbsp;&nbsp;    background-color: #555; <br>
+            &nbsp;&nbsp;&nbsp;    color: white; <br>
+            &nbsp;&nbsp;&nbsp;    border: 3px double grey; <br>
+            &nbsp;&nbsp;&nbsp;    border-radius: 5px; <br>
+        }
+    </code> <br>
+    <p>No es algo que nos vaya a salvar la vida, pero es semánticamente correcto y queda mejor si se tiene que compartir contenido a modo de tutorial.</p>
+    <br>
+    <hr>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Página principal</a></li>
+                <li><a href="index.html">Ejercicios de HTML</a></li>
+                <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                <li><a href="../javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+            </ul>
+        </nav>
+    </footer> 
+</body>
+
+</html>
