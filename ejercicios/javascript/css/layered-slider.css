@@ -68,7 +68,8 @@ ul.lslider {
 ul.lslider li {
     height: 510px;
     float: left;
-    position: relative
+    position: relative;
+    list-style-type: none;
 }
 
 ul.lslider li img {
