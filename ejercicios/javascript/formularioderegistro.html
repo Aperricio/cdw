@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de registro</title>
+
+    <script>
+        function validar(elFormulario) {
+            if (elFormulario.contrasena1.value != elFormulario.contrasena2.value) {
+                alert("Las contraseñas no coinciden");
+                elFormulario.contrasena1.focus();
+                return false;
+            } else {
+                alert("Registro completado");
+                return true;
+            }
+        }
+        
+    </script>
+    <style>
+        main {
+            text-align: center;
+        }
+
+        input {
+            margin: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: rgba(240, 248, 255, 0.7);
+            border: none;
+            text-align: center;
+        }
+
+        input:hover {
+            background-color: rgba(240, 248, 255, 0.9);
+        }
+
+        input[type="submit"] {
+            text-transform: uppercase;
+            padding: 13px;
+            border-radius: 30px;
+            cursor: pointer;
+            color: white;
+            background-color: brown;
+            transition: 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            box-shadow: 1px 1px 2px grey;
+            transition: 0.2s;
+            transform: translateY(7px) scale(1.1);
+        }
+
+        form {
+            background-image: url("https://c.files.bbci.co.uk/6FD4/production/_90982682_thinkstockphotos-510159416.jpg");
+            background-size: cover;
+            margin: 80px auto;
+            width: 400px;
+            max-width: 80vw;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .input100x100 {
+            width: 90%;
+        }
+
+        #nombre {
+            position: relative;
+            width: 170px;
+            left: 2px;
+        }
+
+        #apellido {
+            position: relative;
+            right: 2px;
+            width: 170px;
+        }
+
+        .aceptar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: rgba(240, 248, 255, 0.7);
+            align-items: center;
+            border-radius: 10px;
+            max-width: 370px;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <form method="post" action="../html/respuestaformulario.php" onsubmit="return validar(this);"> <!-- Por lo menos en mi caso, si pongo 'onsubmit="validar(this)"; return false;', no me envía nada. Lo que he hecho ha sido pedir que me devuelva (return) el resultado de la función validar(): si la función devuelve falso, porque no se cumplen las condicinoes, no se envía. Si se cumplen las condiciones, es verdadero y el formulario se envía. NO SÉ si esto es así, pero me funciona. -->
+            <h1 class="aceptar">Formulario de registro</h1><br>
+            <input id="nombre" type="text" placeholder="Nombre">
+            <input id="apellido" type="text" placeholder="Apellido"><br>
+            <input class="input100x100" id="email" type="email" name="email" placeholder="email"><br>
+            <input class="input100x100" id="contrasena1" name="contrasena1" type="password" placeholder="Contraseña"><br>
+            <input class="input100x100" id="contrasena2" name="contrasena2" type="password" placeholder="Repite contraseña"><br><br>
+            <div class="aceptar"><input type="checkbox" required>Acepto los <a href="privacidad.html">Términos y condiciones.</a><br><br></div><br>
+            <input type="submit" value="Regístrese ahora"> 
+        </form>
+    </main>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>  
+</body>
+</html>

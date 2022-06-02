@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Función con parámetro</title>
+    <style>
+        body {
+            background-color: blanchedalmond;
+        }
+        
+        main {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Función con parámetro</h1>
+    </main>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+    <script>
+        function minuto(tope) {
+            let fecha = new Date();
+            let elMinuto = fecha.getMinutes();
+
+            if ( elMinuto < tope ) {
+                alert(elMinuto + " es menos que " + tope)
+            }
+            else {
+                alert(elMinuto + " es más que " + tope)
+            }
+        }
+
+        minuto(1);
+        minuto(30);
+        minuto(59);
+    </script>
+</body>
+</html>

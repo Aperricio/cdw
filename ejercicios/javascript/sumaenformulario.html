@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma en un formulario</title>
+    <style>
+        main {
+            text-align: center;
+        }
+
+        input {
+            width: 100px;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 10px;
+            text-align: center;
+            background-color: bisque;
+        } 
+    </style>
+    <script>
+        function sumar() {
+            let valor1 = parseInt(document.getElementsByName("num1")[0].value); // En este caso, busca elementos con el name "num1" y escoge el primero (0 es el primero). En otras palabras, busca el primer elemento con el name "num1".
+            let valor2 = parseInt(document.getElementById('el2').value);
+            let valor3 = parseInt(calcu.num3.value); // En este caso, coge el valor del elemento con el id "num3" que está dentro del elemento con el id "calcu".
+            let suma = ( valor1 + valor2 + valor3 );
+            calcu.solu.value = suma; // Después de hacer la suma, pone el resultado en el elemento con el id "solu".
+        }
+    </script>
+</head>
+<body>
+    <main>
+        <h1>Formulario para sumar tres números</h1>
+        <form name="calcu">
+            <label for="num1">Número 1:</label><br>
+            <input type="number" name="num1" id="el1" step="1"><br>
+            <label for="num2">Número 2:</label><br>
+            <input type="number" name="num2" id="el2" step="1"><br>
+            <label for="num3">Número 3:</label><br>
+            <input type="number" name="num3" id="el3" step="1"><br><br>
+            <label for="solu">Suma:</label><br>
+            <input name="solu" readonly><br><br>
+            <input type="button" value="Calcular" onclick="sumar()">
+        </form>
+    </main>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>

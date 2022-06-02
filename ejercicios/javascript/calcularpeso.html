@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular peso ideal</title>
+    <style>
+        body {
+            background-color: skyblue;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            height: 100vh;
+            margin: 30px;
+        }
+
+        input {
+            text-align: center;
+            max-width: 120px;
+            margin: 5px;
+            background-color: aliceblue;
+            border: none;
+            border-radius: 4px;
+            padding: 3px;
+        }
+        
+
+        form {
+            padding: 10px;
+            min-width: 25vw;
+            border-radius: 8px;
+            background-color: aquamarine;
+            box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.404), inset -3px -3px 5px rgba(0, 0, 0, 0.404);
+        }
+
+        section {
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+        }
+
+        #calcPeso section {
+            margin-top: 15px;
+        }
+
+        .calcular {
+            background-color: grey;
+            color: white;
+            padding: 10px !important;
+            border: none;
+            border-radius: 4px;
+            padding: 3px;
+            margin: 5px;
+            font-size: 1.2rem;
+        }
+
+        .calcular:hover {
+            background-color: darkgrey;
+            color: black;
+        }
+
+    </style>
+    <script> 
+    
+
+        function calcularPesoIdeal() {
+            let pesoIdeal; // Se declara y así ya existe.
+            let sexo = document.getElementById("sex").value; // Esto recogerá el valor de la casilla Sexo.
+            let altura = parseFloat(document.getElementById('altura').value); // Esto recogerá el valor de la casilla Altura. "Float" es un número con decimales.
+            let peso = parseFloat(document.getElementById('peso').value); // Esto recogerá el valor de la casilla Peso.
+            while (( sexo != "Hombre") && (sexo != "Mujer") && sexo != "nobinario") { // Para no ofender a nadie, que soy muy majo, se ha añadido la opción "No binario", y hay que elegir una de las tres opciones para poder seguir.
+                alert("Debes elegir un sexo");
+                return; // Se detiene la ejecución del programa. Si no se pusiera, se ejecutaría el código de abajo. Si se usa "break", el bucle se detiene, pero continúa con el código, y no es eso lo que busco. Como es un bucle, si no le pedimos que pare se volvería a mostrar el aviso de arriba... indefinidamente. Sí, lo he comprobado :/
+            }
+
+            while (( altura > 2.5) || ( altura < 0.8 )) { // La altura máxima será de 2.5 metros y la mínima de 0.8 metros.
+                alert("Pon una altura más... realista");
+                return; 
+            }
+
+            if ( ( sexo == "Hombre" ) ) { // No sé si estos valores son correctos, pero son lo que dice el indice de broca. Según Lorentz: ( talla en cm - 100 ) - ((talla en cm - 150) / 4) + ((edad -20) / k ). K es 4 en hombres y 2.5 si es mujer.
+                pesoIdeal = (100 * altura - 100) - ((100 * altura - 100 ) - 52) * 0.2;
+            } else {
+                pesoIdeal = (100 * altura - 100) - ((100 * altura - 100 ) - 52) * 0.4;
+            } // Son una referencia, nada más. No se pueden tomar en serio estos valores sin consultar con un profesional.
+
+            document.getElementById("pesoideal").innerHTML = ('Tu peso ideal, según el indice de broca, es <strong> ' + pesoIdeal.toFixed(2) + "kg</strong>."); // Esto cambia el texto del párrafo con id pesoideal y le añade el cálculo de arrriba. La opción toFixed(2) es para que muestre 2 decimales.
+
+            let imc = peso / (altura * altura); // Esto es para calcular el IMC. Ojo, que es una referencia un poco cutre. Yo con 100kg estaba más en forma que ahora, y el cálculo del IMC me diría que tenía obesidad.
+
+            /*-- ----------------------------------------------------------------------- -->
+            <!--               Los cálculos siguiente lo encontré en internet            -->
+            <!--              Distingue entre hombres y mujeres, pero no edades          -->
+            <!-- ----------------------------------------------------------------------- -*/
+
+            function colorFondo(color) { // Esta función es para cambiar el color de fondo de la página, para evitar tener que añadir los atributos en cada franja del IMC y para añadir la transición, que parece que funciona mejor si antes se declara una variable para el id "cuerpo".
+                if ( color == "Rojo" ) {
+                let variableCuerpo = document.getElementById("cuerpo");
+                let variableForm = document.getElementById("calcPeso");
+                variableCuerpo.style.transition = "1s";
+                variableCuerpo.style.backgroundColor = "red";
+                variableForm.style.color = "black";
+                variableCuerpo.style.color = "white";
+                } else if ( color == "Naranja" ) {
+                let variableCuerpo = document.getElementById("cuerpo");
+                variableCuerpo.style.transition = "1s";
+                variableCuerpo.style.backgroundColor = "orange";
+                } if ( color == "Verde" ) {
+                let variableCuerpo = document.getElementById("cuerpo");
+                variableCuerpo.style.transition = "1s";
+                variableCuerpo.style.backgroundColor = "#00ff00";
+                }
+            }
+
+            function textoIMC() {
+                document.getElementById("imc").innerHTML = "Tu IMC es <strong>" + imc.toFixed(2) + "</strong>.";
+            }
+
+            function tipoPeso(tipo) {
+                if ( tipo == "obesidad severa") {
+                    document.getElementById("obesodelgado").innerHTML = "Tienes <u>obesidad severa</u>.";
+                    colorFondo("Rojo");
+                    textoIMC();
+                } else if ( tipo == "obesidad") {
+                    document.getElementById("obesodelgado").innerHTML = "Tienes <u>obesidad</u>.";
+                    colorFondo("Rojo");
+                    textoIMC();
+                } else if ( tipo == "sobrepeso" ) {
+                    document.getElementById("obesodelgado").innerHTML = "Tienes <u>sobrepeso</u>.";
+                    colorFondo("Naranja");
+                    textoIMC();
+                } else if ( tipo == "normal" ) {
+                    document.getElementById("obesodelgado").innerHTML = 'Estás <u>dentro de lo "normal"</u>.'; 
+                    colorFondo("Verde");
+                    textoIMC();
+                } else if ( tipo == "debajonormal" ) {
+                    document.getElementById("obesodelgado").innerHTML = 'Estás por <u>debajo de lo "normal"</u>.'; 
+                    colorFondo("Naranja");
+                    textoIMC();
+                } else if ( tipo == "desnutricion" ) {
+                    document.getElementById("obesodelgado").innerHTML = 'Tienes <u>desnutrición</u>.'; 
+                    colorFondo("Rojo");
+                    textoIMC();
+
+                }
+            }
+
+            if ( imc >= 40) {  // Válido para ambos sexos.
+                textoIMC();
+                let variableCuerpo = document.getElementById("cuerpo");
+                colorFondo("Rojo");
+                document.getElementById("obesodelgado").innerHTML = "Tienes <u>obesidad mórbida</u>.";
+            } 
+
+            if ((( sexo == "Mujer" || sexo == "nobinario" )) && ( imc >= 35 && imc < 40)) { // Como no soy tan majo, si eliges "No binario" se mostrará lo mismo que si eliges "Mujer". ¿Por qué? Porque, por lo menos en la informacion que he encontrado yo, sale sobrepeso un poco antes :P 
+                tipoPeso("obesidad severa");
+            } else if (( sexo == "Hombre" ) && ( imc >= 36 && imc < 40)) {
+                tipoPeso("obesidad severa");
+            } else if ((( sexo == "Mujer" || sexo == "nobinario" )) && ( imc >= 30 && imc < 35 )) {
+                tipoPeso("obesidad");
+            } else if (( sexo == "Hombre" ) && ( imc >= 31 && imc < 36)) {
+                tipoPeso("obesidad");
+            } else if ((( sexo == "Mujer" || sexo == "nobinario" )) && ( imc >= 25 && imc < 30)) {
+                tipoPeso("sobrepeso");
+            } else if (( sexo == "Hombre" ) && ( imc >= 26 && imc < 31)) {
+                tipoPeso("sobrepeso");
+            } else if ((( sexo == "Mujer" || sexo == "nobinario" )) && ( imc >= 21 && imc < 25)) {
+                tipoPeso("normal");
+            } else if (( sexo == "Hombre" ) && ( imc >= 21 && imc < 26)) {
+                tipoPeso("normal");
+            } else if ((( sexo == "Mujer" || sexo == "nobinario" )) && ( imc >= 17 && imc < 21)) {
+                tipoPeso("debajonormal");
+            } else if (( sexo == "Hombre" ) && ( imc >= 18 && imc < 21)) {
+                tipoPeso("debajonormal");
+            } else if ((( sexo == "Mujer" || sexo == "nobinario" )) && ( imc  < 17 )) {
+                tipoPeso("desnutricion");
+            } else if (( sexo == "Hombre" ) && ( imc  < 18 )) { //si pongo sólo "else", las mujeres con IMC superior a 40 me lo coge como "desnutricion"
+                tipoPeso("desnutricion");
+            }
+        }
+
+    </script>
+</head>
+<body id="cuerpo">
+    <main>
+        <section>
+            <h1>Calcula tu peso ideal e IMC</h1>
+            
+            <form id="calcPeso">
+                <section>
+                    <label for="altura" name="altura">Altura:</label><br>
+                    <input id="altura" type="number" value="1.70" step="0.01" max="2.50"><br><br>
+                    <label for="peso" name="peso">Peso:</label><br>
+                    <input id="peso" type="number" value="70" step="0.01" min="30"><br><br>
+                    <label for="sexo">Sexo: </label><br>
+                    <select id="sex" list="sexo" name="sexo">
+                        <option disabled selected hidden value="Elije opción">Eres:</option>
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
+                        <option value="nobinario">No binario</option>
+                    </select><br><br>
+                    <input class="calcular" type="button" value="Calcular" onclick="calcularPesoIdeal()"><br><br>
+                </section>
+            </form>
+            <p id="pesoideal"></p>
+            <p id="imc"></p>
+            <p id="obesodelgado"></p>
+        </section>
+    </main>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>    
+</body>
+</html>

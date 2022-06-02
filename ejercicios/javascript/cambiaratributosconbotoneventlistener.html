@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar atributos con addEventListener</title>
+    <style>
+        main {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function cambiarColor() {
+            let variableParrafo = document.getElementById('cuerpo');
+            let boton = document.getElementById('miBtn')
+            
+            if ( variableParrafo.style.backgroundColor=="black") { // Cuando esté en negro, pondrá el color de la letra en negro y el fondo en blanco.
+                variableParrafo.style.color="black";
+                variableParrafo.style.backgroundColor="white";
+                variableParrafo.style.transition="1s";
+                miBtn.style.backgroundColor="red";
+                miBtn.style.color="yellow";
+                miBtn.style.borderRadius="5px";
+            }            
+            else  { // Como NO está con el fondo negro, que es lo que se le pide arriba, en el primer clic funcionará.
+                variableParrafo.style.color="white";
+                variableParrafo.style.backgroundColor="black";
+                variableParrafo.style.transition="1s";
+                miBtn.style.backgroundColor="yellow";
+                miBtn.style.color="red";
+                miBtn.style.borderRadius="5px";
+            }
+        }
+
+        function ponEventos() {
+            document.getElementById("miBtn").addEventListener("click", cambiarColor); // document es todo el documento HTML; getElementById() busca un elemento por su ID; addEventListener es un "escuchador" de eventos, que se activará cuando se haga "click" y hará lo que diga la función cambiarColor(), que en este caso va sin paréntesis.
+        }
+    </script>
+</head>
+<body id="cuerpo" onload="ponEventos()">
+    <main>
+        <h1>Cambiar atributos con addEventListener</h1>
+        <p id="parrafo">Esto va a cambiar de color</p>
+        <p id="otro">Este no cambiará (... en el ejercicio original)</p><br>
+        <input id="miBtn" type="button" value="¡Cambia!">
+        
+    </main><br>
+    <hr>
+    <footer> 
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de uso de cookies</title>
+    <script>
+        /*-- ----------------------------------------------------------------------- -->
+        <!--               FUNCIONES BASICAS PARA TRABAJAR CON COOKIES               -->
+        <!-- ----------------------------------------------------------------------- -*/
+
+
+        // Devuelve la cookie con el nombre dado, undefined si no la encuentra
+        function dimeCookie(name) {
+            let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+            }
+
+
+        // Añade una cookie nueva que viene dada por su nombre y el valor a almacenar y otras opciones como su fecha de caducidad
+        function guardaCookie(name, value, options = {}) {
+            options = {
+               // path: '/',
+                // agregar otros valores predeterminados si es necesario
+                ...options
+                };
+            if (options.expires instanceof Date) {
+               options.expires = options.expires.toUTCString();
+               }
+            let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+            for (let optionKey in options) {
+                updatedCookie += "; " + optionKey;
+                let optionValue = options[optionKey];
+                if (optionValue !== true) {
+                    updatedCookie += "=" + optionValue;
+                    }
+                }
+            document.cookie = updatedCookie;
+            }
+
+
+            // Para eliminar una cookie ponemos su fecha de caducidad a un momento YA PASADO (-1)
+        function borraCookie(name) {
+            guardaCookie(name, "", { 'max-age': -1 } )
+        }
+            /*-- ----------------------------------------------------------------------- -->
+            <!--             FIN FUNCIONES BASICAS PARA TRABAJAR CON COOKIES             -->
+            <!-- ----------------------------------------------------------------------- -*/
+    </script>
+</head>
+<body>
+    <h1 id="bienvenida">¡Hola!</h1>
+    <h2>Ñañañañaññañaña recuerdo tu nombre... como mucho un día</h2>
+    <hr>
+    <input type="button" onclick="olvidame()" value="Olvídame">
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>    
+
+    <script>
+         /*-- ----------------------------------------------------------------------- -->
+         <!--                  Funciones concretas de este ejercicio                  -->
+         <!-- ----------------------------------------------------------------------- -*/
+        function olvidame() {
+            borraCookie('elNombre');
+            alert("Le he olvidado");
+            document.getElementById('bienvenida').innerHTML = '¡ Hola !';
+            }
+
+        if ( dimeCookie('elNombre') == null ) {
+            let suNombre = prompt("Escriba su nombre");
+            let caducidad = 24*60*60 ; // Caduca en un dia INDICANDO en segundos desde ahora
+            guardaCookie('elNombre', suNombre, { 'max-age': caducidad } );
+            // guardaCookie('elNombre', suNombre, { secure: true, 'max-age': caducidad } ); // Solo si es HTTPS
+        } 
+
+        let nombreGuardado = dimeCookie('elNombre');
+        if ( nombreGuardado == null ) { nombreGuardado = ""; }
+        document.getElementById('bienvenida').innerHTML = '¡ Hola ' + nombreGuardado + ' ¡';
+    
+
+</script>
+</body>
+</html>

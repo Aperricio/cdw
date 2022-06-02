@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio mayoría de edad</title>
+    <style>
+        body {
+            background-image: url("https://estaticos-cdn.prensaiberica.es/clip/d00c7176-bbe2-48e1-a469-872754aaaa25_source-aspect-ratio_default_0.jpg");
+            background-size: 130%;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            background-position-x: center;
+        }
+
+        main {
+            display: grid;
+            height: 100vh;
+            text-align: center;
+            align-content: center;
+            color: rgb(168, 3, 3);
+            text-shadow: 2px 2px 3px white, 4px 4px 4px black;
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        p {
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+
+        h1, p {
+            margin: 0px;
+            padding: 20px;
+        }
+
+        section {
+            box-shadow: 3px 3px 5px grey, -2px -2px 3px pink;
+            max-width: 60%;
+            margin: 0 auto;
+            border-radius: 15px;
+            background-color: rgba(0, 0, 255, 0.151);
+        }
+
+        @media (max-width: 620px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.3rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Caçallaland</h1>
+            <p>¡Pase y beba to lo que quieraaaaaaaaa!</p>
+        </section>
+    </main>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+    <script>
+        /*-- ----------------------------------------------------------------------- -->
+        <!--                          Variables y funciones                          -->
+        <!-- ----------------------------------------------------------------------- -*/
+
+        "use strict"; // Modo Estricto. No permite, por ejemplo, usar variables no declaradas.
+        let anyoHoy = new Date().getFullYear();
+        let mesHoy = new Date().getMonth();
+        let anyoNacimiento = 0;
+        let mesNacimiento = 0;
+        const mayorDeEdad = 18;
+        function diferenciaAnyos() {
+            return anyoHoy - anyoNacimiento
+        } // Esta función calculará la diferencia entre el año actual y el que le introduzcamos. Para un ejercicio tan simple puede no hacer falta, pero mejor acostumbrarse. Si anyoHoy y anyoNacimiento no fueran variables declaradas, sería necesario declarar una nueva variable para obtener algún resultado. Al existir ambas, es suficiente si se le pide que nos "devuelva" o "saque" el resultado de la operación.
+        function obtenerCuatroDigitos() {
+            if (( anyoNacimiento >= 0 ) && ( anyoNacimiento <= ( anyoHoy - 2000 ) )) {
+            anyoNacimiento += 2000;
+            } // Con esto, lo que hacemos es que si nos ponen un año que sea de 00 (o sólo 0) hasta el año actual menos 2000, se le sumará 2000. Por ejemplo, si ponen 11, se cumplirán las condiciones y anyoNacimiento pasará a ser 2011. Esto valdría también para 2023, ya que sería mayor o igual que 0 y menor o igual que el año 2023 - 2000 (2023 - 2000 = 23, lo que pasaría a ser 2023). 
+        
+            if (( anyoNacimiento > ( anyoHoy - 2000 ) ) && ( anyoNacimiento <= 99 )) {
+                anyoNacimiento += 1900;
+            } // Si nos ponen un año de dos dígitos que sea mayor que el año actual - 2000, y menor o igual que 99, se le sumará 1900. Así, si en 2022 ponen 23, se supondrá que nació en 1923, y así hará los cálculos. Se puede hacer de otra manera, pero esto servirá ahora para gente de hasta 100 años.
+            return anyoNacimiento; // Este return no es necesario; haría el cálculo sin más. Poniéndolo y añadiendo un punto de paro en el navegador, veremos que en este punto se han aplicado los cambios.
+        }
+
+
+
+        /*-- ----------------------------------------------------------------------- -->
+        <!--                     Parte principal del programa                        -->
+        <!-- ----------------------------------------------------------------------- -*/
+
+        while (( parseInt(anyoNacimiento) < 1 ) || ( isNaN(anyoNacimiento) ) ) {
+            anyoNacimiento = parseInt(prompt("Escribe el año de nacimiento."));
+            if ( anyoNacimiento == 0 ) {
+                    obtenerCuatroDigitos();
+                } // Esto hace que funcione también si el año introducido es 0 ó 00, es decir, nacidos en 2000. Sin esta condición, se reinicia el bucle, y sólo sería válido 2000 para los nacidos en 2000. Como parte de este ejercicio es que se puedan introducir dos dígitos, se añade.
+    
+            while ( anyoNacimiento > anyoHoy )  {
+                anyoNacimiento = parseInt(prompt("¿Holaaaaaaa? ¿Hay alguien en casa, McFly?"));
+                while ( isNaN(anyoNacimiento) ) {
+                    anyoNacimiento = parseInt(prompt("Che, ¡pero mete un número!"));
+                }
+            }
+              
+            while ( isNaN(anyoNacimiento) || (( anyoNacimiento < 1900 ) && ( anyoNacimiento >= 100 ))) {
+                anyoNacimiento = parseInt(prompt("Escribe el año de nacimiento, \ny esta vez asegúrate de que sea un número válido."));
+                while ( anyoNacimiento > anyoHoy )  {
+                anyoNacimiento = parseInt(prompt("¿Holaaaaaaa? ¿Hay alguien en casa, McFly?"));
+                    while ( isNaN(anyoNacimiento) ) {
+                        anyoNacimiento = parseInt(prompt("Che, ¡pero mete un número!"));
+                    }
+                }
+            }
+        } // Esto hará un bucle en el que entrará porque el valor inicial de anyoNacimiento es 0 (menor de uno) y no es NaN (Not a Number). Para poder salir hay que meter un número. Si la primera vez se introduce un valor no numérico o entre 100 y 1899, a partir de la segunda aparece otro mensaje para recordarnos que debe ser un número válido. Además, si el año es superior al actual, bueno, nos pregunta si venimos del futuro. Y si no le metemos un número, se enfada y no respira. Creo que no se puede salir del bucle sin poner un año válido.
+
+       obtenerCuatroDigitos() // Esta función está para que no haya tantos "if" en la parte principal, y para practicar las funciones. Si le metemos cuatro dígitos, no se cumplen las condiciones, por lo que pasa de largo.
+        
+        if  ( diferenciaAnyos() <  mayorDeEdad ) {
+            alert("Tienes " + diferenciaAnyos() + " años, " + diferenciaAnyos() + "  y meses como mucho. Lo siento, chiqui. \n\nTe dejamos en una página apta para ti.");
+             location.href="https://youtubekids.com";
+        } // Si al año actual se le resta el año de nacimiento y es menor que el valor mayorDeEdad, ahora en España 18, te saca y te lleva a YouTube Kids, donde se supone que hay contenido para menores. En caso contrario pasa a lo siguiente.
+
+        else {
+            if ( diferenciaAnyos() > mayorDeEdad ) {
+            alert("Tienes o este año cumples "+ diferenciaAnyos() + " años. Puedes entrar. \n\nLo que pasa en Caçallaland, se queda en Caçallaland.");
+            } // En el primer caso, si el año actual menos el año de nacimiento da más de 18, deja pasar.
+
+            if ( diferenciaAnyos() == mayorDeEdad ) {
+                while ( parseInt(mesNacimiento) < 1 ) {
+                mesNacimiento = parseInt(prompt("¿En qué mes (en número) naciste?"));
+                    while (isNaN(mesNacimiento)) {
+                        mesNacimiento = parseInt(prompt("Escribe el més en el que naciste, \ny esta vez asegúrate de que sea un número."));  
+                    }
+                    while ( mesNacimiento > 12 ) {
+                        mesNacimiento = parseInt(prompt("El número del mes no puede ser mayor que 12."));   
+                        while (isNaN(mesNacimiento)) {
+                        mesNacimiento = parseInt(prompt("Escribe el més en el que naciste, \ny esta vez asegúrate de que sea un número válido."));
+                        } 
+                    }  
+                    while ( mesNacimiento <= 0 ) {
+                        mesNacimiento = parseInt(prompt("Los meses menores que 1 no existen. Vuelve a intentarlo."));   
+                        while (isNaN(mesNacimiento)) {
+                            mesNacimiento = parseInt(prompt("Escribe el més en el que naciste, \ny esta vez asegúrate de que sea un número válido."));
+                        } 
+                        while ( mesNacimiento > 12) {
+                            mesNacimiento = parseInt(prompt("El número del mes no puede ser mayor que 12."));   
+                            while (isNaN(mesNacimiento)) {
+                                mesNacimiento = parseInt(prompt("Escribe el més en el que naciste, \ny esta vez asegúrate de que sea un número válido."));
+                            }
+                        }
+                    }  
+                } // Si el resultado de la operación son justo 18, hay que iniciar un nuevo bucle. Yo he decidido hacer hasta 7 anidados para cubrir todas las posibilidades. Al primero entra porque mesNacimiento es menor que 1; si le ponemos un valor no numérico, el mensaje cambia para que nos aseguremos de meter un número; si ponemos un mes mayor que diciembre (12), entonces nos recuerda de que el número del mes no puede ser mayor que 12. Si en el mes le ponemos una letra, se sale de este último while y vuelve al anterior, donde nos recuerda que hay que introducir un número.
+            
+                let mesesRestantes = ( mesNacimiento - mesHoy ) -1;
+
+                if ( mesNacimiento == ( mesHoy + 1) ) {
+                    alert("Tienes menos de " + diferenciaAnyos() + " años. Te falta menos de 1 mes para poder pasar.") + alert("Lo siento, chiqui. Te dejamos en una página apta para ti.");
+                    location.href="https://youtubekids.com";  
+                }  // Hay que sumar 1 a mesHoy porque empieza a contar desde 0; enero es 0. La condición se cumple si el número de mes introducido es el mes en el que estamos. Lo de los meses restantes y que aparezca una alerta y luego otra ha sido idea de Elu.
+
+                else if ( mesNacimiento == ( mesHoy + 2) ) {
+                    alert("Tienes menos de " + diferenciaAnyos() + " años. Te faltan entre uno y dos meses para poder pasar.") + alert("Lo siento, chiqui. Te dejamos en una página apta para ti.");
+                    location.href="https://youtubekids.com";  
+                }
+
+                else if ( mesNacimiento > ( mesHoy + 2) ) {
+                    alert("Tienes menos de " + diferenciaAnyos() + " años. Te faltan unos " + mesesRestantes + " meses para poder pasar.") + alert("Lo siento, chiqui. Te dejamos en una página apta para ti.");
+                    location.href="https://youtubekids.com";  
+                }
+                
+                else  {
+                    alert("Ya tienes más de "+ diferenciaAnyos() + " años. Puedes entrar. \n\nLo que pasa en Caçallaland, se queda en Caçallaland.");
+                } // Si naciste en el mes anterior al que estamos, es seguro que ya has cumplido años, por lo que ya eres mayor de edad.
+            }
+        }
+    </script>
+</body>
+</html>

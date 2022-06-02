@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación local en JavaScript</title>
+    <style>
+        input {
+            margin: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: rgb(253, 223, 184);
+            border: none;
+            text-align: center;
+        }
+
+        input[type="submit"] {
+            border: 1px solid gray;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            box-shadow: 1px 1px 2px grey;
+        }
+    </style>
+    <script>
+
+        // Comprueba si el IBAN introducido es correcto o no según los códigos de validación del propio iban
+        function validarIBAN(IBAN) {
+
+        //Se pasa a Mayusculas
+        IBAN = IBAN.toUpperCase();
+        //Se quita los blancos de principio y final.
+        IBAN = IBAN.trim();
+        IBAN = IBAN.replace(/\s/g, ""); //Y se quita los espacios en blanco dentro de la cadena
+
+        var letra1,letra2,num1,num2;
+        var isbanaux;
+        var numeroSustitucion;
+        //La longitud debe ser siempre de 24 caracteres
+        if (IBAN.length != 24) {
+            alert('Faltan digitos en el IBAN');
+            return false;
+        }
+
+        // Se coge las primeras dos letras y se pasan a números
+        letra1 = IBAN.substring(0, 1);
+        letra2 = IBAN.substring(1, 2);
+        num1 = getnumIBAN(letra1);
+        num2 = getnumIBAN(letra2);
+        //Se sustituye las letras por números.
+        isbanaux = String(num1) + String(num2) + IBAN.substring(2);
+        // Se mueve los 6 primeros caracteres al final de la cadena.
+        isbanaux = isbanaux.substring(6) + isbanaux.substring(0,6);
+
+        //Se calcula el resto, llamando a la función modulo97, definida más abajo
+        resto = modulo97(isbanaux);
+        if (resto == 1){
+            return true;
+        }else{
+            alert('IBAN incorrecto');
+            return false;
+        }
+        }
+
+        function modulo97(iban) {
+        var parts = Math.ceil(iban.length/7);
+        var remainer = "";
+
+        for (var i = 1; i <= parts; i++) {
+            remainer = String(parseFloat(remainer+iban.substr((i-1)*7, 7))%97);
+        }
+
+        return remainer;
+        }
+
+        function getnumIBAN(letra) {
+        ls_letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        return ls_letras.search(letra) + 10;
+        }   
+
+        // Comprueba si el DNI introducido es correcto o no según los códigos de validación del propio dni
+        function esteDniEsValido(dni) {
+            let numero, letraOriginal, letraCalculada;
+            let expresion_regular_dni = /^[XYZ]?\d{5,8}[A-Z]$/;
+
+            dni = dni.toUpperCase();
+
+            if ( expresion_regular_dni.test(dni) === true ) {
+                numero = dni.substr(0,dni.length-1);
+                numero = numero.replace('X', 0);
+                numero = numero.replace('Y', 1);
+                numero = numero.replace('Z', 2);
+                letraOriginal = dni.substr(dni.length-1,1);
+                numero = numero % 23;
+                letraCalculada = 'TRWAGMYFPDXBNJZSQVHLCKET';
+                letraCalculada = letraCalculada.substring(numero,numero+1);
+                if ( letraCalculada != letraOriginal ) {
+                    alert('Al menos un DNI no es válido; la letra no corresponde.');
+                    return false;
+                } else {
+                    alert ('Ambos DNI son válidos');
+                    return true;
+                }
+            } else {
+                alert('Al menos un DNI no es válido; la letra no corresponde.');
+                return false;
+            }
+        }
+
+
+        function validarTodo(elFormulario) {
+            let nif = misDatos.nif.value;
+            let miesposa = misDatos.miesposa.value;
+            let elIban = misDatos.iban.value;
+            if ( esteDniEsValido(nif) && esteDniEsValido(miesposa) && validarIBAN(elIban) ) {
+                elFormulario.submit();
+            } else {
+                alert('Comprueba los DNIs');
+                return false;
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <h1>Validación en JavaScript</h1>
+    <form name="misDatos" method="post" action="../html/respuestaformulario.php" onsubmit="validarTodo(this);return false;">
+        <input id="nombre" type="text" placeholder="Nombre">
+        <input id="nif" type="text" name="nif" placeholder="NIF">
+        <input id="telefono" name="telefono" type="text" placeholder="Un teléfono"><br>
+        <input id="nombreesposa" type="text" placeholder="Nombre esposa">
+        <input id="miesposa" name="nifesposa" type="text" placeholder="NIF esposa">
+        <input id="iban" name="iban" type="text" placeholder="IBAN bancario">
+        <hr>
+        <input type="submit">
+    </form>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar atributos con colores</title>
+    <style>
+        main {
+            text-align: center;
+        }
+    </style>
+    <script>
+       function cambiarColor() {
+            let variableParrafo = document.getElementById('cuerpo');
+            
+            if ( variableParrafo.style.backgroundColor=="black") {
+                variableParrafo.style.color="black";
+                variableParrafo.style.backgroundColor="white";
+                variableParrafo.style.transition="1s";
+            }            
+            else  {
+                variableParrafo.style.color="white";
+                variableParrafo.style.backgroundColor="black";
+                variableParrafo.style.transition="1s";
+            }
+        }
+    </script>
+</head>
+<body id="cuerpo">
+    <main>
+        <h1>Cambiar atributos con el botón</h1>
+        <p id="parrafo">Esto va a cambiar de color</p>
+        <p id="otro">Este no cambiará (... en el ejercicio original)</p><br>
+        <input type="button" onclick="cambiarColor();" value="¡Cambia!">
+        
+    </main><br>
+    <hr>
+    <footer> 
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular dos números en formulario con botones</title>
+    <style>
+        main {
+            text-align: center;
+        }
+        input {
+            width: 100px;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 10px;
+            text-align: center;
+            background-color: #ddd;
+        }
+
+        .botones {
+            width: 30px;
+            margin: 0;
+            padding: 0;
+            background-color: red;
+            color: white;
+            transition: .3s;
+            border: 2px solid white;
+        }
+
+        .calcular {
+            color: white;
+            background-color: grey;
+            width: 30px;
+            border: 2px solid white;
+        }
+
+        form {
+            border: 3px solid blue;
+            width: 300px;
+            padding: 10px;
+            margin: 0 auto;
+            border-radius: 8px;
+            color: white;
+            background-color: black;
+        }
+
+        #resultado {
+            display: none;
+        } 
+
+        @media (max-width: 350px) {
+            form {
+                transform: scale(0.7);
+            }
+        }
+    </style>
+    <script>
+
+        function esNumeroValido(elNumero){
+                if ( ! isNaN(elNumero) && elNumero!=null && elNumero!="" ){ // Si elNumero no no es un número (es un número), no no es nulo (es algo) y no no es vacío (es algo), es un número válido.
+                    return true
+                } else {
+                    return false // Si no es un número válido, devuelve false.
+                }
+        }
+
+        function subirOrBajar(cantidad, casilla) { // El parámetro "cantidad" es el primer valor de dentro de los paréntesis de la etiqueta input; "casilla" es el segundo valor. Esta función es "subirOrBajar la cantidad X en la casilla Y", y eso se indica en la etiqueta input/botones.
+            if ( casilla == 1) { // Si el segundo parámetro (casilla) es 1, está indicando que estamos en la casilla 1.
+            let entrada = parseFloat(calcu.num1.value);
+            if ( ! esNumeroValido(entrada)) { // Lo de arriba dice que es válido si el número es un número, no es nulo y no es vacío. Por lo tanto, si no es válido, que es lo que se pide aquí, el valor se considera 0.
+                entrada = 0;
+            }
+            let resultado = (entrada + cantidad);
+            calcu.num1.value = resultado; // Esto sólo funciona con "name" y no con "id".
+            } else { // Si no, estamos en la casilla 2.
+                let entrada = parseFloat(calcu.num2.value);
+                if ( ! esNumeroValido(entrada)) {
+                    entrada = 0;
+                }
+                let resultado = (entrada + cantidad);
+                calcu.num2.value = resultado;
+            }
+        }
+
+        function colorFondo() { // Función para ahorrar líneas, idea de Jordi.
+            document.getElementById("resultado").setAttribute('style', 'display: block;'); // Mostrará el resultado, que por defecto está oculto
+            if ( document.getElementsByName('solu')[0].value >= 0 ) { // Si el valor es igual o mayor que 0, el fondo saldrá en verde. 
+                document.getElementsByName("solu")[0].setAttribute('style', 'background-color: green;');
+                document.getElementById("cuerpo").setAttribute('style', 'background-color: green;');
+            } else { // En caso contrario (número negativo), el fondo saldrá en rojo.
+                document.getElementsByName("solu")[0].setAttribute('style', 'background-color: red;');
+                document.getElementById("cuerpo").setAttribute('style', 'background-color: red;');
+            }
+        }
+
+        function calcular(operacion) { // El parámetro "operación" es como declarar una variable, pero en este caso, para lo que se meta entre los paréntesis.
+            if ( operacion == "+") { // Si lo que hay entre los paréntesis de la función calcular() es el símbolo de suma, se ejecutará lo siguiente.
+                let entrada1 = parseFloat(calcu.num1.value); // Estas dos variables se declaran para poder usar la función de validación, la que llamamos esNumeroValido().
+                let entrada2 = parseFloat(calcu.num2.value); // En resumen, si no hay nada en la casilla, se pone 0.
+                if ( ! esNumeroValido(entrada1)) {
+                    entrada1 = 0;
+                }
+                if ( ! esNumeroValido(entrada2)) {
+                    entrada2 = 0;
+                }
+                let resultado = entrada1 + entrada2; // La operación tiene que cambiar, ya que no es el resultado de los valores de las casillas, sino de los nuevos valores (entrada 1 y entrada 2), creados para poder validar.
+                calcu.solu.value = resultado; // Después de hacer la suma, pone el resultado en el elemento con el id "solu".
+                document.getElementById("solucion").innerHTML = "Resultado de la suma"; // Cambiará el texto de la operación según lo que se elija.
+                colorFondo(); // Llamamos a la función colorFondo() para que cambie el color del fondo.
+            } else if ( operacion == "-") { // Si el parámetro de los paréntesis no es el de suma, pero es el de resta, se ejecutará lo siguiente.
+                let entrada1 = parseFloat(calcu.num1.value); // Hay que validar para cada operación.
+                let entrada2 = parseFloat(calcu.num2.value);
+                if ( ! esNumeroValido(entrada1)) {
+                    entrada1 = 0;
+                }
+                if ( ! esNumeroValido(entrada2)) {
+                    entrada2 = 0;
+                }
+                let resultado = entrada1 - entrada2;
+                calcu.solu.value = resultado;
+                document.getElementById("solucion").innerHTML = "Resultado de la resta";
+                colorFondo();
+            } else if ( operacion == "x") { // Si el parámetro de los paréntesis no es el de suma ni el de resta, pero es el de multiplicación, se ejecutará lo siguiente.
+                let entrada1 = parseFloat(calcu.num1.value);
+                let entrada2 = parseFloat(calcu.num2.value);
+                if ( ! esNumeroValido(entrada1)) {
+                    entrada1 = 0;
+                }
+                if ( ! esNumeroValido(entrada2)) {
+                    entrada2 = 0;
+                }
+                let resultado = entrada1 * entrada2;                
+                calcu.solu.value = resultado;
+                document.getElementById("solucion").innerHTML = "Resultado de la multiplicación";
+                colorFondo();
+            } else { // Si no se cumple ninguna de las anteriores, se ejecutará lo siguiente. 
+                let entrada1 = parseFloat(calcu.num1.value);
+                let entrada2 = parseFloat(calcu.num2.value);
+                if ( ! esNumeroValido(entrada1)) {
+                    entrada1 = 0;
+                }
+                if ( ! esNumeroValido(entrada2)) {
+                    entrada2 = 0;
+                }
+                let resultado = entrada1 / entrada2;                
+                calcu.solu.value = resultado;
+                    if ( calcu.num2.value == 0 ) {
+                        document.getElementsByName('solu')[0].value = "Error";
+                    }
+                document.getElementById("solucion").innerHTML = "Resultado de la división";
+                colorFondo();
+                }
+                
+        }
+
+        function restablecer() { // CUIDADO CON USAR "reset()" PORQUE EXISTE EN JavaScript Y NO HARÁ LO QUE LE METAMOS DENTRO. Esta función es el reset, idea de Elu. Como yo le he puesto colores dependiendo de si el resultado es >= 0 o negativos, he tenido que añadir más cosas.
+            document.getElementById("resultado").style.display= "none"; // Oculta el elemento con el id "resultado", que yo lo tengo así por defecto.
+            document.getElementById("cuerpo").style.backgroundColor = "white"; // Devuelve el fondo del body (con id="cuerpo") al blanco original.
+            document.getElementsByName("num1")[0].value = ""; // Pone el valor del primer número en blanco.
+            document.getElementById('el2').value = ""; // Pone el valor del segundo número en blanco.
+        }
+        
+
+        /* LO DE ARRIBA RESUME TODO LO QUE HAY AL PIE DE LA PAGINA COMENTADO */  
+
+    </script>
+</head>
+<body id="cuerpo">
+    <main>
+        <h1>Cálculo en formulario con botones</h1>
+        <form name="calcu">
+            <input class="botones" type="button" value="&lt;&lt;" step="10" onclick="subirOrBajar(-10, 1)"> <!--Como se indica en la función, aquí restará 10 (o sumará -10) en la casilla 1-->
+            <input class="botones" type="button" value="&lt;" step="1" onclick="subirOrBajar(-1, 1)"> <!-- El resto de botones funciona igual, pero con diferentes parámetros-->
+            <input type="number" name="num1" id="el1">
+            <input class="botones" type="button" value=">" step="1" onclick="subirOrBajar(1, 1)">
+            <input class="botones" type="button" value=">>" step="10" onclick="subirOrBajar(10, 1)"><br>
+            <input class="botones" type="button" value="&lt;&lt;" step="10" onclick="subirOrBajar(-10, 2)">
+            <input class="botones" type="button" value="&lt;" step="1" onclick="subirOrBajar(-1, 2)">
+            <input type="number" name="num2" id="el2">
+            <input class="botones" type="button" value=">" step="1" onclick="subirOrBajar(1, 2)">
+            <input class="botones" type="button" value=">>" step="10" onclick="subirOrBajar(10, 2)"><br>
+            <input class="calcular" type="button" value="+" onclick="calcular('+')"><input class="calcular" type="button" value="-" onclick="calcular('-')"><input class="calcular" type="button" value="x" onclick="calcular('x')"><input class="calcular" type="button" value="/" onclick="calcular('/')"><input class="calcular" type="button" value="C" onclick="restablecer()"><br><br>
+            <span id="resultado">
+                <label id="solucion" for="solu">Resultado:</label><br>
+                <input name="solu" readonly><br><br>
+            </span>
+        </form><br>
+    </main>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>
+
+<!-- LO MÁS LARGO:
+    
+    function bajar1num1() {
+    let valor1 = parseFloat(document.getElementsByName("num1")[0].value); // Coge el valor del elemento con name num 1.
+    valor1 -= 1; // Le resta 1 y se lo asigna a valor1.
+    document.getElementsByName("num1")[0].value = valor1; // Se le asigna a valor 1 el resultado de la resta. El resto de funciones hacen lo mismo, pero cada una para un valor y elemento diferente.
+}
+
+function bajar10num1() {
+    let valor1 = parseFloat(document.getElementsByName("num1")[0].value);
+    valor1 -= 10;
+    document.getElementsByName("num1")[0].value = valor1;
+}
+
+function subir10num1() {
+    let valor1 = parseFloat(document.getElementsByName("num1")[0].value);
+    valor1 += 10;
+    document.getElementsByName("num1")[0].value = valor1;
+}
+
+function subir1num1() {
+    let valor1 = parseFloat(document.getElementsByName("num1")[0].value);
+    valor1 += 1;
+    document.getElementsByName("num1")[0].value = valor1;
+}
+
+function bajar1num2() {
+    let valor2 = parseFloat(document.getElementById('el2').value);
+    valor2 -= 1;
+    document.getElementById('el2').value = valor2;
+}
+
+function bajar10num2() {
+    let valor2 = parseFloat(document.getElementById('el2').value);
+    valor2 -= 10;
+    document.getElementById('el2').value = valor2;
+}
+
+function subir10num2() {
+    let valor2 = parseFloat(document.getElementById('el2').value);
+    valor2 += 10;
+    document.getElementById('el2').value = valor2;
+}
+
+function subir1num2() {
+    let valor2 = parseFloat(document.getElementById('el2').value);
+    valor2 += 1;
+    document.getElementById('el2').value = valor2;
+
+    RECORTE PRIMERO
+
+    function subirOrBajar1(cantidad) {
+            let entrada = parseInt(calcu.num1.value);
+            let resultado = (entrada + cantidad);
+            calcu.num1.value = resultado;
+        }
+
+        function subirOrBajar2(cantidad) {
+            let entrada = parseInt(calcu.num2.value);
+            let resultado = (entrada + cantidad);
+            calcu.num2.value = resultado;
+        }
+} 
+
+function sumar() {
+            let valor1 = parseFloat(document.getElementsByName("num1")[0].value); // En este caso, busca elementos con el name "num1" y escoge el primero (0 es el primero). En otras palabras, busca el primer elemento con el name "num1".
+            if ( ! esNumeroValido(valor1) ) {
+                valor1 = 0;
+            }
+            let valor2 = parseFloat(document.getElementById('el2').value);
+            if ( ! esNumeroValido(valor2) ) {
+                valor2 = 0;
+            }
+            let suma = ( valor1 + valor2 ).toFixed(2);
+            calcu.solu.value = suma; // Después de hacer la suma, pone el resultado en el elemento con el id "solu".
+            document.getElementById("solucion").innerHTML = "Resultado de la suma"; // Cambiará el texto de la operación según lo que se elija.
+            document.getElementById("resultado").setAttribute('style', 'display: block;'); // Mostrará el resultado, que por defecto está oculto
+            if ( document.getElementsByName('solu')[0].value >= 0 ) { // Si el valor es igual o mayor que 0, el fondo saldrá en verde. Si el número es negativo, el fondo saldrá en rojo.
+                document.getElementsByName("solu")[0].setAttribute('style', 'background-color: green;');
+                document.getElementById("cuerpo").setAttribute('style', 'background-color: green;');
+            } else {
+                document.getElementsByName("solu")[0].setAttribute('style', 'background-color: red;');
+                document.getElementById("cuerpo").setAttribute('style', 'background-color: red;');
+            }
+        }
+
+        function restar() {
+            let valor1 = parseFloat(document.getElementsByName("num1")[0].value); // En este caso, busca elementos con el name "num1" y escoge el primero (0 es el primero). En otras palabras, busca el primer elemento con el name "num1".
+            if ( ! esNumeroValido(valor1) ) {
+                valor1 = 0;
+            }
+            let valor2 = parseFloat(document.getElementById('el2').value);
+            if ( ! esNumeroValido(valor2) ) {
+                valor2 = 0;
+            }            
+            let resta = ( valor1 - valor2 ).toFixed(2);
+            calcu.solu.value = resta; // Después de hacer la suma, pone el resultado en el elemento con el id "solu".
+            document.getElementById("solucion").innerHTML = "Resultado de la resta";
+            document.getElementById("resultado").setAttribute('style', 'display: block;');
+            if ( document.getElementsByName('solu')[0].value >= 0 ) { // Si el valor es igual o mayor que 0, el fondo saldrá en verde. Si el número es negativo, el fondo saldrá en rojo.
+                document.getElementsByName("solu")[0].setAttribute('style', 'background-color: green;');
+                document.getElementById("cuerpo").setAttribute('style', 'background-color: green;');
+            } else {
+                document.getElementsByName("solu")[0].setAttribute('style', 'background-color: red;');
+                document.getElementById("cuerpo").setAttribute('style', 'background-color: red;');
+            }
+        }
+
+        function multiplicar() {
+            let valor1 = parseFloat(document.getElementsByName("num1")[0].value); // En este caso, busca elementos con el name "num1" y escoge el primero (0 es el primero). En otras palabras, busca el primer elemento con el name "num1".
+
+            if ( ! esNumeroValido(valor1) ) {
+                valor1 = 0;
+            }
+            let valor2 = parseFloat(document.getElementById('el2').value);
+            if ( ! esNumeroValido(valor2) ) {
+                valor2 = 0;
+            }            
+            
+            let multiplicacion = ( valor1 * valor2 ).toFixed(2);
+            calcu.solu.value = multiplicacion; // Después de hacer la suma, pone el resultado en el elemento con el id "solu".
+            document.getElementById("solucion").innerHTML = "Resultado de la multiplicación";
+            document.getElementById("resultado").setAttribute('style', 'display: block;');
+            if ( document.getElementsByName('solu')[0].value >= 0 ) { // Si el valor es igual o mayor que 0, el fondo saldrá en verde. Si el número es negativo, el fondo saldrá en rojo.
+                document.getElementsByName("solu")[0].setAttribute('style', 'background-color: green;');
+                document.getElementById("cuerpo").setAttribute('style', 'background-color: green;');
+            } else {
+                document.getElementsByName("solu")[0].setAttribute('style', 'background-color: red;');
+                document.getElementById("cuerpo").setAttribute('style', 'background-color: red;');
+            }
+        }
+
+        function dividir() {
+            let valor1 = parseFloat(document.getElementsByName("num1")[0].value); // En este caso, busca elementos con el name "num1" y escoge el primero (0 es el primero). En otras palabras, busca el primer elemento con el name "num1".
+            if ( ! esNumeroValido(valor1) ) {
+                valor1 = 0;
+            }
+            let valor2 = parseFloat(document.getElementById('el2').value);
+            if ( ! esNumeroValido(valor2) ) {
+                valor2 = 0;
+            }
+            let division = ( valor1 / valor2 ).toFixed(2);
+            calcu.solu.value = division; // Después de hacer la suma, pone el resultado en el elemento con el id "solu".
+            if ( valor2 == 0 ) {
+                document.getElementsByName('solu')[0].value = "Error";
+            }
+            document.getElementById("solucion").innerHTML = "Resultado de la división";
+            document.getElementById("resultado").setAttribute('style', 'display: block;');
+            if ( document.getElementsByName('solu')[0].value >= 0 ) { // Si el valor es igual o mayor que 0, el fondo saldrá en verde. Si el número es negativo, el fondo saldrá en rojo.
+                document.getElementsByName("solu")[0].setAttribute('style', 'background-color: green;');
+                document.getElementById("cuerpo").setAttribute('style', 'background-color: green;');
+            } else {
+                document.getElementsByName("solu")[0].setAttribute('style', 'background-color: red;');
+                document.getElementById("cuerpo").setAttribute('style', 'background-color: red;');
+            }
+        }
+    
+    -->

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saludo dependiendo del día</title>
+    <style>
+        body {
+            margin: 30px;
+            padding: 10px;
+        }
+
+        h1, h2, p {
+            text-align: center;
+        }
+
+        #unaOveja, #ovejas {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+   
+</head>
+<body id="cuerpo">
+   
+    <h1 id="elSaludo">Hola</h1><br>
+    <h2 id="insomnio"></h2>
+    <p id="unaOveja"></p>
+    <p id="ovejas"></p>
+    <script>
+        let hora = new Date().getHours(); // Cuando se trabaja en JavaScript, a no ser que se necesiten minutos exactos, es suficiente con la hora. A tener en cuenta que, por ejemplo, el valor 5 es desde las 5:00:00 hasta las 5:59:59. Por lo tanto, si digo >=5 y <=6, se tratará de las 5:00:00 hasta las 6:59:59. Raro, sí, pero así cuenta JavaScript. Podemos pensar que el valor 6 son las 6:00:00, pero es toda la hora, ya que sólo le hemos pedido que recoja las horas y eso hace. De hecho, para el que lea esto, la parte de "se tratará de las 5:00:00 hasta las 6:59:59" es algo que me ha rellenado la extensión "Copilot" de Microsoft. Es una extensión tipo Emmet, pero intenta adivinar qué queremos escribir, te aparece una sugerencia en gris y podemos aceptarla con el tabulador. También viene bien para evitar faltas de ortografía, ya que los editores de texto como Visual Studio Code no los traen por defecto y si le añadimos una extensión para comprobar la ortografía, esa extensión verá como fallos, por ejemplo, las etiquetas HTML.
+        let momento = "Hola";
+        if ( ( hora >= 0 ) && (hora <= 6 )) { // Como pone arriba, esto es desde las 00:00:00 hasta las 06:59:59 (y una vez más que ha rellenado el texto Copilot).
+            momento = "Deberías estar durmiendo, pero...";
+            document.getElementById("cuerpo").setAttribute('style', 'background-image: url("https://images.ctfassets.net/7ybtdzdgha5d/3qDXwqwbLv4QqxFuIXYfxw/d6a90f91fec439d1c31e047274799f9d/Canva_-_Cute_pug_dog_sleep_on_pillow_in_bed_and_wrap_with_blanket_feel_happy_time.jpg?w=1952&h=1200&q=65&fm=webp"); background-size: 100vw;');
+            document.getElementById("insomnio").innerHTML = "Y si no puedes dormir..."; // Este h2 y los p sólo aparecerán en esta franja horaria.
+            document.getElementById("unaOveja").innerHTML = "1 oveja"; // Si quiero dejarlo perfecto, tengo que crear este párrafo para que "una oveja" salga en singular.
+            for ( let i = 2; i <= 200; i++ ) {
+                document.getElementById("ovejas").innerHTML += i + " ovejas " + "<br>"; // Este bucle contará desde 2 hasta 200, y cada vez que se repita, se añadirá una oveja. Lo he hecho así porque "2" ya son "ovejas". Y en ambos párrafos les he tenido que poner el paddin y el margin a 0, o de lo contrario habría un hueco entre el primero y el resto.
+            }
+
+        } else if ( ( hora >= 7 ) && ( hora < 12 ) ) { // De 7 a 11... que es desde las 07:00:00 hasta las 11:59:59.
+            momento = "Buenos días";
+            document.getElementById("cuerpo").setAttribute('style', 'background-image: url("https://wallpaperaccess.com/full/3265126.jpg"); background-size: cover;');
+        } else if ( ( hora >= 12 ) && ( hora < 21 ) ) { // De 12 a 20... que es desde las 12:00:00 hasta las 20:59:59. Y TODO EL PUTO TEXTO DESDE EL 20 ME LO HA PROPUESTO "COPILOT" JAJAJAJAJAJ.
+            momento = "Buenas tardes";
+            document.getElementById("cuerpo").setAttribute('style', 'background-image: url("../../ejercicios/css/turismo/img/adc.JPG"); background-size: cover;');
+        }
+        else {
+            momento = "Buenas noches";
+            document.getElementById("cuerpo").setAttribute('style', 'background-image: url("https://zone1-ibizaspotlightsl.netdna-ssl.com/sites/default/files/styles/auto_1500_width/public/event-images/136033/slideshow-1594641730.png"); background-size: cover; color: white;');
+        }  // Con setAttribute podemos cambiarlo todo. Si le ponemos un id al cuerpo, por ejemplo, luego sólo tenemos que añadir el atributo 'style', una coma (,) y luego todo lo que queramos cambiar. Sería como ponerlo dentro de la etiqueta, del tipo <body style="background-image: url('https://wallpaperaccess.com/full/3265126.jpg'); background-size: cover;">. También podríamos cambiar el tipo de letra general, o añadir id's a otros elementos y cambiarlos.Así, dependiendo de la hora podemos tener una imagen de fondo diferente que acompaña al saludo.
+
+        let saludo = momento + ". Bienvenido/a a mi página wé.";
+        document.getElementById("elSaludo").innerHTML = saludo;
+    </script>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>

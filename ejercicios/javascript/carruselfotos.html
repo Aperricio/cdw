@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de fotos</title>
+    <script>
+         function cambiarImagenes() { // Animada
+            let imagenes = document.querySelectorAll(".imagen"); // Seleccionamos todas las imagenes con clase "imagen".
+            let imagenActual = 0; // Inicializamos la variable "imagenActual" a 0.
+            let imagenSiguiente = 1; // Inicializamos la variable "imagenSiguiente" a 1.
+            let intervalo = setInterval(function() { // Creamos una función que se ejecutará cada cierto tiempo.
+                imagenes[imagenActual].style.display = "none"; // Ocultamos la imagen actual.
+                imagenes[imagenSiguiente].style.display = "block"; // Mostramos la imagen siguiente.
+                imagenActual = imagenSiguiente; // Actualizamos la variable "imagenActual" a la imagen siguiente.
+                imagenSiguiente = (imagenSiguiente + 1) % imagenes.length; // Actualizamos la variable "imagenSiguiente" a la siguiente imagen, es decir, a la que vendra luego.
+            }, 3000); // El tiempo de espera es de 3 segundos (3000 milisegundos).
+        } 
+
+        // Interactiva
+        
+        let imagenActual = 0; // Estas dos variables no interfieren con el código anterior, ya que no se ejecutan en el mismo contexto. Las otras están dentro de una función, y lo que pasa en Las Vegas se queda en Las Vegas.
+        let imagenSiguiente = 1; // Tienen que estar fuera de la función para que respondan a los botones, o eso creo, porque hago más pruebas que un Crash Test Dummy.
+
+        function cambiarImagen(direccion) { // "direccion" es un parámetro que recibe la función, y dependerá de si se pulsa el botón "anterior" o el "siguiente".
+            let imagenes = document.querySelectorAll(".imagen2"); // Seleccionamos todas las imagenes con clase "imagen2", para poder dejar los dos ejemplos en la misma página.
+     
+            if (direccion == "adelante") { // Si se pulsa el botón "siguiente", que es el que tiene onclick="cambiarImagen('adelante')", entonces...
+                imagenSiguiente = (imagenActual + 1) % imagenes.length; // Actualizamos la variable "imagenSiguiente" a la siguiente imagen, es decir, a la que vendra luego. El operador "%" es para que no se pase de la longitud de la lista de imagenes.
+            } else {
+                imagenSiguiente = (imagenActual - 1 + imagenes.length) % imagenes.length; // Si se pulsa el botón "anterior", entonces hará lo contrario.
+            }
+            imagenes[imagenActual].style.display = "none"; // Ocultamos la imagen actual.
+            imagenActual = imagenSiguiente; // Actualizamos la variable "imagenActual" a la imagen siguiente.
+            imagenes[imagenSiguiente].style.display = "block"; // Mostramos la imagen siguiente.
+        }
+
+        // Interactiva 2 
+
+
+        let pictures = ["../css/turismo/img/galeria/escudo400x400.png", "../css/turismo/img/galeria/confeti400x400.png", ]; // Array con las rutas de las imágenes. Mientras no sepa cómo crear el array con enlaces relativos, no sé cómo hacerlo. Sí funciona si se pone la lista de imágenes junto al archivo .html y se pone el nombre de las imágenes del tipo ["1.jpg", "2.jpg", "3.jpg"].
+
+        let i = 0; // Variable que nos servirá para saber en que posición del array estamos.
+
+        function anterior() {
+            i = i - 1; // Restamos 1 a la variable "i", o en este caso vamos atrás.
+            if ( i < 0 ) { // Si "i" es menor que 0, entonces...
+                i = pictures.length - 1; // Actualizamos "i" a la longitud del array menos 1, o en este caso, a la última posición.
+            }
+
+            document.getElementById('carrusel3').src = pictures[i]; // Actualizamos la imagen del carrusel.
+        }
+
+        function siguiente() {
+            i = i + 1; // Sumamos 1 a la variable "i", o en este caso vamos adelante.
+            if ( i >= pictures.length ) { // Si "i" es mayor o igual que la longitud del array, entonces...
+                i = 0; // Actualizamos "i" a 0, o en este caso, a la primera posición.
+            }
+
+            document.getElementById('carrusel3').src = pictures[i]; // Actualizamos la imagen del carrusel.
+        }
+
+    </script>
+    <style>
+        .galeria {
+            width: 400px;
+            margin: auto;
+            
+        }
+
+        img {
+            border-radius: 20px;
+            box-shadow: 2px 2px 2px black, -2px -2px 2px #aaa;
+        }
+
+        input {
+            margin: 10px;
+            padding: 2px 20px;
+            font-weight: 900;
+            font-size: 1.5rem;
+            background-color: aqua;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px black, -2px -2px 2px #aaa;
+            transition: 1s;
+        }
+
+        input:hover {
+            box-shadow: 0.5px 0.5px 1px black, -0.5px -0.5px 2px #aaa;
+            transition: 1s;
+            color: #333;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+        }
+        article {
+            margin: 30px;
+        }
+
+        #botones {
+            position: relative;
+            top: -60px;
+            opacity: 0.2;
+            transition: 0.5s;
+        }
+
+        #botones:hover {
+            opacity: 1;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Galería de fotos</h1> 
+    <main>
+        <article>
+            <h2>Animada</h2>
+            <div class="galeria"> <!-- Todas las imágenes menos la primera están ocultas con display:none, o aparecerían una tras otra -->
+                <img class="imagen" src="../css/turismo/img/galeria/escudo400x400.png" alt="" >
+                <img class="imagen" src="../css/turismo/img/galeria/confeti400x400.png" alt="" style="display: none;">
+                <img class="imagen" src="../css/turismo/img/galeria/estacion400x400.png" alt="" style="display: none;">
+                <img class="imagen" src="../css/turismo/img/galeria/jubilados400x400.png" alt="" style="display: none;">
+                <img class="imagen" src="../css/turismo/img/galeria/monte400x400.png" alt="" style="display: none;">
+                <img class="imagen" src="../css/turismo/img/galeria/mtb400x400.png" alt="" style="display: none;">
+                <img class="imagen" src="../css/turismo/img/galeria/picnic400x400.png" alt="" style="display: none;">
+                <img class="imagen" src="../css/turismo/img/galeria/senderismo400x400.png" alt="" style="display: none;">
+                <img class="imagen" src="../css/turismo/img/galeria/vistaaerea400x400.png" alt="" style="display: none;">
+            </div>
+        </article>
+        <article>
+            <h2>Interactiva</h2>
+            <div class="galeria">
+                <img class="imagen2" src="../css/turismo/img/galeria/escudo400x400.png" alt="">
+                <img class="imagen2" src="../css/turismo/img/galeria/confeti400x400.png" alt="" style="display: none;">
+                <img class="imagen2" src="../css/turismo/img/galeria/estacion400x400.png" alt="" style="display: none;">
+                <img class="imagen2" src="../css/turismo/img/galeria/jubilados400x400.png" alt="" style="display: none;">
+                <img class="imagen2" src="../css/turismo/img/galeria/monte400x400.png" alt="" style="display: none;">
+                <img class="imagen2" src="../css/turismo/img/galeria/mtb400x400.png" alt="" style="display: none;">
+                <img class="imagen2" src="../css/turismo/img/galeria/picnic400x400.png" alt="" style="display: none;">
+                <img class="imagen2" src="../css/turismo/img/galeria/senderismo400x400.png" alt="" style="display: none;">
+                <img class="imagen2" src="../css/turismo/img/galeria/vistaaerea400x400.png" alt="" style="display: none;">
+            </div>
+            <div id="botones"><input type="button" value="Anterior" onclick="cambiarImagen('atras');"> <input type="button" value="Siguiente" onclick="cambiarImagen('adelante');"></div>
+           <!--  <h2>Interactivo 2</h2>
+            <div id="carrusel3" class="galeria"><img src="http://pablo.tomateun.com/ejercicios/css/turismo/img/galeria/escudo400x400.png" alt=""></div><br>
+            <input type="button" value="Anterior" onclick="anterior();"> <input type="button" value="Siguiente" onclick="siguiente();"> -->
+        </article><br><br><br><br>
+    </main>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>    
+    <script>
+        cambiarImagenes();
+    </script>
+</body>
+</html>

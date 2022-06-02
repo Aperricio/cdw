@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora en JavaScript</title>
+    <style>
+        body {
+            display: grid;
+            height: 98vh;
+            text-align: center;
+            align-content: center;
+            color: rgb(5, 0, 0);
+            font-size: 30vh;
+            background-color: black;
+            text-shadow: 2px 2px 1px rgb(83, 15, 15), -0.5px -0.5px 3px white;
+        }
+
+        @media (max-width: 1160px) {
+            body {
+                font-size: 20vh;
+            }
+        }
+
+        @media (max-width: 840px) {
+            body {
+                font-size: 15vh;
+            }
+        }
+
+        @media (max-width: 620px) {
+            body {
+                font-size: 10vh;
+            }
+        }
+    </style>
+</head>
+<body>
+ <!--    <script>
+        function hora() {
+            let fecha = new Date();
+            alert("Son las: " + fecha.getHours() + ":" + String(fecha.getMinutes()).padStart(2, '0') + ":" + String(fecha.getSeconds()).padStart(2, '0') + ". Que lo sepas. Y sale una vez para no molestar" );
+        }
+        
+        hora();
+    </script> -->
+    <script>
+        function mostrarHora() {
+            const diaSemana = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+            var d = new Date();
+            let dia = diaSemana[d.getDay()];
+            /*const Dia = (d.getDate());
+            const mes = (d.getMonth());
+            const ano = (d.getFullYear());*/
+            const hora = String(d.getHours()).padStart(2, '0');
+            const minutos = String(d.getMinutes()).padStart(2, '0');
+            const segundos = String(d.getSeconds()).padStart(2, '0');
+            document.body.innerHTML = dia+"\n"+hora+":"+minutos+":"+segundos;
+        }
+        
+        setInterval(mostrarHora, 1000); // Esto lo tenía guardado en un script. Sólo he buscado la manera de que, usando lo que ya tenía, el mínimo de dígitos fuera dos.
+    </script>
+    
+</body>
+</html>
