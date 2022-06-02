@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de ancho fijo</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box;
+        }
+
+        header { 
+            background-color: rgb(201, 47, 201); 
+            color: white; 
+        }
+
+        header div { 
+            width: 98%; 
+            min-width: 400px; 
+            max-width: 960px; 
+            margin: 0 auto; 
+        }
+        main { 
+            width: 98%; 
+            min-width: 400px; 
+            max-width: 960px; 
+            margin: 0 auto; 
+        }
+
+        main article:nth-child(1) { 
+            width: 24%; 
+            display: inline-block; 
+            vertical-align: top;
+        }
+
+        main article:nth-child(2) { 
+            width: 74%; 
+            display: inline-block; 
+            vertical-align: top; 
+        }
+
+        h2, p {
+            margin: 50px
+        } 
+
+        header {
+                position: sticky;
+                top: 0;
+                padding: 20px;
+                border-radius: 0px 0px 30px 30px;
+                box-shadow: 4px 4px 10px black;
+        }       
+
+        ul {
+            margin-left: 50px;
+            padding: 20px
+        }
+
+        header div {
+            position: sticky;
+            top: 0;
+        }
+
+        main nav li {
+            list-style-type: none;
+        }
+
+        header nav ul li {
+            display: inline-block;
+        }
+
+        div nav a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        div nav a:hover {
+            background-color: purple;
+            border-radius: 20px;
+        }
+
+        h1 {
+            text-shadow: 2px 2px 5px black;
+        }
+
+        main article:nth-child(3) {
+            padding: 20px;
+        }
+
+        main article:nth-child(3) img{
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>La web del señor Pablo Aparicio</h1>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../css/index.html">Página de CSS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+           
+    <main>
+        <article>
+            <h2>Primer artículo</h2>
+            <p>El mío va a ser más largo.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil illo voluptatem dolor exercitationem temporibus ipsum minus commodi ab, repellat quo debitis! Quidem libero ex, a reprehenderit explicabo quas non nostrum.
+            Quos tempora et amet debitis excepturi nobis quam! Itaque, veritatis molestiae mollitia nam ipsa ipsam iste saepe molestias modi repellat. Laboriosam tenetur mollitia distinctio nulla quasi molestias tempore dolores eum!
+            Sunt, ducimus, cupiditate consequatur maiores quis odio sed impedit ullam nisi iure fugit deleniti autem provident. Pariatur eligendi delectus at laudantium culpa inventore, illo, deleniti quam quis odit ipsam sint!
+            Omnis dicta molestias voluptatem.</p>
+        </article>
+        <article>
+            <h2>Segundo artículo</h2>
+            <p>Este es más normal. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ex fuga consequatur consequuntur in possimus pariatur, excepturi sit impedit ullam dolorum, voluptatibus tenetur quos laborum sequi quam ratione voluptas blanditiis.</p>
+        </article>
+        <article>
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+        </article>
+    </main>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="../javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>

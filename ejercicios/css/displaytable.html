@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Table</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+       .hero {
+           display: table-cell; /* crea una celda*/
+           height: 100vh;
+           width: 100vw;
+           text-align: center;
+           vertical-align: middle;
+           color: rgb(248, 204, 6);
+           text-shadow: 4px 4px 3px black;
+           background-attachment: fixed;
+           background-position: center;
+           background-image: url(/ejercicios/css/turismo/img/adc.JPG);
+       }
+       
+       .lema {
+           transition: 0.5s
+       }
+
+       .lema:hover {
+           filter: brightness(1.15);
+           transform: scale(0.95);
+       }
+       h1 {
+        font-size: 4rem;
+       }
+
+       h2 {
+        font-size: 2.8rem;
+       }
+
+       p {
+           margin: 30px;
+           padding: 10px;
+       }
+
+       footer {
+           margin: 30px;
+       }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="lema">
+            <h1>L'Alcudia de Crespins</h1>
+            <h2>El mejó puelbo</h2>
+        </div>
+    </section>
+    <section>
+        <p>Somo lo mejore, que lo sepái.</p>
+    </section>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="../javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>

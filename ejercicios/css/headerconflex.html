@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo HEADER con FLEX</title>
+    <style>
+        /* ------------------ ASI USANDO FLOAT para colocar el LOGOTIPO 
+        header { height: 100px; 
+                 background-color: bisque; 
+                overflow: auto; 
+                vertical-align: baseline;
+            }
+
+        header:after { content:""; display: block; clear: both;  }
+        
+        header img { float: left; }
+        
+        */
+
+        /* --------------- ASI USANDO FLEX PARA COLOCAR LOGO Y MENU AL LADO */
+        header { 
+            display: flex; 
+            align-items: center; /* Centro o lo que quieras */
+        }
+
+        header img { 
+            width: 150px; 
+        }
+
+        header nav { 
+            width: calc(100vw - 200px); 
+        } /* Calcula los pixels que quedan libres tras el logo */
+
+        /* ESTE ES EL FLEX QUE HACE QUE LAS OPCIONES DEL MENU SE REPARTAN BIEN */
+        header nav ul {
+            display: flex; 
+            justify-content: flex-end;
+            list-style-type: none;
+
+        }
+        header nav ul li { 
+            min-width: 100px;
+        }
+
+        body {
+            color: red;
+            background-color: black;
+        }
+
+        a { 
+            color:aqua;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="../../img/Pablo.png">
+        <nav>
+            <ul>
+                <li><a href="#">Pablo</a></li>
+                <li><a href="#">Mola</a></li>
+                <li><a href="#">Mogollón</a></li>
+                <li><a href="#">Yeah!</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Un ejemplo de header con flex</h1>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="../javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>

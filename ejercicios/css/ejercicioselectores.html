@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de selectores</title>
+    <style>
+        #titulo {
+            display: block;
+            text-align: center;
+            background-color: blue;
+            font-size: 40px;
+            padding: 10px;
+            border-radius: 30px;
+            border: 10px ridge purple
+        }
+        
+        .titulo2 {
+            display: block;
+            text-align: center;
+            background-color: purple;
+            border: 7px solid blue;
+            border-radius: 25px;
+            font-size: 25px;
+            padding: 6px;
+            border: 7px ridge rgb(71, 71, 212);
+        }
+        
+        body {
+            margin: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: aquamarine;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: black;
+            padding: 15px;
+            border-radius: 30px;
+        }
+        
+        article {
+            background-color: #999;
+            padding: 15px;
+            border-radius: 30px;
+        }
+        
+        table {
+            border: 2px solid black;
+            border-collapse: collapse;
+            background-color: tomato;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        td {
+            border-left: 2px solid black;
+            border-bottom: 2px solid black;
+            padding: 10px;
+        }
+        
+        th {
+            border-bottom: 2px solid black;
+            padding: 10px;
+            border-left: 2px solid black;
+            background-color: brown;
+        }
+        
+        h1 {
+            background-color: white;
+            padding: 10px;
+            border-radius: 15px;
+        }
+        
+        h2 {
+            background-color: pink;
+            padding: 8px;
+            border-radius: 13px;
+        }
+        
+        h3 {
+            background-color: orange;
+            padding: 7px;
+            border-radius: 11px;
+        }
+        
+        section {
+            border: 4px double grey;
+            padding: 15px;
+            border-radius: 20px;
+        }
+
+        main section:target {
+            background-color: gold;
+            transition: 2s;
+        }
+
+        main section:target::before {
+            content: "▼▼▼"; 
+            color: green;
+            font-size: 3.5em;
+            display: flex;
+            justify-content: center;
+        }
+
+        main section:target::after {
+            content: "▲▲▲";
+            color: green;
+            font-size: 3.5em;
+            display: flex;
+            justify-content: center;
+        }
+        
+        article p {
+            background-color: rgb(23, 212, 23);
+            padding: 5px;
+            border-radius: 7px;
+        }
+        
+        header p {
+            background-color: rgb(23, 212, 23);
+            padding: 5px;
+            border-radius: 7px;
+        }
+
+         .explicacion {
+            border: 2px solid black;
+            padding-left: 10px;
+            border-radius: 13px;
+        }
+        
+        details {
+            border: 4px double grey;
+            padding: 10px;
+            border-radius: 13px;
+        }
+
+        details[open].codigo {
+            color: white;
+            background-color: black;
+            border: 2px solid black;
+            transition: 1s;
+        }
+
+        details[open].codigo summary {
+            color: red;
+            transition: 1s;
+        }
+
+        details.codigo {
+            transition: 2s;
+        }
+
+        details.codigo summary {
+            transition: 1s;
+        }
+        
+        ol {
+            list-style-type: none;
+        }
+        
+        table.colores {
+            background-color: aqua;
+            padding: 10px;
+            border: 2px solid black;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .azulon {
+            background-color: skyblue;
+        }
+        
+        #em em {
+            color: red;
+        }
+        
+        #h3eniep h3~p {
+            color: red;
+        }
+        
+        #peniep p~p {
+            color: red;
+        }
+        
+        #h1masp h1+p {
+            color: red;
+        }
+        
+        #h3masp h3+p {
+            color: red;
+        }
+        
+        #headermayorquep header>p {
+            color: red;
+        }
+        
+        #pmayorquestrong p>strong {
+            color: red;
+        }
+        
+        #pespaciostrong p strong {
+            color: red;
+        }
+        
+        #articlemayorquestrong article>strong {
+            color: red;
+        }
+        
+        #articleespaciostrong article strong {
+            color: red;
+        }
+        
+        #pmasp p+p {
+            color: red;
+        }
+        
+        #pmasstrong p+strong {
+            color: red;
+        }
+        
+        #azulonmash3 .azulon+h3 {
+            color: red;
+        }
+        
+        #azulonespacioh3 .azulon h3 {
+            color: red;
+        }
+        
+        #azulonmayorqueh3 .azulon>h3 {
+            color: red;
+        }
+        
+        #azulonespaciop .azulon p {
+            color: red;
+        }
+        
+        #azulonmayorquep .azulon>p {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="titulo">Ejercicio de selectores combinados</section> <br>
+    <!--No tengo muy claro que poner el título directo en una section
+        sea semánticamente correcto, pero quería evitar usar etiquetas de 
+        título ni nada que estuviera incluido en el ejercicio.-->
+        <details style="text-align: center; font-size: 1.5em;"><summary>Índice</summary>
+            <nav>
+                <ol>
+                    <li><a href="#em">Ejercicio 1: etiqueta &lt;em&gt;</a></li>
+                    <li><a href="#h3eniep">Ejercicio 2: "h3~p"</a></li>
+                    <li><a href="#peniep">Ejercicio 3: "p~p"</a></li>
+                    <li><a href="#h1masp">Ejercicio 4: "h1+p"</a></li>
+                    <li><a href="#h3masp">Ejercicio 5: "h3+p"</a></li>
+                    <li><a href="#headermayorquep">Ejercicio 6: "header>p"</a></li>
+                    <li><a href="#pmayorquestrong">Ejercicio 7: "p>strong"</a></li>
+                    <li><a href="#pespaciostrong">Ejercicio 8: "p strong"</a></li>
+                    <li><a href="#articlemayorquestrong">Ejercicio 9: "article>strong"</a></li>
+                    <li><a href="#articleespaciostrong">Ejercicio 10: "article strong"</a></li>
+                    <li><a href="#pmasp">Ejercicio 11: "p+p"</a></li>
+                    <li><a href="#pmasstrong">Ejercicio 12: "p+strong"</a></li>
+                    <li><a href="#azulonmash3">Ejercicio 13: ".azulon+h3"</a></li>
+                    <li><a href="#azulonespacioh3">Ejercicio 14: ".azulon h3"</a></li>
+                    <li><a href="#azulonmayorqueh3">Ejercicio 15: ".azulon>h3"</a></li>
+                    <li><a href="#azulonespaciop">Ejercicio 16: ".azulon p"</a></li>
+                    <li><a href="#azulonmayorquep">Ejercicio 17: ".azulon>p"</a></li>
+                </ol>
+            </nav> <br><br>
+            <table class="colores">
+                <tr>
+                    <th>Color de fondo</th>
+                    <th>Etiqueta</th>
+                </tr>
+                <tr>
+                    <td style="background-color: black; color: white;">Negro</td>
+                    <td>&lt;header&gt;</td>
+                </tr>
+                <tr>
+                    <td style="background-color: #999;">Gris</td>
+                    <td>&lt;article&gt;</td>
+                    <tr>
+                        <td style="background-color: white;">Blanco</td>
+                        <td>&lt;h1&gt;</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: pink;">Rosa</td>
+                        <td>&lt;h2&gt;</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: orange;">Naranja</td>
+                        <td>&lt;h3&gt;</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: rgb(23, 212, 23) ;">Verde</td>
+                        <td>&lt;p&gt;</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: tomato;">Tomato</td>
+                        <td>&lt;td&gt;</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: skyblue;">Skyblue</td>
+                        <td>&lt;article&gt; <br> .azulon</td>
+                    </tr>
+                </table>
+        </details> <br><br>
+        
+        <details class="codigo">
+            <summary style="text-align: center; font-size: 1.5em;">Código original</summary>
+            <code>
+                &lt;body> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;header> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1>Bienvenidos a las CSS&lt;/h1> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2>La estructura básica&lt;/h2> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p>Presentamos las &lt;strong>reglas&lt;/strong> de estilo.&lt;/p> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;table> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr>&lt;td>&lt;p>Lista&lt;/p>&lt;/td>&lt;td>&lt;p>Lista&lt;/p>&lt;/td>&lt;/tr> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/table> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/header> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;article> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3>Las reglas de estilo&lt;/h3> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p>Toda &lt;em>&lt;strong>etiqueta&lt;/strong></em> tiene estilo &lt;br> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;que viene dado por el &lt;em>navegador&lt;em> y su CSS.&lt;/p> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p>Pero las cambiamos &lt;strong>con CSS&lt;/strong> propio.&lt;/p> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/article> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;article class="azulon"> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3>Los selectores&lt;/h3> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p>Los selectores más básicos son los &lt;br> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;de etiqueta, pero hay más.&lt;/p> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="masdetalle.html">Haga clic para + detalle.&lt;/a> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/article> <br>
+                &lt;body>
+            </code>
+        </details>
+            
+        <br><br>
+        <main>
+            <section id="em" class="seccion">
+                <section class="titulo2">Ejercicio 1: Etiqueta &lt;em&gt;
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                        que viene dado por el <em>navegador</em> y su CSS.</p>
+                    <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                        de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                <br><br>
+                <footer class="explicacion">
+                    <p>Todas las etiquetas &lt;em&gt; salen en rojo. <a href="#titulo">Volver arriba</a>. </p>
+                </footer>
+            </section>
+            <br><br>
+            
+            <section id="h3eniep">
+                <section class="titulo2">Ejercicio 2: "h3~p"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                        que viene dado por el <em>navegador</em> y su CSS.</p>
+                    <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                        de etiqueta, pero hay más.</p>
+                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                <br><br>
+                <footer class="explicacion">
+                    <p>Todos los párrafos que haya detrás de una etiqueta &lt;h3&gt; salen en rojo, sin importar que haya otra
+                        etiqueta entre medias. <a href="#titulo">Volver arriba</a>.</p>
+                </footer>
+            </section>
+            <br><br>
+            <section id="peniep">
+                <section class="titulo2">Ejercicio 3: "p~p"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                        que viene dado por el <em>navegador</em> y su CSS.</p>
+                    <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                        de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                <br><br>
+                <footer class="explicacion">
+                    <p>Los párrafos que vayan detrás de otros párrafos salen en rojo. Tienen que ser hermanos, es decir, dentro
+                        de la misma etiqueta, en este caso &lt;article&gt;. Por ese motivo, el último párrafo no sale en rojo,
+                        porque es un primer párrafo dentro de un &lt;article&gt;. <a href="#titulo">Volver arriba</a>.</p>
+                </footer>
+            </section>
+            <br><br>
+            
+            <section id="h1masp">
+                <section class="titulo2">Ejercicio 4: "h1+p"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                        que viene dado por el <em>navegador</em> y su CSS.</p>
+                    <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                        de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                <br><br>
+                <footer class="explicacion">
+                    <p>Nada sale en rojo porque no hay ningún párrafo justo detrás de un &lt;h1&gt;. <a href="#titulo">Volver
+                        arriba</a>.</p>
+                </footer>
+            </section>
+            <br><br>
+            
+            <section id="h3masp">
+                <section class="titulo2">Ejercicio 5: "h3+p"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                    que viene dado por el <em>navegador</em> y su CSS.</p>
+                    <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                        de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                <br><br>
+                <footer class="explicacion">
+                    <p>Todos los PRIMEROS párrafos tras un &lt;h3&gt; salen en rojo. Los siguientes ya no. <a
+                        href="#titulo">Volver arriba</a>.</p>
+                </footer>
+            </section>
+                    <br><br>
+            
+            <section id="headermayorquep">
+                <section class="titulo2">Ejercicio 6: "header>p"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                        que viene dado por el <em>navegador</em> y su CSS.</p>
+                    <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                        de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                    <br><br>
+                <footer class="explicacion">
+                    <p>Los párrafos cuyo padre es &lt;header&gt; salen en rojo. <a href="#titulo">Volver arriba</a>.</p>
+                </footer>
+            </section>
+                    <br><br>
+            
+            <section id="pmayorquestrong">
+                <section class="titulo2">Ejercicio 7: "p>strong"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                        que viene dado por el <em>navegador</em> y su CSS.</p>
+                    <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                            de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                <br><br>
+                <footer class="explicacion">
+                    <p>Saldrá en rojo cualquier etiqueta &lt;strong&gt; cuyo padre DIRECTO sea una &lt;p&gt;, o dicho de otro
+                        modo, cualquier negrita que esté dentro de un párrafo siempre y cuando no haya nada entre ambas
+                        etiquetas. En el ejemplo anterior, "etiqueta" no sale en rojo porque &lt;em&gt; está entre &lt;p&gt; y
+                        &lt;strong&gt;. <a href="#titulo">Volver arriba</a>.</p>
+                </footer>
+            </section>
+                <br><br>
+            
+            <section id="pespaciostrong">
+                <section class="titulo2">Ejercicio 8: "p strong"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                        que viene dado por el <em>navegador</em> y su CSS.</p>
+                    <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                        de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                    <br><br>
+                <footer class="explicacion">
+                    <p>Saldrá en rojo cualquier etiqueta &lt;strong&gt; cuyo antepasado sea una &lt;p&gt;, o dicho de otro modo,
+                            cualquier negrita que esté dentro de un párrafo. <a href="#titulo">Volver arriba</a>.</p>
+                </footer>
+            </section>
+                        <br><br>
+            
+            <section id="articlemayorquestrong">
+                <section class="titulo2">Ejercicio 9: "article>strong"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                        que viene dado por el <em>navegador</em> y su CSS.</p>
+                        <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                        de etiqueta, pero hay más.</p>
+                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                    <br><br>
+                <footer class="explicacion">
+                    <p>No sale nada en rojo porque no hay ninguna etiqueta &lt;strong&gt; directamente después de ningún
+                            &lt;article&gt;. <a href="#titulo">Volver arriba</a>.</p>
+                </footer>
+            </section>
+                        <br><br>
+            
+            <section id="articleespaciostrong">
+                <section class="titulo2">Ejercicio 10: "article strong"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                        que viene dado por el <em>navegador</em> y su CSS.</p>
+                        <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                            de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                        <br><br>
+                <footer class="explicacion">
+                    <p>Saldrá en rojo cualquier etiqueta &lt;strong&gt; que esté dentro de un &lt;article&gt;. <a
+                        href="#titulo">Volver arriba</a>.</p>
+                </footer>
+            </section>
+                        <br><br>
+            
+            <section id="pmasp">
+                <section class="titulo2">Ejercicio 11: "p+p"</section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                        que viene dado por el <em>navegador</em> y su CSS.</p>
+                    <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                            de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                        <br><br>
+                <footer class="explicacion">
+                    <p>Sale en rojo el único párrafo que está detrás de otro párrafo (con el mismo padre). <a
+                        href="#titulo">Volver arriba</a>.</p>
+                </footer>
+            </section>
+                        <br><br>
+            
+            <section id="pmasstrong">
+                <section class="titulo2">Ejercicio 12: "p+strong"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                        que viene dado por el <em>navegador</em> y su CSS.</p>
+                        <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                        de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                        <br><br>
+                <footer class="explicacion">
+                    <p>No sale nada en rojo porque no hay ninguna etiqueta &lt;strong&gt; justo después de una etiqueta padre
+                        sea una &lt;p&gt;. <a href="#titulo">Volver arriba</a>.</p>
+                </footer>
+            </section>
+                        <br><br>
+            
+            <section id="azulonmash3">
+                <section class="titulo2">Ejercicio 13: ".azulon+h3"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                            que viene dado por el <em>navegador</em> y su CSS.</p>
+                    <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                        <p>Los selectores más básicos son los <br>
+                            de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                                            <br><br>
+                <footer class="explicacion">
+                    <p>¡Sorpresa! No sale nada en rojo porque, aunque vemos una etiqueta &lt;h3&gt; detrás de una etiqueta
+                        &lt;article&gt;, en realidad no está detrás, sino dentro. <a href="#titulo">Volver arriba</a>.</p>
+                </footer>
+            </section>
+            <br><br>
+            
+            <section id="azulonespacioh3">
+                <section class="titulo2">Ejercicio 14: ".azulon h3"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                            que viene dado por el <em>navegador</em> y su CSS.
+                    </p>
+                    <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                                de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                            <br><br>
+                <footer class="explicacion">
+                    <p>Sale en rojo la etiqueta &lt;h3&gt; que está dentro de una etiqueta con clase "azulon", en este caso la
+                        <code>&lt;article class="azulon"&gt;</code>. <a href="#titulo">Volver arriba</a>.
+                    </p>
+                </footer>
+            </section>
+            <br><br>
+            
+            <section id="azulonmayorqueh3">
+                <section class="titulo2">Ejercicio 15: ".azulon>h3"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            </tr>
+                        </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                                que viene dado por el <em>navegador</em> y su CSS.
+                    </p>
+                    <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                                    de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                                <br><br>
+                <footer class="explicacion">
+                    <p>Saldrá en rojo cualquier etiqueta &lt;h3&gt; cuyo padre sea de clase "azulon". Coincide con lo que vemos
+                        en el ejercicio 13, pero no significan lo mismo. En el ejercicio 13 también saldrían en rojo los nietos.
+                    <a href="#titulo">Volver arriba</a>.
+                    </p>
+                </footer>
+            </section>
+            <br><br>
+            
+            <section id="azulonespaciop">
+                <section class="titulo2">Ejercicio 16: ".azulon p"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                        que viene dado por el <em>navegador</em> y su CSS.
+                    </p>
+                    <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                            de etiqueta, pero hay más.</p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                <br><br>
+                <footer class="explicacion">
+                    <p>Saldrá en rojo cualquier etiqueta &lt;p&gt; que sea descendiente de otra etiqueta con clase "azulon", en
+                        este caso <code>&lt;article class="azulon"&gt;</code>. <a href="#titulo">Volver arriba</a>.</p>
+                </footer>
+            </section>
+                        <br><br>
+            
+            <section id="azulonmayorquep">
+                <section class="titulo2">Ejercicio 17: ".azulon>p"
+                </section> <br>
+                <header>
+                    <h1>Bienvenidos a las CSS</h1>
+                    <h2>La estructura básica</h2>
+                    <p>Presentamos las <strong>reglas</strong> de estilo.</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                            <td>
+                                <p>Lista</p>
+                            </td>
+                        </tr>
+                    </table>
+                </header> <br>
+                <article>
+                    <h3>Las reglas de estilo</h3>
+                    <p>Toda <em><strong>etiqueta</strong></em> tiene estilo <br>
+                        que viene dado por el <em>navegador</em> y su CSS.
+                    </p>
+                        <p>Pero las cambiamos <strong>con CSS</strong> propio.</p>
+                </article> <br>
+                <article class="azulon">
+                    <h3>Los selectores</h3>
+                    <p>Los selectores más básicos son los <br>
+                        de etiqueta, pero hay más.
+                    </p>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haga clic ir directamente al típico trolleo.</a>
+                </article>
+                        <br><br>
+                <footer class="explicacion">
+                    <p>Saldrá en rojo cualquier etiqueta &lt;p&gt; cuyo padre sea una etiqueta con clase "azulon", en este caso
+                        <code>&lt;article class="azulon"&gt;</code>. <a href="#titulo">Volver arriba</a>.
+                    </p>
+                </footer>
+            </section>
+        </main>
+            <br>
+            <hr>
+            <p>(*) Idea de agruparlo todo en una misma página tomada prestada de Mario.</p>
+            <hr>
+            <footer>
+                    <nav>
+                        <ul>
+                            <li><a href="../../index.html">Página principal</a></li>
+                            <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                            <li><a href="index.html">Enlaces a ejercicios de CSS</a></li>
+                            <li><a href="../javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                        </ul>
+                    </nav>
+            </footer>         
+    </body>
+</html>                                                                                                                                                                                                                                                                                                                                                                                              

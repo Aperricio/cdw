@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de menú desplegable</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --fondo: #F79489;
+            --fondoSobre: #F8AFA6;
+            --letra: #F9F1F0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            background-color: var(--fondo);
+            color: var(--letra);
+            /*position: fixed; */
+        }
+
+        h1 {
+            text-shadow: 1.2px 1.2px 3px grey;
+        }
+
+        main nav {
+            line-height: 30px;
+            height: 30px;
+        }
+
+        main nav ul {
+            list-style-type: none;
+            background-color: var(--fondo);
+        }
+
+        main nav ul li {
+            display: inline-block;
+            position: relative; /* sólo para que funcione el ABSOLUTE*/
+        }
+
+        main nav a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: var(--letra);
+            padding: 0px 20px;
+        }
+
+        main nav li:hover {
+            background-color: var(--fondoSobre);
+        }
+
+        main nav li {
+            border-radius: 20px 20px 0px 0px;
+        }
+
+        main nav li > ul {
+            display: none;
+        }
+
+        main nav li > ul > li:hover {
+            border-radius: 20px;
+        }
+
+        main nav li:hover > ul {
+            display: block;
+            position: absolute;
+            top: 30px;
+            left: 0px;
+            width: 100%;
+            box-shadow: 4px 4px 12px grey;
+        }
+
+        main nav li:hover > ul:last-child {
+            border-radius: 0px 0px 20px 20px;
+        }
+
+        section {
+            margin: 25px;
+        }
+
+        h2 {
+            margin: 20px 0px 20px;
+            text-align: center;
+        }
+
+        p {
+            max-width: 800px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            margin: 10px 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Bienvenidos a los destrozos de color de Pablo</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Ejercicios css</a>
+                        <ul>
+                            <li><a href="ejercicioselectores.html">Ejercicio 1</a></li>
+                            <li><a href="listasconiconos.html">Ejercicio 2</a></li>
+                            <li><a href="sprite.html">Ejercicio 3</a></li>
+                            <li><a href="boxsizing.html">Ejercicio 4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="tiposletra.html">Tipos de letra</a></li>
+                    <li><a href="../html/etiquetas.html">Etiquetas</a></li>
+                    <li><a href="../../index.html">Página principal</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <h2>Episodio IV: Una nueva esperanza</h2>
+            <p>Nos encontramos en un periodo de guerra civil. Las naves espaciales rebeldes, atacando desde una base oculta, han logrado su primera victoria contra el malvado Imperio Galáctico. Durante la batalla, los espías rebeldes han conseguido apoderarse de los planos secretos del arma total y definitiva del Imperio, la ESTRELLA DE LA MUERTE, una estación espacial acorazada, llevando en sí potencia suficiente para destruir a un planeta entero. Perseguida por los siniestros agentes del Imperio, la Princesa Leia vuela hacia su patria, a bordo de su nave espacial, llevando consigo los planos robados, que pueden salvar a su pueblo y devolver la libertad a la galaxia....</p>
+        </section>
+    </main>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="../javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>

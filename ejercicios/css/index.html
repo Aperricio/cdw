@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="shortcut icon" href="/img/Pablo.ico" type="image/x-icon">
+    <title>Ejercicios CSS</title>
+    <style>
+        :root {
+            min-height: 100vh;
+            background: linear-gradient(105deg, rgb(7, 7, 7) 39%, rgb(143, 5, 90) 96%);
+        }
+
+        body {
+            color: white;
+            margin: 20px;
+            background-image: url(/img/css.png);
+            background-size: 100vw;
+            background-repeat: no-repeat;
+            background-position: 50% 30%;
+            -webkit-animation: fadein 3s;
+            -moz-animation: fadein 3s;
+            animation: fadein 3s;
+            opacity: 1;
+        }
+
+        @keyframes fadein {
+            from { 
+                opacity: 0; 
+            }
+            to   { 
+                opacity: 1; 
+            }
+        }
+
+        @-moz-keyframes fadein {
+            from { 
+                opacity: 0; 
+            }
+            to   { 
+                opacity: 1; 
+            }
+        }
+        
+        /* Barra del deslizador */
+        ::-webkit-scrollbar {
+            width: 10px;
+            transition: 0.5s;
+            border-radius: 30px;
+        }
+
+
+        /* Hueco, el contenedor general de todo el resto de elementos, botones incluidos.*/
+        ::-webkit-scrollbar-track {
+            background: black;
+            border-radius: 30px;            
+            transition: 0.2s;
+        }
+
+
+        /* La barra o rail sobre la que se desliza el manejador */
+        ::-webkit-scrollbar-track-piece {
+            background: black;
+        }
+
+
+        /* Slider */
+        ::-webkit-scrollbar-thumb {
+            background: rgb(143, 5, 90);
+            border-radius: 15px;
+            transition: 0.5s;
+        }
+
+
+        /* Slider al hacer hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #19597c;
+            transition: 0.5s;
+        }
+
+
+        main {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-shadow: 4px 4px 3px #19597c;
+        }
+        
+        h1:hover {
+            background: linear-gradient(to right, purple 40%, orange 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: rotate(0.01turn);
+            text-shadow: none;
+        }
+
+        section {
+            display: flex; 
+            flex-direction: column;
+        }
+
+        input {
+            background-color: #19597c;
+            color: yellow;
+            font-weight: bolder;
+            padding: 3px 10px;
+            line-height: 2em;
+            border-radius: 5px 20px 5px 20px;
+            opacity: 0.65;
+            transition: 2s;
+            margin: 3px auto;
+        }
+
+        input:nth-of-type(odd):hover {
+            background-color: purple;
+            opacity: 1;
+            box-shadow: 2px 2px 5px red;
+            transform: scale(1.5) rotate(0.01turn);
+            transition: 2s;
+        }
+
+        input:nth-of-type(even):hover {
+            background-color: purple;
+            opacity: 1;
+            box-shadow: 2px 2px 5px red;
+            transform: scale(1.5) rotate(-0.01turn);
+            transition: 2s;
+        }
+
+        main a:visited {
+            color: yellow;
+        }
+
+        .navegacionfooter {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #19597c;
+            border-radius: 30px;
+            position: fixed;
+            bottom: 20px;
+            width: 120px;
+            opacity: 0.5;
+            text-align: center;
+            transition: 1s;
+        }
+
+        .navegacionfooter a {
+            text-decoration: none;
+            text-shadow: none;
+            padding: 10px;
+            font-weight: bold;
+            color: black;
+            transition: 1s;
+        }
+
+        .navegacionfooter a:hover {
+            background-color: black;
+            color: #19597c;
+            border-radius: 20px;
+            padding: 10px 15px;
+            transition: 1s;
+        }
+
+        .navegacionfooter:hover {
+            opacity: 1;
+        }
+
+        ul.navegacionfooter li {
+            border-radius: 30px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Ejercicios de CSS</h1>
+         <!-- Actualizado para evitar meter un botón dentro de una etiqueta, y eliminados un par de ejercicios que no servían para nada.
+
+        <a href="ejercicioselectores.html"><button class="iz" type="button">3- Ejercicio de selectores combinados</button></a><br>
+        <a href="estiloconelnaceexterno.html"><button class="de" type="button">4-  Estilo con enlace externo</button></a> <br>
+        <a href="selectoresavanzados.html"><button class="iz" type="button">5- Selectores avanzados</button></a><br>
+        <a href="navhover.html"><button class="de" type="button">6- Lista de navegación con :hover</button></a><br>
+        <a href="claseysubclase.html"><button class="iz" type="button">7- Clases y subclases</button></a><br>
+        <a href="formularioconsubclases.html"><button class="de" type="button">8- Formularios con subclases</button></a><br>
+        <a href="ejemplosparimpar.html"><button class="iz" type="button">9- Selector par e impar</button></a><br>
+        <a href="tablasnthchild.html"><button class="de" type="button">10- Selector par e impar, tablas</button></a><br>
+        <a href="listanavborderradius.html"><button class="iz" type="button">11- &lt;nav&gt; con bordes redondeados</button></a><br>
+        <a href="tabladetresentres.html"><button class="de" type="button">12- Tablas de tres en tres</button></a><br> 
+        <a href="rolloverhoverimg.html"><button class="iz" type="button">13- Rollover con :hover</button></a><br>
+        <a href="sprite.html"><button class="de" type="button">14- Sprite izquierda/derecha</button></a><br>
+        <a href="opacidad.html"><button class="iz" type="button">15- Diferente opacidad</button></a><br>
+        <a href="pruebacolores.html"><button class="de" type="button">16- Prueba: paleta de colores</button></a><br>
+        <a href="usodevariables.html"><button class="iz" type="button">17- Uso de variables</button></a><br>
+        <a href="overflow.html"><button class="de" type="button">18- Overflow</button></a><br>
+        <a href="tiposletra.html"><button class="iz" type="button">19- Tipos de letra</button></a><br>
+        <a href="reglastexto.html"><button class="de" type="button">20- Reglas de texto</button></a><br>
+        <a href="fuenteimportada.html"><button class="iz" type="button">21- Fuentes importadas</button></a><br>    
+        <a href="listasconiconos.html"><button class="de" type="button">22- Listas con iconos</button></a><br>   
+        <a href="propiedaddisplay.html"><button class="iz" type="button">23- Propiedad display</button></a><br>    
+        <a href="ejerciciodisplay.html"><button class="de" type="button">24- Ejercicio con display</button></a><br>    
+        <a href="boxsizing.html"><button class="iz" type="button">25- Ejercicio con box-sizing</button></a><br>
+        <a href="cajadesdeenjoycss.html"><button class="iz" type="button">26- Caja con Enjoy CSS</button></a><br>
+        <a href="ejerciciomenudesplegable.html"><button class="de" type="button">27- Ejercicio menú desplegable</button></a><br> 
+        <a href="taller/index.html"><button class="iz" type="button">28- Taller Colón</button></a><br>      
+        <a href="anchofijo.html"><button class="de" type="button">29- Ancho fijo (periódicos)</button></a><br> 
+        <a href="ejemplo-hamburguesa.html"><button class="iz" type="button">30.1- Hamburguesa: Ej 1</button></a><br>
+        <a href="ejemplo-hamburguesa2.html"><button class="de" type="button">30.2- Hamburguesa: Ej 2</button></a><br>   
+        <a href="menuhamburguesalibro.html"><button class="iz" type="button">48 - Menú hamburguesa del libro</button></a><br>  
+        <a href="displaytable.html"><button class="iz" type="button">31 - Hero con table</button></a><br>           
+        <a href="turismo/index.html"><button class="de" type="button">32 - Turismo</button></a><br> 
+        <a href="displayflex.html"><button class="iz" type="button">33 - Display flex</button></a><br> 
+        <a href="headerconflex.html"><button class="de" type="button">34 - Header con flex</button></a><br>                                         
+        <a href="cajasconflex.html"><button class="iz" type="button">35 - Cajas con flex</button></a><br>
+        <a href="disenoflex.html"><button class="de" type="button">36 - Diseño con flex</button></a><br>                                         
+        <a href="displaygrid.html"><button class="iz" type="button">37 - Display grid</button></a><br>  
+        <a href="flextarjet.html"><button class="de" type="button">38 - Ejercicio Flex/Target</button></a><br> 
+        <a href="ejerciciotablagrid.html"><button class="iz" type="button">39 - Ejercicio Table/Grid</button></a><br> 
+        <a href="portadagrid.html"><button class="de" type="button">40 - Imágenes en Grid</button></a><br> 
+        <a href="miclaseengrid.html"><button class="iz" type="button">41 - Mi clase en Grid</button></a><br>
+        <a href="ejerciciodisplaygridgap.html"><button class="de" type="button">42 - Grid con gap y hueco</button></a><br>            
+        <a href="gridautofill.html"><button class="iz" type="button">43 - Grid autofill/autofit</button></a><br>                  
+        <a href="gridrepeatminmax.html"><button class="de" type="button">44 - Grid minmax</button></a><br>                  
+        <a href="flextarjetprofe.html"><button class="iz" type="button">45 - Flex/Target del profe</button></a><br>         -->
+        <section>
+            <input type="button" onclick="window.location.href='selectoretiquetas.html';" value="1- Selector de etiquetas"/><br>
+            <input type="button" onclick="window.location.href='idyclases.html';" value="2- Selectores de etiquetas, clases e IDs"/><br>
+            <input type="button" onclick="window.location.href='ejercicioselectores.html';" value="3- Ejercicio de selectores combinados, lista extensa"/><br>
+            <input type="button" onclick="window.location.href='estiloconelnaceexterno.html';" value="4-  Estilo (.css) con enlace externo"/><br>
+            <input type="button" onclick="window.location.href='selectoresavanzados.html';" value="5- Selectores avanzados: pseudo clases/elementos"/><br>
+            <input type="button" onclick="window.location.href='claseysubclase.html';" value="6 - Clases y subclases (parecido al 5)"/><br>
+            <input type="button" onclick="window.location.href='formularioconsubclases.html';" value="7 - Formularios con subclases"/><br>
+            <input type="button" onclick="window.location.href='ejemplosparimpar.html';" value="8 - Selector par e impar (nth-child odd y even)"/><br>
+            <input type="button" onclick="window.location.href='tablasnthchild.html';" value="9 - Selector par e impar (odd y even) en tablas"/><br>
+            <input type="button" onclick="window.location.href='tabladetresentres.html';" value="10 - Tablas de tres en tres con nth-child"/><br>
+            <input type="button" onclick="window.location.href='rolloverhoverimg.html';" value="11 - Rollover con :hover"/><br>
+            <input type="button" onclick="window.location.href='sprite.html';" value="12 - Sprite izquierda/derecha"/><br>
+            <input type="button" onclick="window.location.href='opacidad.html';" value="13 - Diferente opacidad"/><br>
+            <input type="button" onclick="window.location.href='pruebacolores.html';" value="14 - Prueba: paleta de colores"/><br>
+            <input type="button" onclick="window.location.href='usodevariables.html';" value="15 - Uso de variables"/><br>
+            <input type="button" onclick="window.location.href='overflow.html';" value="16 - Overflow"/><br>
+            <input type="button" onclick="window.location.href='tiposletra.html';" value="17 - Tipos de letra"/><br>
+            <input type="button" onclick="window.location.href='reglastexto.html';" value="18 - Reglas de texto"/><br>
+            <input type="button" onclick="window.location.href='fuenteimportada.html';" value="19 - Fuentes importadas"/><br>
+            <input type="button" onclick="window.location.href='listasconiconos.html';" value="20 - Listas con iconos"/><br>
+            <input type="button" onclick="window.location.href='propiedaddisplay.html';" value="21 - Propiedad display (contenedores, imágenes...)"/><br>
+            <input type="button" onclick="window.location.href='ejerciciodisplay.html';" value="22 - Ejercicio con display"/><br>
+            <input type="button" onclick="window.location.href='boxsizing.html';" value="23 - Ejercicio con box-sizing: calculando medidas"/><br>
+            <input type="button" onclick="window.location.href='ejerciciomenudesplegable.html';" value="24 - Ejercicio menú desplegable"/><br>
+            <input type="button" onclick="window.location.href='taller/index.html';" value="25 - Taller Colón"/><br>
+            <input type="button" onclick="window.location.href='anchofijo.html';" value="26 - Ancho fijo (periódicos)"/><br>
+            <input type="button" onclick="window.location.href='ejemplo-hamburguesa.html';" value="27.1 - Hamburguesa: Ej 1"/><br>
+            <input type="button" onclick="window.location.href='ejemplo-hamburguesa2.html';" value="27.2 - Hamburguesa: Ej 2"/><br>
+            <input type="button" onclick="window.location.href='menuhamburguesalibro.html';" value="27.3 - Hamburguesa del libro"/><br>
+            <input type="button" onclick="window.location.href='displaytable.html';" value="28 - Hero con table-cell"/><br>
+            <input type="button" onclick="window.location.href='turismo/index.html';" value="29 - Turismo"/><br>
+            <input type="button" onclick="window.location.href='displayflex.html';" value="30 - Display flex"/><br>
+            <input type="button" onclick="window.location.href='headerconflex.html';" value="31 - Header con flex"/><br>
+            <input type="button" onclick="window.location.href='cajasconflex.html';" value="32 - Cajas con flex"/><br>
+            <input type="button" onclick="window.location.href='disenoflex.html';" value="33 - Diseño con flex"/><br>
+            <input type="button" onclick="window.location.href='displaygrid.html';" value="34 - Display grid"/><br>
+            <input type="button" onclick="window.location.href='flextarjet.html';" value="35 - Ejercicio: aparecer/desaparecer platos"/><br>
+            <input type="button" onclick="window.location.href='ejerciciotablagrid.html';" value="36 - Tabla en Grid"/><br>
+            <input type="button" onclick="window.location.href='portadagrid.html';" value="37 - Imágenes en Grid"/><br>
+            <input type="button" onclick="window.location.href='miclaseengrid.html';" value="38 - Mi clase en Grid"/><br>
+            <input type="button" onclick="window.location.href='ejerciciodisplaygridgap.html';" value="39 - Grid con gap y hueco"/><br>
+            <input type="button" onclick="window.location.href='gridautofill.html';" value="40 - Grid autofill/autofit"/><br>
+            <input type="button" onclick="window.location.href='gridrepeatminmax.html';" value="41 - Grid minmax"/><br>
+            <input type="button" onclick="window.location.href='flextarjetprofe.html';" value="42 - Aparecer/desaparecer cajas del profe"/><br>
+            <input type="button" onclick="window.location.href='menupestanas.html';" value="43 - Menú con pestañas (de mi compi Antonio)"/><br>
+            <input type="button" onclick="window.location.href='ejmediaquery.html';" value="44 - Ejemplo de MediaQuery"/><br>
+            <input type="button" onclick="window.location.href='ejpaginamediaquery.html';" value="45 - Ejemplo página con MediaQuery"/><br>
+            <input type="button" onclick="window.location.href='/ejercicios/css/tessellate/index.html';" value="46 - Editando una plantilla existente"/><br>
+            <input type="button" onclick="window.location.href='boxshadowinset.html';" value="47 - Ejemplo de box-shadow: inset"/><br>
+        </section>
+    </main>
+    <div>
+        <nav>
+            <ul class="navegacionfooter">
+                <li><a class="material-icons" href="../../index.html" title="Página principal">home</a></li>
+                <li><a href="/ejercicios/ultimo.html">Último ej.</a></li>
+                <li><a href="../html/index.html">HTML</a></li>
+                <li><a href="../javascript/index.html" title="Enlaces a los ejercicios JavaScript">JavaScript</a></li>
+                <li><a href="../html/descargas.html">Documentos</a></li>
+                <li><a class="material-icons" href="../html/contacto.html" title="Contacta conmigo">email</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+
+</html>

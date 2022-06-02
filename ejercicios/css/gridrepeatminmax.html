@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repeat con minmax</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: pink;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /*También vale auto-fill*/
+            grid-template-rows: 1fr 1fr 1fr;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        main div {
+            display: flex;
+            height: 30vh;
+            justify-content: center;
+            align-items: center;
+            background-color: purple;
+            color: white;
+            margin: 0;
+            padding: 0;
+            border: 2px solid red;
+        }
+
+        h1, ul {
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dándole un mínimo y un máximo</h1>
+    <main>
+        <div>UNO</div>
+        <div>DOS</div>
+        <div>TRES</div>
+    </main>
+    <hr>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Página principal</a></li>
+                <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                <li><a href="index.html">Enlaces a ejercicios de CSS</a></li>
+                <li><a href="../javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

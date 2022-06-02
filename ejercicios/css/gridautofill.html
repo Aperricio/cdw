@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRID Autofill</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: pink;
+        }
+
+        h1, h2 {
+            padding: 20px;
+            text-align: center;
+        }
+
+        p, ul {
+            padding: 30px;
+        }
+
+        section.autofill {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 300px);
+            justify-content: space-around;
+            align-content: space-evenly;
+            gap: 10px;
+        }
+
+        section.autofit {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 300px);
+            justify-content: space-around;
+            align-content: space-evenly;
+            gap: 10px;
+        }
+
+        section div {
+            display: flex;
+            width: 300px;
+            height: 300px;
+            background-color: purple;
+            border: 3px solid red;
+            color: white;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1><code>autofill</code> y <code>autofit</code></h1>
+        <h2><code>autofill</code></h2>
+        <section class="autofill">
+            <div>UNO</div>
+            <div>DOS</div>
+            <div>TRES</div>
+        </section>
+           <br></br><br>
+           <h2><code>autofit</code></h2>
+        <section class="autofit">
+            <div>UNO</div>
+            <div>DOS</div>
+            <div>TRES</div>     
+        </section>
+        <p>Si no caben actúan igual. Si sobra espacio, <code>autofit</code> actúa como <code>justify-content: space-around</code>, <code>autofill</code> como una especie de <code>flex-start</code>.</p>
+    </main>
+    <hr>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Página principal</a></li>
+                <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                <li><a href="index.html">Enlaces a ejercicios de CSS</a></li>
+                <li><a href="../javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

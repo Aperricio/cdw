@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructuras con Flexbox</title>
+    <style>
+
+        * { 
+            margin: 0;
+            padding: 0;
+            outline: 1px solid blue; /* Esto dibuja una línea que no ocupa lugar */
+        }
+        .contenedor {
+            display: flex;
+        }
+
+        .contenedorwrap {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .contenedorwrapcolumn {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+
+        .contenedorwrapreverse {
+            display: flex;
+            flex-wrap: wrap-reverse;
+        }
+
+        .cajas200 {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            background-color: purple;
+            color: white; 
+            text-align: center;
+        }
+
+        .cajas100 {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            background-color: purple;
+            color: white; 
+            text-align: center;
+        }
+
+        .cajas300 {
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+            background-color: purple;
+            color: white; 
+            text-align: center;
+        }
+
+        .cajas100between {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cajas100around {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .cajas100flexstart {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .cajas100flexend {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .cajas100flexstretch {
+            display: flex;
+            justify-content: stretch;
+        }
+
+        .cajas100center {
+            display: flex;
+            justify-content: center;
+        }
+
+        h1, h2, h3, ul {
+            padding: 30px;
+        }
+
+        .cajas100M0 {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            color: white; 
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Prueba de una estructura con flexbox</h1>
+    </header>
+    <p>Linea dibujada con <code>outline: 1px solid blue</code>, pero que sepáis que <a href="https://vivaldi.com/es/">Vivaldi</a> tiene una opción nativa que hace lo mismo.</p>
+    <h2>Cajas de 100x100</h2>
+    <section class="contenedor">
+        <div class="cajas100">Primera</div>
+        <div class="cajas100">Segunda</div>
+        <div class="cajas100">Tercera</div>
+        <div class="cajas100">Cuarta</div>
+        <div class="cajas100">Quinta</div>
+        <div class="cajas100">Sexta</div>
+    </section>
+    <h2>Cajas de 200x200</h2>
+    <section class="contenedor">
+        <div class="cajas200">Primera</div>
+        <div class="cajas200">Segunda</div>
+        <div class="cajas200">Tercera</div>
+        <div class="cajas200">Cuarta</div>
+        <div class="cajas200">Quinta</div>
+        <div class="cajas200">Sexta</div>
+    </section>
+    <h2>Cajas de 300x300</h2>
+    <section class="contenedor">
+        <div class="cajas300">Primera</div>
+        <div class="cajas300">Segunda</div>
+        <div class="cajas300">Tercera</div>
+        <div class="cajas300">Cuarta</div>
+        <div class="cajas300">Quinta</div>
+        <div class="cajas300">Sexta</div>
+    </section>
+    <h2>Cajas de 300x300 con wrap</h2>
+    <section class="contenedorwrap">
+        <div class="cajas300">Primera</div>
+        <div class="cajas300">Segunda</div>
+        <div class="cajas300">Tercera</div>
+        <div class="cajas300">Cuarta</div>
+        <div class="cajas300">Quinta</div>
+        <div class="cajas300">Sexta</div>
+    </section>
+    <h2>Cajas de 300x300 con wrap-reverse</h2>
+    <section class="contenedorwrapreverse">
+        <div class="cajas300">Primera</div>
+        <div class="cajas300">Segunda</div>
+        <div class="cajas300">Tercera</div>
+        <div class="cajas300">Cuarta</div>
+        <div class="cajas300">Quinta</div>
+        <div class="cajas300">Sexta</div>
+    </section>
+    <h2>Cajas de 300x300 con wrap y flex-direction: column</h2>
+    <section class="contenedorwrapcolumn">
+        <div class="cajas300">Primera</div>
+        <div class="cajas300">Segunda</div>
+        <div class="cajas300">Tercera</div>
+        <div class="cajas300">Cuarta</div>
+        <div class="cajas300">Quinta</div>
+        <div class="cajas300">Sexta</div>
+    </section>
+    <h2>Ejemplos con justify- (eliminados los márgenes)</h2>
+    <h3>justify-content: space-between</h3>
+    <section class="cajas100between">
+        <div class="cajas100M0">Primera</div>
+        <div class="cajas100M0">Segunda</div>
+        <div class="cajas100M0">Tercera</div>
+        <div class="cajas100M0">Cuarta</div>
+        <div class="cajas100M0">Quinta</div>
+        <div class="cajas100M0">Sexta</div>
+    </section>
+    <h3>justify-content: space-around</h3>
+    <section class="cajas100around">
+        <div class="cajas100M0">Primera</div>
+        <div class="cajas100M0">Segunda</div>
+        <div class="cajas100M0">Tercera</div>
+        <div class="cajas100M0">Cuarta</div>
+        <div class="cajas100M0">Quinta</div>
+        <div class="cajas100M0">Sexta</div>
+    </section>
+    <h3>justify-content: flex-start</h3>
+    <section class="cajas100flexstart">
+        <div class="cajas100M0">Primera</div>
+        <div class="cajas100M0">Segunda</div>
+        <div class="cajas100M0">Tercera</div>
+        <div class="cajas100M0">Cuarta</div>
+        <div class="cajas100M0">Quinta</div>
+        <div class="cajas100M0">Sexta</div>
+    </section>
+    <h3>justify-content: flex-end</h3>
+    <section class="cajas100flexend">
+        <div class="cajas100M0">Primera</div>
+        <div class="cajas100M0">Segunda</div>
+        <div class="cajas100M0">Tercera</div>
+        <div class="cajas100M0">Cuarta</div>
+        <div class="cajas100M0">Quinta</div>
+        <div class="cajas100M0">Sexta</div>
+    </section>
+    <h3>justify-content: stretch</h3>
+    <section class="cajas100flexstretch">
+        <div class="cajas100M0">Primera</div>
+        <div class="cajas100M0">Segunda</div>
+        <div class="cajas100M0">Tercera</div>
+        <div class="cajas100M0">Cuarta</div>
+        <div class="cajas100M0">Quinta</div>
+        <div class="cajas100M0">Sexta</div>
+    </section>
+    <h3>justify-content: center</h3>
+    <section class="cajas100center">
+        <div class="cajas100M0">Primera</div>
+        <div class="cajas100M0">Segunda</div>
+        <div class="cajas100M0">Tercera</div>
+        <div class="cajas100M0">Cuarta</div>
+        <div class="cajas100M0">Quinta</div>
+        <div class="cajas100M0">Sexta</div>
+    </section>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="../javascript/index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>
