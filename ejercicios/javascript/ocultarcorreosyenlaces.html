@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script para ocultar correos y otros enlaces</title>
+</head>
+<body>
+    <h1>Así se puede ocultar un email y otra información</h1>
+    <h2>No hace falta ni función, sólo este script</h2>
+    <ol>
+        <li>Le damos el dominio.</li>
+        <li>Le damos el nombre de usuario, a lo que se le añadirá la arroba.</li>
+        <li>Escribe dentro de una etiqueta a el correo recompuesto.</li>
+    </ol>
+    <script>
+        correo = 'gmail.com'
+        correo = ('aperricio' + '@' + correo)
+        document.write('<a href="mailto:' + correo + '">' + correo + '</a>')
+    </script>
+    <hr>
+    <footer>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Página principal</a></li>
+                    <li><a href="../html/index.html">Ejercicios de HTML</a></li>
+                    <li><a href="../css/index.html">Enlaces a ejercicios de CSS</a></li>
+                    <li><a href="index.html">Enlaces a ejercicios de JavaScript</a></li>
+                </ul>
+            </nav>
+    </footer>
+</body>
+</html>
