@@ -124,11 +124,22 @@
             border-radius: 30px;
             padding: 5px;
         }
+        
+         #hora {
+            position: relative;
+            top: -25px;
+            left: -20px;
+            color: black;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-shadow: 0.5px 0.5px 1px rgb(83, 15, 15), -0.5px -0.5px 3px white;
+        }
     </style>
    
 </head>
 
 <body>
+    <span id="hora"></span>
     <main>
         <h1>Ejercicios de JavaScript</h1>
         <input type="button" onclick="window.location.href='alerta.html';" value="1 - Alerta en JavaScript"/><br>
@@ -190,9 +201,25 @@
             </ul>
         </nav>
     </div>
-    <script>
+        <script>
+        function mostrarHora() {
+            const diaSemana = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+            var d = new Date();
+            let dia = diaSemana[d.getDay()];
+            /*const Dia = (d.getDate());
+            const mes = (d.getMonth());
+            const ano = (d.getFullYear());*/
+            const hora = String(d.getHours()).padStart(2, '0');
+            const minutos = String(d.getMinutes()).padStart(2, '0');
+            const segundos = String(d.getSeconds()).padStart(2, '0');
+            document.getElementById("hora").innerHTML = dia+"\n"+hora+":"+minutos+":"+segundos;
+        }
+        
+        setInterval(mostrarHora, 1000); // Esto lo tenía guardado en un script. Sólo he buscado la manera de que, usando lo que ya tenía, el mínimo de dígitos fuera dos.
+    </script>
+    /*<script>
 
-       /* //Esto es parte de la presentación de mi página de JavaScript. Hay que poner usuario y contraseña. El usuario es uno de nuestros 14 nombres, y la contraseña es tomateun.com. Se ha añadido una "puerta trasera" para que se pueda entrar aceptando las ventanas emergentes (usuario y contraseña vacíos). "Not a bug; it's a feature".
+       /Esto es parte de la presentación de mi página de JavaScript. Hay que poner usuario y contraseña. El usuario es uno de nuestros 14 nombres, y la contraseña es tomateun.com. Se ha añadido una "puerta trasera" para que se pueda entrar aceptando las ventanas emergentes (usuario y contraseña vacíos). "Not a bug; it's a feature".
         var nombre = prompt("Usuario (tip: tomateun.com)")
 
         if (( nombre == "Amparo" ) || ( nombre == "Ana") || ( nombre == "Angela") || ( nombre == "Antonio") || ( nombre == "Arancha") || ( nombre == "Asun") || ( nombre == "Desa") || ( nombre == "Elu") || ( nombre == "Gala") || ( nombre == "Jordi") || ( nombre == "MariCruz") || ( nombre == "Mario") || ( nombre == "Pablo") || ( nombre == "Stela") || ( nombre == "")) {
@@ -209,9 +236,9 @@
         else {
             alert("Pírate de aquí");
             location.href=("https://duckduckgo.com");
-        }*/
+        }
         
-    </script>
+    </script>*/
 </body>
 
 </html>
